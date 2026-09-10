@@ -7,6 +7,9 @@
     "start": "node index.js",
     "tunnel": "node tunnel.js",
     "diagnose": "node diagnose.js",
+    "export:dataset": "node scripts/export-dataset.js",
+    "inspect:samples": "node scripts/inspect-samples.js",
+    "annotate:dataset": "node scripts/annotate-dataset.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

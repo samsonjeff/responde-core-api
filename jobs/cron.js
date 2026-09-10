@@ -3,12 +3,12 @@ const { runMessengerSync } = require("./messengerSync");
 const supabase = require("../supabase/client");
 
 let isScraping = false;
-let isSyncing  = false;
+let isSyncing = false;
 
 function startCronJobs() {
     // ── FB Scraper ────────────────────────────────────────────────────────────
     const scraperIntervalSec = parseInt(process.env.SCRAPER_INTERVAL_SECONDS || "300", 10);
-    const scraperIntervalMs  = Math.max(scraperIntervalSec, 10) * 1000; // min 10s
+    const scraperIntervalMs = Math.max(scraperIntervalSec, 10) * 1000; // min 10s
 
     console.log(`📰 Cron: FB Scraper scheduled (running every ${scraperIntervalSec}s)`);
 
@@ -34,7 +34,7 @@ function startCronJobs() {
     // Compares live thread MIDs against stored conversation_id values and
     // removes any rows whose messages no longer exist in Messenger.
     const syncIntervalSec = parseInt(process.env.MESSENGER_SYNC_INTERVAL_SECONDS || "300", 10);
-    const syncIntervalMs  = Math.max(syncIntervalSec, 30) * 1000; // min 30s
+    const syncIntervalMs = Math.max(syncIntervalSec, 30) * 1000; // min 30s
 
     console.log(`💬 Cron: Messenger sync scheduled (running every ${syncIntervalSec}s)`);
 
@@ -61,7 +61,7 @@ function startCronJobs() {
     }, syncIntervalMs);
     // ── Dedup table cleanup ────────────────────────────────────────────────────
     const CLEANUP_INTERVAL_MS = 4 * 60 * 60 * 1000; // every 4 hours
-    const DEDUP_TTL_MINUTES    = 60;                 // 1 hour TTL
+    const DEDUP_TTL_MINUTES = 60;                 // 1 hour TTL
 
     console.log(`🧹 Cron: Dedup cleanup scheduled (runs every 4 hours, purges >1 hour old)`);
 

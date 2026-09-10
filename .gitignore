@@ -3,3 +3,6 @@ node_modules
 ngrok.exe
 ngrok
 ngrok*.zip
+
+# NLP training datasets (contain real user data — do not commit)
+datasets/
