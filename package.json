@@ -1,0 +1,43 @@
+{
+  "name": "fb-scraper-nlp-pipeline",
+  "version": "1.2.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "tunnel": "node tunnel.js",
+    "diagnose": "node diagnose.js",
+    "export:dataset": "node scripts/export-dataset.js",
+    "inspect:samples": "node scripts/inspect-samples.js",
+    "annotate:dataset": "node scripts/annotate-dataset.js",
+    "generate:synthetic": "node scripts/generate-synthetic.js",
+    "split:dataset": "node scripts/split-dataset.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samsonjeff/fb-scraper-nlp-pipeline.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/samsonjeff/fb-scraper-nlp-pipeline/issues"
+  },
+  "homepage": "https://github.com/samsonjeff/fb-scraper-nlp-pipeline#readme",
+  "dependencies": {
+    "@google/genai": "^2.15.0",
+    "@supabase/supabase-js": "^2.112.3",
+    "axios": "^1.18.1",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.6.2",
+    "helmet": "^8.3.0",
+    "localtunnel": "^2.0.2",
+    "node-cron": "^4.6.0"
+  },
+  "overrides": {
+    "axios": "^1.18.1"
+  }
+}

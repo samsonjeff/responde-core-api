@@ -1,0 +1,14 @@
+node_modules
+.env
+ngrok.exe
+ngrok
+ngrok*.zip
+
+# NLP training datasets (contain real user data — do not commit)
+# Training now lives in responde-ml-api repo
+datasets/
+# Python cache (can appear in any directory)
+__pycache__/
+*.pyc
+*.pyo
+
