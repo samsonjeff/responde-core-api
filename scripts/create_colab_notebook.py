@@ -3,7 +3,9 @@ from pathlib import Path
 import zipfile
 
 ROOT = Path(__file__).resolve().parent.parent
-ML_DIR = ROOT / "ml"
+ML_REPO = Path("D:/responde-ml-api")
+ML_DIR = ML_REPO if ML_REPO.exists() else ROOT / "ml"
+ML_DIR.mkdir(parents=True, exist_ok=True)
 DATASETS_DIR = ROOT / "datasets"
 
 def make_colab_notebook():
@@ -449,6 +451,7 @@ print(f"Best Epoch: {best_epoch} with Validation Avg Macro F1: {best_f1:.3f}")
 
     all_intent, all_urgency, all_incident = [], [], []
     pred_intent, pred_urgency, pred_incident = [], [], []
+    conf_intent, conf_urgency, conf_incident = [], [], []
 
     with torch.no_grad():
         for batch in test_loader:
@@ -461,13 +464,25 @@ print(f"Best Epoch: {best_epoch} with Validation Avg Macro F1: {best_f1:.3f}")
             }
             _, li, lu, linc = best_model(input_ids, attention_mask, labels=labels)
 
+            prob_i   = torch.softmax(li, dim=-1)
+            prob_u   = torch.softmax(lu, dim=-1)
+            prob_inc = torch.softmax(linc, dim=-1)
+
+            c_i, p_i     = prob_i.max(dim=-1)
+            c_u, p_u     = prob_u.max(dim=-1)
+            c_inc, p_inc = prob_inc.max(dim=-1)
+
             all_intent.extend(labels["intent"].cpu().tolist())
             all_urgency.extend(labels["urgency"].cpu().tolist())
             all_incident.extend(labels["incident"].cpu().tolist())
 
-            pred_intent.extend(li.argmax(dim=1).cpu().tolist())
-            pred_urgency.extend(lu.argmax(dim=1).cpu().tolist())
-            pred_incident.extend(linc.argmax(dim=1).cpu().tolist())
+            pred_intent.extend(p_i.cpu().tolist())
+            pred_urgency.extend(p_u.cpu().tolist())
+            pred_incident.extend(p_inc.cpu().tolist())
+
+            conf_intent.extend(c_i.cpu().tolist())
+            conf_urgency.extend(c_u.cpu().tolist())
+            conf_incident.extend(c_inc.cpu().tolist())
 
     print("=" * 60)
     print("INTENT CLASSIFICATION REPORT:")
@@ -480,6 +495,83 @@ print(f"Best Epoch: {best_epoch} with Validation Avg Macro F1: {best_f1:.3f}")
     print("=" * 60)
     print("INCIDENT TYPE CLASSIFICATION REPORT:")
     print(classification_report(all_incident, pred_incident, target_names=INCIDENT_LABELS, zero_division=0))
+
+    from sklearn.metrics import confusion_matrix
+
+    def print_confusion_matrix(y_true, y_pred, labels, title):
+        cm = confusion_matrix(y_true, y_pred, labels=list(range(len(labels))))
+        print(f"\\n{'=' * 70}")
+        print(f"CONFUSION MATRIX: {title}")
+        print(f"{'=' * 70}")
+        max_len = max(len(l) for l in labels)
+        col_w = max(6, max_len)
+        header = "True \\\\ Pred".ljust(max_len + 2) + "".join(f"{l[:col_w]:>{col_w + 2}}" for l in labels)
+        print(header)
+        print("-" * len(header))
+        for i, row in enumerate(cm):
+            print(f"{labels[i]:<{max_len + 2}}" + "".join(f"{val:>{col_w + 2}}" for val in row))
+        print()
+        confusions = [(cm[i][j], labels[i], labels[j]) for i in range(len(labels)) for j in range(len(labels)) if i != j and cm[i][j] > 0]
+        confusions.sort(key=lambda x: x[0], reverse=True)
+        if confusions:
+            print("  ⚠️  Top Misclassifications (True -> Predicted):")
+            for count, true_l, pred_l in confusions[:6]:
+                print(f"     • {count}x: {true_l} was predicted as {pred_l}")
+        print()
+
+    def print_calibration_analysis(y_true, y_pred, confidences, title):
+        total = len(y_true)
+        correct_confs = [c for t, p, c in zip(y_true, y_pred, confidences) if t == p]
+        incorrect_confs = [c for t, p, c in zip(y_true, y_pred, confidences) if t != p]
+        total_errors = len(incorrect_confs)
+        mean_correct = sum(correct_confs) / len(correct_confs) if correct_confs else 0.0
+        mean_incorrect = sum(incorrect_confs) / len(incorrect_confs) if incorrect_confs else 0.0
+
+        print(f"\\n{'=' * 70}")
+        print(f"CONFIDENCE CALIBRATION & THRESHOLD ANALYSIS: {title}")
+        print(f"{'=' * 70}")
+        print(f"  • Total Samples: {total}")
+        print(f"  • Overall Accuracy: {len(correct_confs) / total:.1%} ({len(correct_confs)}/{total})")
+        print(f"  • Mean Confidence (When CORRECT):   {mean_correct:.3f}")
+        print(f"  • Mean Confidence (When INCORRECT): {mean_incorrect:.3f}")
+        print(f"  • Confidence Gap (Correct - Wrong): {mean_correct - mean_incorrect:+.3f}\\n")
+
+        bins = [(0.0, 0.40), (0.40, 0.50), (0.50, 0.60), (0.60, 0.70), (0.70, 0.80), (0.80, 0.90), (0.90, 1.01)]
+        print(f"  {'Confidence Bin':<18} | {'Total':<6} | {'Correct':<8} | {'Errors':<7} | {'Accuracy':<10}")
+        print(f"  {'-' * 18}-+-{'-' * 6}-+-{'-' * 8}-+-{'-' * 7}-+-{'-' * 10}")
+        for low, high in bins:
+            bin_items = [(t, p, c) for t, p, c in zip(y_true, y_pred, confidences) if (low <= c < high) or (high > 1.0 and c >= low)]
+            count = len(bin_items)
+            if count == 0:
+                continue
+            correct = sum(1 for t, p, c in bin_items if t == p)
+            errors = count - correct
+            acc = (correct / count) * 100
+            bin_label = f"[{low:.2f} - {min(high, 1.0):.2f})" if high <= 1.0 else f"[{low:.2f} - 1.00]"
+            print(f"  {bin_label:<18} | {count:<6} | {correct:<8} | {errors:<7} | {acc:>8.1f}%")
+        print()
+
+        print(f"  {'Threshold (T)':<18} | {'Flagged':<8} | {'Errors Caught':<15} | {'False Alarms':<14} | {'Clean Set Acc':<14}")
+        print(f"  {'-' * 18}-+-{'-' * 8}-+-{'-' * 15}-+-{'-' * 14}-+-{'-' * 14}")
+        for thresh in [0.35, 0.40, 0.45, 0.50, 0.55, 0.60, 0.65, 0.70]:
+            flagged = [(t, p, c) for t, p, c in zip(y_true, y_pred, confidences) if c < thresh]
+            unflagged = [(t, p, c) for t, p, c in zip(y_true, y_pred, confidences) if c >= thresh]
+            n_flagged = len(flagged)
+            errors_caught = sum(1 for t, p, c in flagged if t != p)
+            false_alarms = sum(1 for t, p, c in flagged if t == p)
+            unflagged_correct = sum(1 for t, p, c in unflagged if t == p)
+            clean_acc = (unflagged_correct / len(unflagged) * 100) if unflagged else 100.0
+            err_recall = (errors_caught / total_errors * 100) if total_errors else 0.0
+            print(f"  < {thresh:<16.2f} | {n_flagged:<8} | {errors_caught:>2}/{total_errors:<2} ({err_recall:>4.1f}%) | {false_alarms:>2} correct    | {clean_acc:>12.1f}%")
+        print()
+
+    print_confusion_matrix(all_intent, pred_intent, INTENT_LABELS, "INTENT")
+    print_confusion_matrix(all_urgency, pred_urgency, URGENCY_LABELS, "URGENCY")
+    print_confusion_matrix(all_incident, pred_incident, INCIDENT_LABELS, "INCIDENT TYPE")
+
+    print_calibration_analysis(all_intent, pred_intent, conf_intent, "INTENT")
+    print_calibration_analysis(all_urgency, pred_urgency, conf_urgency, "URGENCY")
+    print_calibration_analysis(all_incident, pred_incident, conf_incident, "INCIDENT TYPE")
 else:
     print("test.jsonl not found, skipping final test evaluation.")
 """))
