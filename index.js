@@ -253,6 +253,8 @@ app.post("/webhook", webhookLimiter, verifyFacebookSignature, async (req, res) =
                     // Status fields — independent failure domains
                     mlStatus,
                     locationStatus,
+                    needsReview:             nlp?.needs_review             ?? false,
+                    lowConfidenceFields:     nlp?.low_confidence_fields    ?? null,
                     // NLP semantic fields — null when ML server is not running
                     intent:                  nlp?.intent                   ?? null,
                     urgency:                 nlp?.urgency                  ?? null,
@@ -266,9 +268,10 @@ app.post("/webhook", webhookLimiter, verifyFacebookSignature, async (req, res) =
                 });
 
                 if (nlp) {
+                    const reviewTag = nlp.needs_review ? ` ⚠️ NEEDS_REVIEW (${(nlp.low_confidence_fields || []).join(", ")})` : "";
                     console.log(
                         `🧠 NLP   : intent=${nlp.intent} urgency=${nlp.urgency} incident=${nlp.incident_type}` +
-                        ` (conf: ${nlp.intent_confidence}/${nlp.urgency_confidence}/${nlp.incident_type_confidence})`
+                        ` (conf: ${nlp.intent_confidence}/${nlp.urgency_confidence}/${nlp.incident_type_confidence})${reviewTag}`
                     );
                 }
                 console.log(

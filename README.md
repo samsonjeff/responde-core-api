@@ -169,6 +169,9 @@ create table if not exists conversations (
   ml_status                text        default 'pending' check (ml_status in ('pending', 'complete', 'failed')),
   location_status          text        default 'not_found' check (location_status in ('found', 'not_found')),
   ml_last_attempted_at     timestamptz default null,
+  -- Model Confidence Triage (Human-in-the-loop)
+  needs_review             boolean     default false,
+  low_confidence_fields    jsonb       default null,
   -- Entity Extraction (Express Rule-based)
   barangay                 text        default null,
   contact_numbers          jsonb       default null,
@@ -186,6 +189,7 @@ create index if not exists conversations_sender_name_idx on conversations (sende
 create index if not exists conversations_timestamp_idx   on conversations (timestamp desc);
 create index if not exists idx_conv_ml_status            on conversations (ml_status);
 create index if not exists idx_conv_location_status      on conversations (location_status);
+create index if not exists idx_conv_needs_review         on conversations (needs_review) where needs_review = true;
 create index if not exists idx_conv_barangay             on conversations (barangay);
 create index if not exists idx_conv_intent              on conversations (intent);
 create index if not exists idx_conv_urgency             on conversations (urgency);

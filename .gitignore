@@ -12,3 +12,5 @@ __pycache__/
 *.pyc
 *.pyo
 
+# Local ML directory (lives in responde-ml-api / D:\ml)
+ml/
