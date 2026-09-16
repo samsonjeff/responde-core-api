@@ -1,5 +1,5 @@
 {
-  "name": "fb-scraper-nlp-pipeline",
+  "name": "responde-core-api",
   "version": "1.2.0",
   "description": "",
   "main": "index.js",
@@ -16,16 +16,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/samsonjeff/fb-scraper-nlp-pipeline.git"
+    "url": "git+https://github.com/samsonjeff/responde-core-api.git"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/samsonjeff/fb-scraper-nlp-pipeline/issues"
+    "url": "https://github.com/samsonjeff/responde-core-api/issues"
   },
-  "homepage": "https://github.com/samsonjeff/fb-scraper-nlp-pipeline#readme",
+  "homepage": "https://github.com/samsonjeff/responde-core-api#readme",
   "dependencies": {
     "@google/genai": "^2.15.0",
     "@supabase/supabase-js": "^2.112.3",
