@@ -362,10 +362,19 @@ async function generateAiResponse(userMessage, senderPSID, senderName) {
             lastError = geminiError;
             const is429 = geminiError.message?.includes('429') || geminiError.status === 429;
             const is503 = geminiError.message?.includes('503') || geminiError.status === 503;
+            // 401 = key permanently invalid (deleted/disabled service account or project).
+            // Disable the key for a long time and try the next one rather than aborting.
+            const is401 = geminiError.message?.includes('401') || geminiError.status === 401 ||
+                geminiError.message?.includes('UNAUTHENTICATED') ||
+                geminiError.message?.includes('ACCOUNT_STATE_INVALID');
 
             if (is429 || is503) {
                 geminiPool.markKeyCooldown(keyIndex);
                 console.warn(`⚠️ Gemini key hit ${is429 ? '429' : '503'}. Trying next key in pool...`);
+            } else if (is401) {
+                // Disable permanently for this server session (24h cooldown)
+                geminiPool.markKeyCooldown(keyIndex, 24 * 60 * 60 * 1000);
+                console.error(`🔑 Gemini key ${keyIndex + 1} is invalid/disabled (401). Skipping to next key...`);
             } else {
                 console.error(`❌ Gemini call failed: ${geminiError.message || geminiError}`);
                 throw geminiError;
