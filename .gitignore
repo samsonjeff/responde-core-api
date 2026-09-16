@@ -6,9 +6,11 @@ ngrok*.zip
 
 # NLP training datasets (contain real user data — do not commit)
 # Training now lives in responde-ml-api repo
-datasets/
+datasets/
 # Python cache (can appear in any directory)
 __pycache__/
 *.pyc
 *.pyo
 
+# Local ML directory (lives in responde-ml-api / D:\ml)
+ml/

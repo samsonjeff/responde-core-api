@@ -68,6 +68,8 @@ const Conversation = {
             ml_status:                 data.mlStatus                  ?? "pending",
             location_status:           data.locationStatus            ?? "not_found",
             ml_last_attempted_at:      data.mlLastAttemptedAt         ?? new Date().toISOString(),
+            needs_review:              data.needsReview               ?? false,
+            low_confidence_fields:     data.lowConfidenceFields       ?? null,
             // NLP classification fields (null-safe)
             intent:                    data.intent                    ?? null,
             urgency:                   data.urgency                   ?? null,
@@ -127,6 +129,8 @@ const Conversation = {
         const updates = {
             ml_status:                 "complete",
             ml_last_attempted_at:      new Date().toISOString(),
+            needs_review:              nlpResult.needs_review             ?? nlpResult.needsReview          ?? false,
+            low_confidence_fields:     nlpResult.low_confidence_fields    ?? nlpResult.lowConfidenceFields ?? null,
             intent:                    nlpResult.intent                   ?? null,
             urgency:                   nlpResult.urgency                  ?? null,
             incident_type:             nlpResult.incidentType             ?? nlpResult.incident_type ?? null,
