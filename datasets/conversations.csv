@@ -1,0 +1,1862 @@
+conversation_id,sender_name,user_message,ai_reply,provider,timestamp
+m_T4MXvX6vNLyenp4nHRZwrAojfMp8MaUUULmYoiIsQyKsAGcWp3biLBxcbCy86TrjKSshCOeAkpyvKHK69GC-eA,Sedrick Opulencia,Hello po,"Magandang araw po, Sedrick Opulencia! Ano po ang maipaglilingkod ko sa inyo?
+
+Paki-bigay po ang:
+Barangay sa Talisay
+Landmark
+Contact No.
+Tulong na kailangan
+
+Siguraduhing tama ang detalye dahil ito ang basihan ng aksyon ng aming team para sa nasalanta ng kalamidad.",gemini,2026-09-02T05:08:01.285+00:00
+m_yM_nq2i_fphf5Dc3v09aeAojfMp8MaUUULmYoiIsQyLgtaVILwYtb5Y9oJGaovmVrjS7YV8bsIkZRuKOhfVI5g,Sedrick Opulencia,Tulong po may tanong ako,"Magandang araw po, Sedrick Opulencia! Ano po ang maipaglilingkod ko sa inyo?
+
+Paki-bigay po:
+📍 Brgy. sa Talisay
+📍 Landmark
+📞 Contact No.
+🚨 Tanong / Tulong na kailangan
+
+Siguraduhing tama ang detalye dahil ito ang basihan ng aksyon ng aming team para sa kalamidad sa Talisay.",gemini,2026-09-08T06:03:16.15+00:00
+f0547403-d84f-44a5-828d-733c34e9446a,Samson Jefferson,magandang araw po nataas napo ang tubig dito sa brgy tranca,"Magandang araw po. Nabalitaan po namin na tumataas na ang tubig diyan sa inyong lugar. Upang mabilis po naming maipasa ang inyong impormasyon sa aming rescue at emergency team, maaari po bang pakibigay ang mga sumusunod na detalye:
+
+1. **Tunay na Pangalan:** (Sino po ang aming hahanapin o kokontakin?)
+2. **Eksaktong Lokasyon (Lungsod at Probinsya ng Brgy. Tranca):** (Saang bayan o probinsya po matatagpuan ang Brgy. Tranca?)
+3. **Landmark:** (Ano pong malapit na kilalang lugar, tindahan, paaralan, o gusali sa inyong lokasyon?)
+4. **Numero o Contact:** (Ano pong numero ang maaari naming tawagan?)
+5. **Tulong na kailangan:** (Emergency rescue/evacuation po ba dahil sa baha, pagkain/supply, o medical na tulong?)
+
+*Paalala po: Paki-siguraduhing tama at kumpleto ang lahat ng detalye na inyong ibibigay dahil ito po ang magiging basihan ng aming team sa pag-sasagawa ng aksyon, depende sa inyong kailangan. Ang aming team po ay nakapokus lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*
+
+Paki-send po agad ang inyong mga detalye para magawan po natin agad ng aksyon. Keep safe po.",gemini,2026-08-25T04:03:31.476+00:00
+cb0bb32d-3c6c-45d6-bf49-cf0ba85f10ea,Samson Jefferson,ako po si junar taga tranca lamang ho,"Salamat po sa pagtugon, Junar. Ngayong nakuha na po namin ang inyong pangalan at barangay, kailangan pa po namin ang iba pang mahahalagang detalye upang mabilis kayong mapuntahan ng aming team:
+
+1. **Lungsod at Probinsya:** Saang bayan/lungsod at probinsya po matatagpuan ang Brgy. Tranca?
+2. **Landmark:** Ano pong malapit na kilalang lugar, tindahan, simbahan, o gusali sa inyong lokasyon?
+3. **Numero o Contact:** Ano pong contact number ang maaari naming tawagan o i-text?
+4. **Tulong na kailangan:** Dahil tumataas po ang tubig, kailangan po ba ninyo ng emergency rescue/evacuation, supply at pagkain, o may kailangan din po ng medical na tulong?
+
+*Paalala po: Siguraduhing tama at kumpleto ang mga detalye na inyong ibibigay dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon, depende sa inyong kailangan. Ang aming team po ay nakapokus lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*
+
+Paki-send po agad ang mga kulang na detalye para maitala at maaksyunan na po ng ating rescue team. Mag-ingat po kayo riyan.",gemini,2026-08-25T04:04:10.756+00:00
+e4c54196-d7bc-487a-81b9-aa5f4a95dd7d,Samson Jefferson,0912312432,"Salamat po sa pagbibigay ng inyong contact number. 
+
+Upang agad na maipadala ng aming team ang tulong at mahanap ang inyong lokasyon, kailangan pa po namin ang mga sumusunod na detalye:
+
+1. **Tunay na Pangalan:** (Sino po ang aming hahanapin o kokontakin?)
+2. **Lungsod at Probinsya:** (Saang bayan/lungsod at probinsya po matatagpuan ang **Brgy. Tranca**?)
+3. **Landmark:** (Ano pong malapit na kilalang lugar, simbahan, paaralan, o tindahan sa inyong lugar?)
+4. **Tulong na kailangan:** (Emergency rescue/evacuation po ba dahil sa tumataas na tubig, pagkain at supply, o medical na tulong?)
+
+Narito po ang hawak naming detalye sa ngayon:
+* **Brgy. Location:** Brgy. Tranca *(hihintayin po namin ang Lungsod/Probinsya)*
+* **Numero o Contact:** 0912312432
+
+*Paalala po: Siguraduhing tama ang mga detalye na inyong ibibigay dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon, depende sa inyong kailangan. Ang aming team po ay nakafocus lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad (tulad ng baha sa inyong lugar).*
+
+Paki-send po agad ang inyong **Pangalan**, **Lungsod/Probinsya**, at **Landmark** upang makasagot agad ang aming rescue team. Keep safe po.",gemini,2026-08-25T04:04:13.925+00:00
+284254b9-adc8-4a4b-b937-82f241787bb2,Samson Jefferson,nataas naho ang tubig ng ilog dine kailangan napo namin maka likas,"Naiintindihan po namin ang inyong sitwasyon, Junar. Napaka-peligroso po ng tumataas na tubig mula sa ilog. Upang maipadala po namin agad ang rescue team para sa inyong paglikas, kailangan po namin ang inyong eksaktong lokasyon.
+
+Maaari po bang pakibigay agad ang mga kulang na detalye:
+
+1. **Lungsod at Probinsya:** (Saang bayan o lungsod, at probinsya po matatagpuan ang **Brgy. Tranca**?)
+2. **Landmark:** (Ano pong pinakamalapit na kilalang lugar, tulay, paaralan, o simbahan sa inyong bahay upang mabilis kayong matunton ng rescue team?)
+
+Narito po ang mga detalye na hawak namin sa kasalukuyan:
+* **Tunay na Pangalan:** Junar
+* **Brgy. Location:** Brgy. Tranca *(Hinihintay pa ang Lungsod at Probinsya)*
+* **Numero o Contact:** 0912312432
+* **Tulong na kailangan:** Emergency Evacuation/Rescue (dahil sa baha mula sa umapaw na ilog)
+
+*Paalala po: Siguraduhing tama ang mga detalye na inyong ibibigay dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon, depende sa kailangan ng user. Ang aming team ay nakafocus lamang sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*
+
+Paki-send po agad ang inyong **Lungsod/Probinsya** at **Landmark** upang makarating agad ang tulong dyan sa inyo. Mag-ingat po kayo.",gemini,2026-08-25T04:04:31.465+00:00
+m_TCBWCArgNPlf4rXY7SaFkAojfMp8MaUUULmYoiIsQyLpGQEJIg55XHVsJz_ElN_tQ12SKRxgGxB6HmHCqe16CA,Sedrick Opulencia,yoko na,"Salamat po, Sedrick Opulencia. Kung kakailanganin niyo po ng tulong sa sakuna o kalamidad dito sa Talisay, mag-iwan lamang po ng mensahe.
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aming team sa pag-sasagawa ng aksyon. Manatili po kayong ligtas!",gemini,2026-09-11T02:56:36.056+00:00
+c3a37729-41f7-43c5-843e-d0c508c23b23,Sedrick Opulencia,Hello,"Magandang araw! Ako ang inyong AI assistant na nakalaang tumulong upang makalap ang inyong impormasyon para sa aming emergency response team. 
+
+Maaari mo bang ibigay ang mga sumusunod na detalye?
+
+1. **Tunay na pangalan:**
+2. **Barangay (Brgy) Location:**
+3. **Landmark** (Malapit na sikat na lugar, tindahan, o gusali):
+4. **Numero o Contact Number:**
+5. **Tulong na kailangan** (Medical, emergency rescue, supply at pagkain, o iba pa):
+
+*Paalala: Siguraduhin pong tama at kumpleto ang lahat ng detalyeng inyong ibibigay dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon, depende sa inyong pangangailangan. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*",gemini,2026-08-24T03:36:00.454+00:00
+daad011d-0cd3-46f3-970a-e8cd28ee2a86,Ocina John Paul,Sup bitch,Pasensya na po kung may nagawa akong hindi maganda. Paano po kita matutulungan?,groq,2026-08-26T13:04:38.676+00:00
+m_acj1hLAFjWPCOclfahIvOwojfMp8MaUUULmYoiIsQyIa3pMMyIvI-s1y08U108x89LDWDdkz8_FBMZz8ngVgyA,Sedrick Opulencia,"Kailangan po namin ng tulong, nalipad po yung bubong ng bahay namin at nagiba na yung mga pader. Pa rescue po kame dito sa Barangay Sta Maria malapit po kame sa simbahan, ito din po ang contact number ko 09172633666","Magandang araw po, Sedrick Opulencia! Naitala po ang detalye:
+
+📍 Brgy. Sta. Maria (malapit sa simbahan)
+📞 09172633666
+🚨 Tulong: Rescue (sirang bahay)
+
+Siguraduhing tama ang detalye dahil ito ang basihan ng aksyon ng MDRRMC team para sa nasalanta ng kalamidad. Manatiling ligtas!",gemini,2026-09-02T05:10:38.641+00:00
+c74dd2cd-2948-47e1-9053-56e8ce6e7adf,Samson Jefferson,magandang umaga nais ko ipa alam na pumutok ang bulkang taal,"Magandang umaga po. Nakarating po sa aming kaalaman ang inyong ulat tungkol sa Bulkang Taal. Upang mabilis po kayong matulungan at makapagsagawa ng kaukulang aksyon ang aming team mula sa MDRRMC Talisay Batangas, maaari po ba ninyong ibigay ang mga sumusunod na detalye:
+
+1. **Tunay na Pangalan:** (Pangalan po ng nag-uulat o nangangailangan ng tulong)
+2. **Barangay sa Talisay Batangas:** (Saang barangay po kayo eksaktong naroroon sa Talisay?)
+3. **Landmark o lugar na malapit sa inyong lokasyon:** (Halimbawa: malapit sa simbahan, paaralan, o kilalang establisyimento)
+4. **Numero o Contact:** (Aktibong numero na maaari naming tawagan o i-text)
+5. **Tulong na kailangan:** (Kailangan po ba ninyo ng rescue/evacuation, medikal na tulong, pagkain at supply, o iba pa?)
+
+*Paalala: Pakisiguradong tama ang mga detalye na inyong ibibigay dahil ito po ang magiging basihan ng aming team sa pag-sasagawa ng aksyon, na naka-depende sa inyong kailangan. Ang aming team ay nakafocus lamang sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkang Taal, at mga natural na kalamidad dito sa Talisay Batangas 4220 Philippines.*
+
+Mangyaring mag-ingat po kayo riyan at ipadala agad ang inyong mga detalye.",gemini,2026-08-29T19:58:22.762+00:00
+8e20d250-fb62-4545-aae4-51576a2ff172,Samson Jefferson,Kailangan po namin ng pagkain dine sa poblacion tres talisay batangas ako po si magnus,"Maraming salamat po, **Magnus**, sa pagbibigay ng inyong pangalan at lokasyon.
+
+**Narito po ang kasalukuyang tala namin:**
+
+- **Tunay na Pangalan:** Magnus  
+- **Barangay/Lugar:**",groq,2026-08-27T02:12:20.621+00:00
+2ec86860-2405-4055-862b-321a2cb384a2,Sedrick Opulencia,"Malapit po sa sementeryo, dalawa po ang sugatan","Maraming salamat sa karagdagang impormasyon, Justine. Naitala ko na po na may dalawang (2) sugatan at ang inyong lokasyon ay malapit sa sementeryo bukod sa waiting shade sa kanto.
+
+Para po sa agarang pag-responde ng ating medical at rescue team, kailangan na lamang po namin ang huling detalyeng ito:
+
+1. **Siyudad o Munisipyo:** Saang bayan o lungsod po matatagpuan ang **Barangay Buco**?
+
+*Paalala: Siguraduhin pong tama ang lahat ng mga detalyeng inyong ibibigay dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon para sa inyong pangangailangan. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*",gemini,2026-08-24T05:06:57.479+00:00
+m_6lfa5KGg9yThDLKpuCgakQojfMp8MaUUULmYoiIsQyK6Jkao-viDsFGLw4iaxyKPR2QBUzDOuqOM9khfKW5SGg,Sedrick Opulencia,Tama po,"Salamat sa kumpirmasyon, Sedrick Opulencia. Naipasa na sa MDRRMC team ang inyong detalye para sa agarang rescue.
+
+Siguraduhing tama ang detalye dahil ito ang basihan ng aming aksyon para sa mga nasalanta ng kalamidad sa Talisay Batangas. Manatili po muna sa ligtas na lugar!",gemini,2026-09-02T05:10:57.173+00:00
+m_ExYFFLyFPzPjOUaA9p6cFgojfMp8MaUUULmYoiIsQyLRMp74tIyMUxcIhpU4VNKhTCAieK977hnjiGtdEV-rtg,Sedrick Opulencia,Meron po akong tanong,"Magandang araw po, Sedrick Opulencia! Ano po ang inyong tanong kaugnay ng kalamidad?
+
+Paki-bigay din po ang:
+📍 Brgy. sa Talisay
+📍 Landmark
+📞 Contact No.
+🚨 Tanong / Tulong na kailangan
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aksyon ng aming team sa MDRRMC Talisay.",gemini,2026-09-08T06:04:24.526+00:00
+m_uFcyLw0RaQDvVfvcX4VfrQojfMp8MaUUULmYoiIsQyIRUkNAmdGvX5MAyGoDaK4b_z0rw8zYh3SNEbHbBmXdqQ,Sedrick Opulencia,Magandang umaga po may batang pong nabangga ng sasakyan dito sa Leynes at wala pong ambulansyang pumupunta dito,"Magandang umaga po, Sedrick Opulencia! Naitala po:
+
+📍 Brgy: Leynes
+🚨 Tulong: Medical / Ambulansya
+
+Paki-bigay po ang:
+📍 Malapit na Landmark
+📞 Contact No.
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aming team sa pag-sasagawa ng aksyon.",gemini,2026-09-12T02:23:07.555+00:00
+m_OCqGBtJV6kKdWaj1yCs38AojfMp8MaUUULmYoiIsQyIBMCGxi4GXCPFPLQ_TzakNbt03SG81U91Dj_pXs_g0hQ,Sedrick Opulencia,"Magandang hapon po, nawawala po yung kapatid ko at huling nakita daw sa labas ng bahay namin bago po tumaas yung baha","Magandang hapon po, Sedrick Opulencia! Ipapaabot po natin ito sa team. Paki-bigay po ang:
+
+Barangay sa Talisay:
+Landmark:
+Contact No.:
+Tulong: Rescue (Nawawala sa baha)
+
+Siguraduhing tama ang detalye dahil ito ang basihan ng aksyon ng aming team para sa nasalanta ng kalamidad.",gemini,2026-09-02T07:54:30.303+00:00
+m_S9pbSSn5xdptvc-f3t0UHAojfMp8MaUUULmYoiIsQyL8bqL9jFEcRkvhZda3dRFiHpQ1ZTCHqGR6p-1oKRatgA,Sedrick Opulencia,May alam po kayong basketballan dito sa Santa Maria?,"Magandang araw po, Sedrick Opulencia! Ang MDRRMC team po ay nakatutok lamang sa mga nasalanta at emergency dulot ng bagyo, lindol, bulkang Taal, at kalamidad sa Talisay.
+
+May emergency po ba kayo? Siguraduhing tama ang mga detalye dahil ito ang basihan ng aksyon ng aming team.",gemini,2026-09-08T06:25:04.932+00:00
+m_phpTOUeuCWQtOzaujFXQjgojfMp8MaUUULmYoiIsQyJMSLlHRIT4Fu28Y9JqHk7l0pEkRaaPxVmMKOGDNjMGLQ,Sedrick Opulencia,Ang contact number ko po ay 09827273636,"Salamat po, Sedrick Opulencia! Naitala po:
+
+📍 Brgy: Leynes
+📞 Contact: 09827273636
+🚨 Tulong: Medical / Ambulansya
+
+Ano po ang malapit na Landmark?
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aming team sa pag-sasagawa ng aksyon.",gemini,2026-09-12T02:45:17.669+00:00
+m_X_rKw8rdB7NeyTmhAe2GKQojfMp8MaUUULmYoiIsQyIGDPfBOZLVh0Ov7EHdd8Cj8L0VPFCQM_d0za4uoMhgbw,Sedrick Opulencia,"Malapit po ito sa kanto, dun sa may mga nagsasabong","Salamat po, Sedrick Opulencia! Naitala po:
+
+📍 Brgy. Leynes (Kanto, may nagsasabong)
+🚨 Tulong: Medical / Ambulansya
+
+Paki-bigay po ang Contact No.
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aming team sa pag-sasagawa ng aksyon.",gemini,2026-09-12T02:45:19.765+00:00
+73cca32e-f888-41d3-b4dd-6db19a7b7073,Samson Jefferson,"ako si jose del pindot taga aya lamang , malapit sa eskwelahan are number ko 0934387432 walang tulong na kailangan ipa alam mo lamang na pumutok ang taal sa inyong team salamat","Maraming salamat po, Ginoong Jose Del Pindot, sa inyong pag-uulat at pagbibigay-alam sa aming tanggapan tungkol sa kalagayan ng Bulkang Taal. 
+
+Narito po ang aming naitalang detalye mula sa inyo:
+
+* **Tunay na Pangalan:** Jose Del Pindot
+* **Barangay sa Talisay Batangas:** Barangay Aya
+* **Landmark o malapit na lokasyon:** Malapit sa eskwelahan
+* **Numero o Contact:** 0934387432
+* **Tulong na kailangan:** Walang kailangang tulong sa ngayon (Ulat/Impormasyon lamang ukol sa Bulkang Taal)
+
+**Paalala:** Pakisiguraduhin po na tama at totoo ang lahat ng mga detalyeng ito dahil ito ang magiging basihan ng aming team sa pagsasagawa ng kaukulang aksyon, na nakadepende sa inyong pangangailangan. 
+
+Ang aming team sa MDRRMC Talisay Batangas ay nakatutok at handang tumugon sa mga nasalanta na dulot ng pagputok ng bulkang Taal, lindol, bagyo, at iba pang natural na kalamidad dito sa Talisay Batangas 4220 Philippines.
+
+Ipaparating po agad namin sa aming team ang inyong ulat upang masubaybayan ang inyong lugar sa Barangay Aya. Mangyaring manatiling alerto, makinig sa mga opisyal na anunsyo, at mag-ingat po kayo palagi riyan.",gemini,2026-08-29T20:00:16.046+00:00
+89366e11-d270-4346-803d-140748555d40,Sedrick Opulencia,Magandang hapon po,"Magandang hapon din po! Ako ang inyong AI assistant na nakatalagang kumuha ng inyong mga detalye upang maiparating sa aming emergency response team. 
+
+Maaari niyo po bang ibigay ang mga sumusunod na impormasyon para sa inyong hiling na tulong?
+
+1. **Tunay na Pangalan:**
+2. **Barangay (Brgy) at Siyudad/Munisipyo (Lokasyon):**
+3. **Landmark** (Malapit na sikat na lugar, simbahan, paaralan, o gusali):
+4. **Numero o Contact Number:**
+5. **Tulong na kailangan** (Medical, emergency rescue, supply at pagkain, o iba pa):
+
+**Paalala:** *Siguraduhin pong tama at kumpleto ang lahat ng detalyeng inyong ibibigay dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon, depende sa inyong pangangailangan. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, baha, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*",gemini,2026-08-24T08:09:22.305+00:00
+6e16f771-2e31-403c-a2a9-812550fbc0f6,Sedrick Opulencia,hanapin nyo lang po ang tindahan na may pangalang Aling Santos,"Magandang araw po! Nauunawaan po namin ang inyong kahilingan, subalit ang aming serbisyo ay nakatuon lamang sa pagtulong sa mga nasalantang dulot ng kalamidad (baha, landslide, sunog, at iba pa). Hindi po namin kayang maghanap ng partikular na tindahan.
+
+Kung kayo po ay nangangailangan ng anumang uri ng tulong—halimbawa rescue, medikal, pagkain o iba pang pang‑emergency—maari po ninyo kaming bigyan ng mga sumusunod na detalye upang agad naming maipasa",groq,2026-08-28T01:51:05.127+00:00
+m_eP9sfA1oSS23rEDg7xu3_AojfMp8MaUUULmYoiIsQyIAOFupUdO4esHN7GdAzyVNOCr1Kd_7S0OBdAahZcJnpA,Sedrick Opulencia,"Taga Barangay Quiling po ako, malapit po ang bahay namin sa daycare center","Magandang araw po, Sedrick Opulencia! Naitala po:
+
+📍 Brgy. Quiling (malapit sa daycare center)
+📞 Contact: 09172633666 (Paki-kumpirma po)
+🚨 Tulong: Rescue (Nawawala sa baha)
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aksyon ng aming team para sa nasalanta ng kalamidad.",gemini,2026-09-02T07:56:19.728+00:00
+m_mpId7wHC9159hkZqVhoUFwojfMp8MaUUULmYoiIsQyKM4Wj_pEBsB07CMP08y1-mcu3YfmHSFNlf_lnQ05uQ3Q,Sedrick Opulencia,Ito din pala po ang contact number ko 09737337661,"Salamat, Sedrick Opulencia! Naitala na:
+
+📍 Brgy. Quiling (daycare center)
+📞 09737337661
+🚨 Rescue (Nawawala sa baha)
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aksyon ng aming team para sa nasalanta ng kalamidad. Manatiling ligtas!",gemini,2026-09-02T07:56:53.776+00:00
+7c34abef-8bab-4d1f-b10a-2d17fe125aef,Samson Jefferson,Pacheck kung kumpleto ang detalye ko,"Opo, kumpleto po:
+-Jose Del Pindot
+-Brgy. Aya, Talisay
+-Malapit sa eskwelahan
+-0934387432
+-Ulat lamang (Taal)
+
+Siguraduhing tama ito dahil ito ang basihan ng aming team sa pag-aksyon sa mga kalamidad dito sa Talisay Batangas 4220. Mag-ingat po!",gemini,2026-08-29T20:25:14.861+00:00
+m_FIizvKSzmJlD1uWH7vXwCgojfMp8MaUUULmYoiIsQyIhyMYac84Tpg8lzlwKxi7q3QVIO9a-dAZDnMiYdupoEw,Sedrick Opulencia,Tama po,"Salamat sa kumpirmasyon, Sedrick Opulencia. Naipasa na sa aming team ang detalye para sa agarang rescue. Siguraduhing tama ang mga detalye dahil ito ang basihan ng aksyon ng MDRRMC para sa mga nasalanta ng kalamidad sa Talisay. Manatiling ligtas po!",gemini,2026-09-02T07:57:37.847+00:00
+m_F0tkOLq6KmBJbXFwDejNWwojfMp8MaUUULmYoiIsQyL2H1b3vrUz2R73Ryu-BKSnBIrmVAGAUnjRepygoL449A,Sedrick Opulencia,Wla po slmt,"Walang anuman, Sedrick Opulencia! Kung may emergency dulot ng bagyo, lindol, o bulkang Taal sa Talisay, mag-abiso lang po. 
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aksyon ng aming team sa pagresponde. Mag-ingat po kayo!",gemini,2026-09-08T06:27:49.624+00:00
+m_eMLlomeZXkHeBTjou5e_lgojfMp8MaUUULmYoiIsQyI5wKLKUNPTBA_mqiOdZbsBP-ZUuIqGyef_tUB9Tj8ZHA,Sedrick Opulencia,Tulong,"<think>
+Thinking Process:
+
+Analyze the Request:
+    *   User input: ""Tulong"" (Help).
+    *   Role: Tagalog AI bot assistant for MDRRMC Talisay Batangas 4220.
+    *   Task: Ask for specific details (Name, Barangay, Landmark, Contact, Type of Help).
+    *   Reminder: Ensure details are accurate for the team's basis of action.
+    *   Constraint: Focus only on disaster victims (typhoon, earthquake, Taal, etc.) in Talisay Batangas.
+    *   Length limit: Under 300 characters.
+
+Drafting the Response (Tagalog):
+       Greeting:* Magandang araw po.
+       Call to Action:* Upang matulungan kayo, pakibigay ang:
+        *   Tunay na pangalan
+        *   Barangay at Landmark
+        *   Contact number
+        *   Tulong na kailangan (rescue, medical, supply, etc.)
+       Reminder:* Siguraduhing tama ang detalye dahil ito ang basihan ng team.
+       Context Check:* Tama ba ang spelling? ""basihan"" -> ""batayan"" or just ""base"". ""aksyon"" -> ""aksyon"".",groq,2026-09-01T04:20:42.628+00:00
+28bd4fd5-2ada-4378-a63b-f9f27597ee09,Samson Jefferson,Magandang araw po,"Magandang araw din po! Nais po naming makatulong sa inyo sa lalong madaling panahon. 
+
+Upang maipadala po namin ang inyong impormasyon sa aming team, maaari po bang pakibigay ang mga sumusunod na detalye:
+
+1. **Tunay na Pangalan:** (Sino po ang aming hahanapin o kokontakin?)
+2. **Brgy. Location:** (Saang barangay, bayan o lungsod, at probinsya po ito?)
+3. **Landmark:** (Ano pong malapit na kilalang lugar, simbahan, paaralan, o tindahan sa inyong lokasyon?)
+4. **Numero o Contact:** (Ano pong numero ang maaari naming tawagan?)
+5. **Tulong na kailangan:** (Medical, emergency/rescue, supply at pagkain, o iba pa?)
+
+*Paalala po: Siguraduhing tama ang mga detalye na inyong ibibigay dahil ito po ang magiging basihan ng aming team sa pag-sasagawa ng aksyon, depende sa inyong kailangan. Ang aming team po ay nakafocus lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*
+
+Paki-send po ang inyong mga detalye upang agad po naming maaksyunan. Mag-ingat po kayo.",gemini,2026-08-26T05:18:56.373+00:00
+f681937e-4cdf-4d1c-a5ec-69d26d0d075d,Ocina John Paul,???,"Pasensya po kung naguluhan kayo. Maaari po ba ninyong ibigay ang mga sumusunod na detalye para maipasa namin agad sa aming emergency team?
+
+1. **Tunay na pangalan:**  
+2. **Barangay at eksaktong lokasyon:**  
+3. **Landmark na malapit sa inyong kinaroroonan:**  
+4. **Numero o contact number:**  
+5. **Anong tulong ang kailangan ninyo?** *(hal. medikal, rescue, pagkain at iba pa)*  
+
+**Paalala:** Siguraduhin po na tama at kumpleto ang mga detalye dahil ito ang magiging batayan ng aming team sa mabilis na pagtugon. Salamat po!",groq,2026-08-26T13:05:51.532+00:00
+6c24c0df-35b5-4420-86f1-129522596855,Sedrick Opulencia,Talisay Barangay Quiling,"Maraming salamat sa paglilinaw, Justine. Ngayong kumpleto na ang inyong impormasyon, narito ang kabuuan ng mga detalyeng aming nakalap para sa aming team:
+
+*   **Tunay na Pangalan:** Justine Dimautugan
+*   **Lokasyon (Brgy/Siyudad):** Barangay Quiling, Talisay
+*   **Landmark:** Quiling Elementary School (Evacuation Center)
+*   **Numero o Contact:** 09162625369
+*   **Tulong na kailangan:** Supplies para sa mga bata (dahil sa pagbaha)
+
+**Paalala:** *Siguraduhin pong tama ang lahat ng mga detalyeng ito dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon para sa inyong pangangailangan. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, baha, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*
+
+Ipinapasa ko na po ang inyong mga detalye sa aming relief at emergency response team upang maihanda at maihatid ang mga kailangang supplies sa inyong lokasyon. Mangyaring manatiling ligtas sa evacuation center at panatilihing bukas ang inyong linya ng komunikasyon. Mag-ingat po kayo.",gemini,2026-08-24T08:16:34.298+00:00
+m_cW6rJnWPkoFZkQaXCp0StQojfMp8MaUUULmYoiIsQyIykptHj3is4RepevfmtR5ZNfZVFX_UM5BC3z0fjLZBKA,Sedrick Opulencia,Tama po,"Salamat po, Sedrick Opulencia! Naipasa na po ang detalye sa MDRRMC team:
+
+📍 Brgy. Leynes (Kanto, may nagsasabong)
+📞 09827273636
+🚨 Medical / Ambulansya
+
+Siguraduhing tama ang detalye dahil ito ang basihan ng aming aksyon sa pagresponde. Ipararating po agad ito sa aming team. Mag-ingat po!",gemini,2026-09-12T02:46:40.691+00:00
+09aee9fb-66fd-400d-a051-71385c5ba90b,Samson Jefferson,Salamat,"<think>
+Here's a thinking process:
+
+Analyze User Input:
+   - User says: ""Salamat""
+   - Context: The conversation shows the user (Jose Del Pindot) previously provided details about a volcano eruption report from Brgy. Aya, Talisay. The bot confirmed the details were complete. Now the user just says ""Salamat"" (Thank you).
+   - System Prompt Constraints:
+     - Role: Tagalog AI bot assistant ng MDRRMC Talisay Batangas 4220 Philippines.
+     - Task: Ask for details (name, barangay, landmark, contact, type of help).
+     - After asking, remind user to verify details as they are the basis for team action.
+     - Focus: Only on victims affected by typhoons, earthquakes, Mt. Taal eruption, and natural disasters in Talisay Batangas 4220.
+     - Constraint: Keep responses under 300 characters.
+     - Language: Tagalog.
+
+Identify Key Requirements for Response:
+   - Acknowledge ""Salamat""
+   - Remind about safety/official announcements
+   - Keep it concise (<300 chars)
+   - Maintain MDRRMC Talisay tone
+   - Since details are already complete and verified, no need to ask again. Just a polite closing with a safety",groq,2026-08-29T21:16:53.961+00:00
+m_C5kn82Ap8OL387bRQOdH87NLZslaRe8FEJXRU94BDAQ0pk1lENAQ1C0BnA3E6Bnavy-JIKTCaI_xHnqao47-DA,Ocina John Paul,Sup bitch,"Magandang araw po, Ocina John Paul! Ano po ang maipaglilingkod ko sa inyo?
+
+Pakibigay po ang:
+Barangay sa Talisay
+Landmark
+Contact #
+Tulong na kailangan (rescue, medical, food)
+
+Siguraduhing tama ang detalye dahil ito ang basihan ng aming aksyon sa mga nasalanta ng kalamidad sa Talisay.",gemini,2026-09-02T12:02:49.672+00:00
+m_kVzixs7TqdrJ-tz5jaTluAojfMp8MaUUULmYoiIsQyJUKCJCG8qXaUKhi9o6wa8a0D7OTmusP2Nd1k6-13_spg,Sedrick Opulencia,Tarantado,"Magandang araw po, Sedrick Opulencia! Ang MDRRMC ay nakatutok sa kalamidad sa Talisay. Ano po ang maipaglilingkod ko sa inyo?
+
+Paki-bigay po:
+📍 Brgy.
+📍 Landmark
+📞 Contact
+🚨 Tulong na kailangan
+
+Siguraduhing tama ang detalye dahil ito ang basihan ng aksyon ng aming team sa pagresponde.",gemini,2026-09-08T12:24:38.103+00:00
+m_2mC9ZYw2lpphH7JVeK3A_QojfMp8MaUUULmYoiIsQyI42p7hLK2lYYzoAsLmGaMRY7aff-YuNGaVKLeNHLRudA,Sedrick Opulencia,Tulong naman ho wala na kameng malamo dine sa Poblacion 2 dalawang araw na walang tigil ang ulan,"Magandang araw po, Sedrick Opulencia! Naitala po:
+
+📍 Brgy: Poblacion 2
+🚨 Tulong: Supply / Pagkain
+
+Paki-bigay po ang malapit na Landmark at Contact No.
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aming team sa pag-sasagawa ng aksyon.",gemini,2026-09-12T04:24:41.675+00:00
+c1c5b9ed-fb3b-42b4-aee2-4727205d7737,Sedrick Opulencia,Magandang Hapon po,"Magandang hapon din po! Ako ang inyong AI assistant na nakatalagang kumuha ng inyong mga detalye upang maiparating sa aming emergency response team. 
+
+Maaari niyo po bang ibigay ang mga sumusunod na impormasyon para sa inyong hiling na tulong?
+
+1. **Tunay na Pangalan:**
+2. **Barangay (Brgy) at Siyudad/Munisipyo (Lokasyon):**
+3. **Landmark** (Malapit na sikat na lugar, simbahan, paaralan, o gusali):
+4. **Numero o Contact Number:**
+5. **Tulong na kailangan** (Medical, emergency rescue, supply at pagkain, o iba pa):
+
+**Paalala:** *Siguraduhin pong tama at kumpleto ang lahat ng detalyeng inyong ibibigay dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon, depende sa inyong pangangailangan. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, baha, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*",gemini,2026-08-25T09:34:50.073+00:00
+m_7JAgvyqaFD9NG3kOu-_Yv9g6eG5Oh-YFV4phGSVs1XqEjizyitlEOLRjdoqMjv79WhvHPtGEU9gvAP0XPBFfKA,Samson Jefferson,Magandamg umaga,"Magandang umaga po! Para matulungan ng MDRRMC Talisay, pakibigay ang:
+
+-Tunay na Pangalan
+-Barangay sa Talisay
+-Landmark
+-Contact No.
+-Kailangang Tulong
+
+Siguraduhing tama ang detalye dahil ito ang aming basihan sa pag-aksyon para sa mga nasalanta ng kalamidad dito sa Talisay.",gemini,2026-09-01T19:36:51.874+00:00
+f99814b9-1c42-41ad-86c7-c72b55f0ce0c,Ocina John Paul,"Villegas, Justine Lay
+Poblacion 23456
+Malapit sa motel
+0912345678
+Naipit titi kelangan ng pang-alis","Paumanhin po, ngunit hindi po namin kayang tumugon sa kahilingang iyan. ￼",groq,2026-08-26T13:07:09.59+00:00
+eba58e07-dea4-456c-91f0-c692804d6646,Sedrick Opulencia,Baka meron po kayong mga extrang gamit dyan na pwedeng pamalit at pwede mahigan kulang po kase ang gamit dito sa evacuation center sa Barangay buco,"Magandang araw po. Nais po naming makatulong sa inyong sitwasyon upang maipadala ang mga kailangang gamit na pamalit at mahihigan diyan sa evacuation center. 
+
+Upang maitala po namin ang inyong kahilingan para sa aming relief team, maaari niyo po bang ibigay ang mga sumusunod na detalye:
+
+1. **Tunay na Pangalan:**
+2. **Siyudad o Munisipyo:** (Saan pong bayan o lungsod matatagpuan ang Barangay Buco?)
+3. **Pangalan ng Evacuation Center (Landmark):** (Ano pong partikular na paaralan, covered court, o gusali ang ginagamit ninyong evacuation center ngayon?)
+4. **Numero o Contact Number:**
+
+**Paalala:** *Siguraduhin pong tama ang mga detalye na inyong ibibigay dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon, depende sa inyong pangangailangan. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, baha, lindol, pag-putok ng bulkan, at iba pang kalamidad.*",gemini,2026-08-25T09:36:12.744+00:00
+95320902-d9a8-4f47-a8c3-94949ae72b8c,Sedrick Opulencia,malapit po ito sa kanto,"Magandang araw po, **Menard Clefford**! Salamat po sa karagdagang impormasyon. Upang agad naming maipadala ang rescue team sa landslide sa **Barangay Buco, Talisay**, kailangan pa po namin ang mga sumusunod na detalye:
+
+1. **Mas tiyak na kanto / pangalan ng kalye** – halimbawa, “Kanto ng Kalye Rizal at Kalye Luna” o anumang kilalang pangalan ng daan na nasa tabi ng",groq,2026-08-28T01:51:46.7+00:00
+m_A8A98t4b9ZOHaTpEuDh0tgojfMp8MaUUULmYoiIsQyL-al2N1eIquczmMnw2Y0p7H1jR5xvtEAskntsm85_MBg,Sedrick Opulencia,magandang umaga po,"Magandang umaga po, Sedrick Opulencia! Ano po ang maipaglilingkod ko sa inyo?
+
+Paki-bigay po ang:
+📍 Barangay sa Talisay
+📍 Landmark
+📞 Contact No.
+🚨 Tulong na kailangan
+
+Siguraduhing tama ang detalye dahil ito ang basihan ng aksyon ng aming team para sa nasalanta ng kalamidad.",gemini,2026-09-04T00:37:10.817+00:00
+06fb735f-b722-4b48-a3a9-cd7d90fcbb6f,Samson Jefferson,Salamat,"<think>
+Thinking Process:
+
+Analyze the Request:
+    *   User Input: ""Salamat"" (Thank you).
+    *   Context: The user (Jose Del Pindot) previously reported a volcano eruption, provided all necessary details (Name, Barangay, Landmark, Contact, Need), and just confirmed the details were complete. The bot acknowledged this. Now the user is saying ""Salamat"".
+    *   System Instructions:
+        *   Role: Tagalog AI bot assistant ng MDRRMC Talisay Batangas 4220.
+           Task: Ask for details (Name, Barangay, Landmark, Contact, Help needed) if* missing.
+        *   Reminder: Ensure details are correct as the basis for action.
+        *   Focus: Victims of typhoons, earthquakes, Mt. Taal eruption, natural disasters in Talisay.
+        *   Constraint: Keep response under 300 characters.
+        *   Language: Tagalog.
+
+Evaluate Current State:
+    *   The user has already provided all details.
+    *   The details were already confirmed complete in the previous turn.
+    *   The user is closing the interaction with ""Salamat"".
+    *   I need to acknowledge the thanks, reiterate safety, and close professionally within the character limit. I don't need to ask for details",groq,2026-08-29T21:32:39.457+00:00
+m_Csuh-SFHZAYKmHUbMXYLm9g6eG5Oh-YFV4phGSVs1XpkBe2B8nGcps1J73Z_Fr0i-9iJ55cuO3wYF_9K0J1oJA,Samson Jefferson,Ang akin pong mga baboy na alaga ay kailangan mai rescue maluluge ho ako sa aking negosyo Ako po si Syrus Jakes taga pob 6 malapit sa toklong,"Salamat G. Syrus Jakes (Pob 6, malapit sa toklong). Pakibigay po ang inyong Contact Number para makumpleto ang inyong report. 
+
+Siguraduhing tama ang lahat ng detalye dahil ito ang aming basihan sa pag-aksyon para sa mga nasalanta ng kalamidad sa Talisay.",gemini,2026-09-01T19:38:40.927+00:00
+m_9qbntY6HMT_OKgYlOe-6iNg6eG5Oh-YFV4phGSVs1XrwzuXufUJzK2Xzn8RsBC7VRurbm8WrZi6nIf51X0snGg,Samson Jefferson,Are ho number ko 09482828266,"Salamat po, G. Syrus Jakes. Nakuha na ang inyong detalye (Pob 6, malapit sa Toklong, 09482828266, rescue sa alaga). 
+
+Siguraduhing tama ang mga ito dahil ito ang basihan ng aming team sa pag-aksyon para sa mga nasalanta ng kalamidad dito sa Talisay. Mag-ingat po!",gemini,2026-09-01T19:39:03.072+00:00
+m_UpOlMW5eZ_iYlpbGFSvaUgojfMp8MaUUULmYoiIsQyJCf6sVngQcMeH_KVzaWdpbRgGC_pYEwyUOwxY5NYuusA,Sedrick Opulencia,baka po may pagkain kayo dyan at naubos na po ang pulutan namin dito sa inuman,"Magandang araw po, Sedrick Opulencia! Ang aming tulong ay para lamang sa mga nasalanta ng bagyo, lindol, bulkang Taal, at kalamidad.
+
+May emergency po ba kaugnay ng kalamidad? Paki-siguradong tama ang ibibigay na detalye dahil ito ang basihan ng aksyon ng aming team.",gemini,2026-09-04T00:37:44.354+00:00
+d54f14a5-2507-4d4e-926b-c3ddfb135d9c,Samson Jefferson,Nasunugan po kami dito sa brgy miranda malapit sa katayan joel po pangalan ko,"Magandang araw po, Joel. Ikinalulungkot po namin ang nangyaring sunog sa inyong lugar. Upang mabilis po naming maipasa ang inyong impormasyon sa aming team at sa mga kinauukulan, kailangan po namin ang inyong kumpletong detalye.
+
+Narito po ang mga nakuha naming impormasyon sa kasalukuyan:
+* **Tunay na Pangalan:** Joel
+* **Brgy. Location:** Brgy. Miranda *(Hinihintay pa po ang Lungsod at Probinsya)*
+* **Landmark:** Malapit sa katayan
+* **Tulong na kailangan:** Tulong sa nasunugan / Emergency Fire Rescue
+
+Maaari po bang pakibigay ang mga sumusunod na kulang na detalye:
+
+1. **Lungsod at Probinsya:** Saang bayan/lungsod at probinsya po matatagpuan ang Brgy. Miranda?
+2. **Numero o Contact:** Ano pong contact number ang maaari naming tawagan o i-text?
+
+*Paalala po: Siguraduhing tama ang mga detalye na inyong ibibigay dahil ito ang basihan ng aming team sa pag-sasagawa ng aksyon, depende sa inyong kailangan. Ang aming team po ay nakafocus lamang sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang mga natural na kalamidad.*
+
+Paki-send po agad ang inyong **Lungsod/Probinsya** at **Contact Number** upang maitala at maaksyunan po natin ito. Mag-ingat po kayo riyan.",gemini,2026-08-26T05:19:37.491+00:00
+m_Q_Do8uTl5nDtdo2k6AXi4gojfMp8MaUUULmYoiIsQyJU3SYyuThnt8ss9DQWs59KXYXeJPDDnPW4R6BhwxOLDw,Sedrick Opulencia,wala po,"Salamat sa pagtugon, Sedrick Opulencia. Paalala po na ang aming team ay nakatutok lamang sa mga nasalanta ng bagyo, lindol, bulkang Taal, at kalamidad sa Talisay Batangas. 
+
+Makipag-ugnayan po uli sa amin kung may emergency kaugnay ng kalamidad. Manatiling ligtas!",gemini,2026-09-04T00:38:07.352+00:00
+m_YbQsJGtpuB-2iaNQ-Yi16gojfMp8MaUUULmYoiIsQyJ3e8u80lfU5SvOZcKtd5eXMbbilzwG3VRnOsmjCvu0dw,Sedrick Opulencia,Hello,"Magandang araw po, Sedrick Opulencia! Ano po ang maipaglilingkod ko sa inyo?
+
+Paki-bigay po:
+📍 Brgy. sa Talisay
+📍 Landmark
+📞 Contact No.
+🚨 Tulong (rescue, medical, pagkain, atbp.)
+
+Siguraduhing tama ang detalye dahil ito ang basihan ng aksyon ng aming team sa kalamidad sa Talisay.",gemini,2026-09-08T13:06:33.714+00:00
+m_tJKHctmhuyrFoD67JLVDBQojfMp8MaUUULmYoiIsQyLTNuIs0t0rC_Cj8ntYxySEy-KQD8GZNg4AdDouUo5GUg,Sedrick Opulencia,Dine po kame sa subdivision papasok malapit sa tulay kulay puting bahay ito din po ang contact number ko 09827727632,"Salamat po, Sedrick Opulencia! Naitala po:
+
+📍 Poblacion 2 (Subdivision malapit sa tulay, puting bahay)
+📞 09827727632
+🚨 Tulong: Supply at Pagkain
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aming team sa pag-sasagawa ng aksyon.",gemini,2026-09-12T04:27:04.609+00:00
+m_coEoQ-s4XbF7CpuIcC63rtg6eG5Oh-YFV4phGSVs1Xo_qNfT-63U1X9cgLjP9FiMtkNG2ohgVqjYAfHWgMhiHQ,Samson Jefferson,magandang gabi po maam/sir,"Magandang gabi po, Samson Jefferson! Ano po ang maipaglilingkod ko sa inyo? Pakibigay po ang:
+
+Barangay sa Talisay
+Landmark
+Contact No.
+Kailangang tulong (rescue, med, etc.)
+
+Siguraduhing tama ang detalye dahil ito ang basihan ng aming team sa pag-aksyon sa nasalanta ng kalamidad.",gemini,2026-09-04T12:48:11.703+00:00
+1a758ae6-c45f-413f-8f0b-481bdac26e90,Samson Jefferson,Maraming salamat,"<think>
+Thinking Process:
+
+Analyze the Request:
+    *   Input: User says ""Maraming salamat"".
+    *   Role: MDRRMC Talisay Batangas AI assistant.
+    *   Context: The user (Jose Del Pindot) previously provided details about a report (Taal eruption), confirmed they are correct, and is now thanking the bot.
+    *   Goal: Acknowledge the thanks, remind about safety, and close the interaction professionally.
+    *   Constraints:
+        *   Language: Tagalog.
+        *   Length: Under 300 characters.
+        *   Focus: Disaster response (Taal, typhoons, etc.) in Talisay.
+
+Drafting the Response:
+       Draft 1: Maraming salamat din po, G. Del Pindot. Manatiling alerto at makinig sa mga ulat ng PAGASA at PHIVOLCS. Ang MDRRMC Talisay ay handa po tumugon sa anumang pangangailangan. Mag-ingat palagi! (188 characters) - Good, but maybe too specific on agencies? Keep it simple.*
+       Draft 2:* Maraming salamat din po! Manatiling alerto at mag-ingat kayo. Ang aming",groq,2026-08-29T21:37:53.588+00:00
+m_yRlChlqXKFuCuRLbRCX4RQojfMp8MaUUULmYoiIsQyI79mflFotgH-KkMn9arihquEZrzDz6kyofp2jZpXkQwQ,Sedrick Opulencia,"May sunog po dito sa tumaway at naiwan po sa loob ang dalwang aso, malapit po ito sa elementary school sa kanto","Magandang araw po, Sedrick Opulencia!
+
+Naitala po:
+📍 Brgy. Tumaway
+📍 Landmark: Malapit sa Elementary School
+🚨 Tulong: Sunog (rescue)
+📞 Paki-bigay po ang Contact No.
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aksyon ng aming team sa MDRRMC Talisay.",gemini,2026-09-08T13:08:45.383+00:00
+m_0KS74FWGJyDMgxflM_QG-wojfMp8MaUUULmYoiIsQyK1smWNDrLz1lbeBiZE8MUmYc4KYjB1UTeFVilFxYx-ew,Sedrick Opulencia,Good morning,"Magandang araw! Upang mabilis kayong matulungan ng aming team, paki-bigay ang:
+
+Pangalan
+Barangay sa Talisay
+Landmark
+Contact No.
+Tulong na kailangan (Rescue, supply, atbp)
+
+Siguraduhing tama ang mga detalye dahil ito ang magiging basihan ng aming team sa pagsasagawa ng aksyon.",gemini,2026-09-02T00:48:27.353+00:00
+d5e9a940-c8e0-4514-bd07-6e17abd9e1be,Ocina John Paul,Aray ko,"Naiintindihan po namin na kayo ay may nararanasang sakit. Upang agad naming maipasa ang inyong kahilingan sa aming emergency team, pakibigay po ang mga sumusunod na detalye:
+
+1. **Tunay na pangalan:**  
+2. **Barangay at eksaktong lokasyon:**  
+3. **Landmark na malapit sa inyong kinaroroonan:**  
+4. **Numero o contact number:**  
+5. **Anong tulong ang kailangan ninyo?** *(hal. medikal, emergency rescue, supply at pagkain, atbp.)*  
+
+**Paalala:** Pakisiguro po na tama at kumpleto ang lahat ng ibibigay ninyong impormasyon dahil ito ang",groq,2026-08-26T13:07:22.37+00:00
+6ade072d-f065-4ca1-b8c6-d9e40b8287bd,Sedrick Opulencia,Magandang hapon po,"Magandang hapon din po! Ako ang inyong AI assistant na nakatalagang kumuha ng inyong mga detalye upang maiparating sa aming emergency response at relief team. 
+
+Maaari niyo po bang ibigay ang mga sumusunod na impormasyon para sa inyong hiling na tulong?
+
+1. **Tunay na Pangalan:**
+2. **Brgy Location (at Siyudad/Munisipyo):**
+3. **Landmark** (Malapit na sikat na lugar, simbahan, paaralan, o kilalang gusali):
+4. **Numero o Contact:**
+5. **Tulong na kailangan** (Medical, emergency rescue, supply at pagkain, o iba pa):
+
+**Paalala:** *Siguraduhin pong tama ang lahat ng mga detalyeng inyong ibibigay dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon, depende sa inyong pangangailangan. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*",gemini,2026-08-26T07:38:34.339+00:00
+m_exnJr-Y-GwzV5f_omX894tg6eG5Oh-YFV4phGSVs1Xom3R87sVzRPd-tniE6jZ4DnLAJod-yKulgaN_BkIafGw,Samson Jefferson,may nawawala pong bata dine  sa aya ang sabi po natangay ata ng baha baka yun e nalunod naho wag naman sana,"Samson Jefferson, para sa Search & Rescue sa Brgy. Aya, pakibigay po ang:
+
+Landmark
+Contact No.
+
+Kumpirmahin din po:
+Brgy: Aya
+Tulong: Search & Rescue (nawawalang bata)
+
+Siguraduhing tama ang detalye dahil ito ang basihan ng aming team sa pag-aksyon sa nasalanta ng kalamidad dito sa Talisay.",gemini,2026-09-04T12:50:10.648+00:00
+m_krCP4ZBC6oTDQlLYLoiRxgojfMp8MaUUULmYoiIsQyILE2XXqsPNQ-cETuN8hxKpdIm9VD-4YHG-YpLeRm3q-g,Sedrick Opulencia,Ito po contact number 09187237646,"Maraming salamat, Sedrick Opulencia! Kumpirmahin po natin:
+
+📍 Brgy. Tumaway
+📍 Landmark: Kanto ng Elem. School
+📞 Contact: 09187237646
+🚨 Tulong: Sunog / Rescue
+
+Siguraduhing tama ang detalye dahil ito ang basihan ng aksyon ng aming team sa MDRRMC Talisay sa pagresponde. Mag-ingat po!",gemini,2026-09-08T13:09:53.24+00:00
+m_AykuV-NLi35TqPayakmg4gojfMp8MaUUULmYoiIsQyJK7rqosmFHLkPRf9bRRaj5YmYMc4Ws_F3SqDu-YtddqQ,Sedrick Opulencia,"Tulungan po kame sorbrang taas na po ng baha dito sa barangay Quiling lagpas bahay n po, pa rescue po kame dito kasi hindi na kame makaalis","Kailangan po namin agad ang inyong:
+Pangalan
+Landmark (malapit na lugar sa Quiling)
+Contact No.
+
+Tulong: Rescue sa Baha
+
+Pakisiguradong tama ang detalye dahil ito ang basehan ng aksyon ng MDRRMC team para sa nasalanta ng kalamidad. Pumunta muna sa pinakamataas at ligtas na lugar!",gemini,2026-09-02T00:53:19.91+00:00
+m_97dd-wtCn7VVXQENylcV2AojfMp8MaUUULmYoiIsQyLq8UB6w49kxm-6hpJeGsvMUZbGOwANDQ_bMwSz_QuoPQ,Sedrick Opulencia,Ako po si Justine Manalsal malapit po ang bahay namin sa simbahan at ang kontak number ko po ay 0972266363,"Magandang araw, Justine! Naitala po ang detalye:
+
+📍 Brgy. Quiling (malapit sa simbahan)
+📞 0972266363
+🚨 Tulong: Rescue sa Baha
+
+Pakisiguradong tama ang mga detalye dahil ito ang basehan ng aksyon ng aming team para sa nasalanta ng kalamidad. Manatili po sa pinakamataas at ligtas na lugar!",gemini,2026-09-02T00:54:10.164+00:00
+m_VmarK60tfzDnPqpQJ7V1RgojfMp8MaUUULmYoiIsQyKfFQ4LPK2vdx6OibwJEuYq3J9Q0pHzDKlh8aaFd3VU_Q,Sedrick Opulencia,Tama po,"Salamat sa kumpirmasyon, Justine. Naipasa na ang inyong detalye sa aming MDRRMC team.
+
+Muling paalala na siguraduhing tama ang detalye dahil ito ang basehan ng aksyon para sa nasalanta ng kalamidad sa Talisay. Manatili po sa mataas at ligtas na lugar habang naghihintay ng rescue.",gemini,2026-09-02T00:54:52.298+00:00
+73a141c1-bb92-49f9-b44d-10a96c0f657e,Samson Jefferson,Magandang araw,"<think>
+Here's a thinking process:
+
+Analyze User Input:
+   - User says: ""Magandang araw"" (Good day)
+   - Context: This is a new interaction or a greeting. The system prompt says I'm a Tagalog AI bot assistant for MDRRMC Talisay Batangas 4220 Philippines. I need to ask for specific details (name, barangay, landmark, contact, type of help needed). After asking, I must remind the user to verify the details as they are the basis for team action. Focus is on disaster victims (typhoons, earthquakes, Mt. Taal eruption, natural disasters) in Talisay. Keep response under 300 characters.
+
+Identify Key Requirements:
+   - Greet back
+   - Ask for the 5 required details
+   - Remind about verifying details
+   - Mention focus on disasters in Talisay
+   - Keep under 300 characters
+   - Language: Tagalog
+
+Draft Construction (Mental Refinement):
+   Magandang araw po! MDRRMC Talisay Batangas ito. Para maipasa ang inyong kahilingan, mangyaring ibigay:
+   1. Tunay na pangalan
+   2. Barangay sa Talisay
+   3. Malapit na landmark",groq,2026-08-29T21:42:10.343+00:00
+ea4d3bac-1dcb-4374-9b87-a78a505374a5,Ocina John Paul,Tulong po malas nako sa ml,"Magandang araw. Ako ay isang AI assistant na narito upang kumuha ng impormasyon para sa mga nangangailangan ng sakolo dulot ng mga kalamidad. 
+
+Maaari mo bang ibigay ang mga sumusunod na detalye upang maipasa ko sa aming emergency team?
+
+1. **Tunay na pangalan:**
+2. **Barangay at Lokasyon:**
+3. **Sikat na Landmark malapit sa inyo:**
+4. **Numero o Contact Number:**
+5. **Tulong na kailangan?** *(Medical, emergency rescue, supply at pagkain, atbp.)*
+
+**Paalala:** Pakisiguro po na tama at kumpleto ang lahat ng detalyeng inyong ibibigay dahil ito ang magiging batayan ng aming team sa pag-sasagawa ng aksyon. Ang aming tulong ay nakatutok lamang sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.",gemini,2026-08-26T08:04:12.012+00:00
+m_gF3kqLzzZblJcwK-a43u49g6eG5Oh-YFV4phGSVs1XpbTNqPjaX4iKHNt4IdJ485329MzUXHLmJp_dZD6H_gXg,Samson Jefferson,ang pangalan po ng bata ay si bentong,"Samson Jefferson, naisulat po ang pangalan ng bata (Bentong). Pakibigay po ang inyong:
+
+Landmark sa Brgy. Aya
+Contact No.
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aming team sa pag-sasagawa ng aksyon para sa mga nasalanta ng kalamidad sa Talisay.",gemini,2026-09-04T12:51:04.584+00:00
+m_6ZS7HZEtPIUJjs9HV0tWhNg6eG5Oh-YFV4phGSVs1XquCGWfaxY0J5PMc1K-F2bEhHwgquU9GeKgrXWSPxuk7w,Samson Jefferson,sa tulay po kami ngayon natambay are number ko boss  0923123125,"Salamat, Samson Jefferson. Pakikumpirma po:
+
+Brgy: Aya
+Landmark: Sa tulay
+Contact: 0923123125
+Tulong: Search & Rescue (nawawalang bata)
+
+Siguraduhing tama ang detalye dahil ito ang basihan ng aming team sa pag-aksyon sa mga nasalanta ng kalamidad dito sa Talisay. Tama po ba lahat?",gemini,2026-09-04T12:51:16.566+00:00
+m_R-Za7cbuajz62lpo69s1egojfMp8MaUUULmYoiIsQyJaSMrm_mFch-YUMJhKaxluzkVIJIwdMvHQPKcgBnROWQ,Sedrick Opulencia,"tulong po may nagsalpukang motor dito sa barang Tumaway at sugatan po yung isang tao, malapit po ito sa highway at ito din po ang contact number ko 09212128108","Magandang araw po, Sedrick Opulencia! Kumpirmahin po natin:
+
+📍 Brgy. Tumaway
+📍 Landmark: Malapit sa highway
+📞 Contact: 09212128108
+🚨 Tulong: Medical / Rescue
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aksyon ng aming team sa MDRRMC Talisay sa pagresponde. Mag-ingat po!",gemini,2026-09-08T15:37:19.97+00:00
+ed7e7e06-40ec-418d-8d91-051b928b1e40,Samson Jefferson,Magandang araw,"Magandang araw po! Para agad kayong matulungan ng MDRRMC Talisay Batangas, pakibigay ang:
+
+Tunay na Pangalan
+Barangay sa Talisay
+Landmark
+Contact No.
+Tulong na kailangan (rescue, pagkain, etc.)
+
+Siguraduhing tama ang detalye dahil ito ang aming basihan sa pag-aksyon sa kalamidad.",gemini,2026-08-29T21:54:25.296+00:00
+42490e2b-b68e-44f8-8dc6-596afb47fde0,Samson Jefferson,Are ho number ko 09428265117,"Salamat po sa pagbibigay ng inyong contact number, Joel. 
+
+Upang tuluyan po nating makumpleto ang inyong ulat at maipasa sa aming team, mayroon na lamang pong isang kulang na detalye na kailangan naming malaman:
+
+1. **Lungsod at Probinsya:** Saang bayan o lungsod, at probinsya po matatagpuan ang **Brgy. Miranda**?
+
+Narito po ang mga detalye na kasalukuyan naming hawak:
+* **Tunay na Pangalan:** Joel
+* **Brgy. Location:** Brgy. Miranda *(Hinihintay po ang Lungsod at Probinsya)*
+* **Landmark:** Malapit sa katayan
+* **Numero o Contact:** 09428265117
+* **Tulong na kailangan:** Tulong sa nasunugan / Emergency
+
+*Paalala po: Siguraduhing tama ang lahat ng detalye na inyong ibibigay dahil ito ang basihan ng aming team sa pag-sasagawa ng aksyon, depende sa inyong kailangan. Ang aming team po ay naka-focus lamang sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang mga natural na kalamidad.*
+
+Paki-send po agad ang inyong **Lungsod at Probinsya** upang agad po naming maitala at magawan ng kaukulang aksyon. Mag-ingat po kayo riyan.",gemini,2026-08-26T05:19:45.107+00:00
+fbd85018-2de8-4e50-b54d-6985ef3d4abf,Samson Jefferson,Brgy miranda talisay batangas,"Maraming salamat po sa pagbibigay ng inyong kumpletong lokasyon, Joel. 
+
+Narito po ang buong detalye na aming naitala:
+
+* **Tunay na Pangalan:** Joel
+* **Brgy. Location:** Brgy. Miranda, Talisay, Batangas
+* **Landmark:** Malapit sa katayan
+* **Numero o Contact:** 09428265117
+* **Tulong na kailangan:** Tulong sa nasunugan / Emergency
+
+Paki-siguraduhing tama at totoo ang lahat ng mga detalyeng ito dahil ito po ang magiging basihan ng aming team sa pag-sasagawa ng aksyon, depende sa inyong kailangan. 
+
+Nais po naming ipaalala na ang aming team ay nakapokus lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang mga natural na kalamidad. 
+
+Mangyari pong paki-kumpirma kung tama po ang lahat ng impormasyong ito. Mag-ingat po kayo riyan.",gemini,2026-08-26T05:20:02.621+00:00
+9eac4118-3cb8-4f5a-a2fc-8e09a11db188,Samson Jefferson,Ok,"Salamat po sa inyong kumpirmasyon, Joel. Naitala na po namin ang inyong mga detalye. 
+
+Muli, amin pong ipinapaalala na siguraduhing tama ang lahat ng detalyeng inyong ibinigay dahil ito po ang magiging basihan ng aming team sa pag-sasagawa ng aksyon, depende sa inyong kailangan. 
+
+Nais din po naming ipaalala na ang aming team ay nakapokus lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang mga natural na kalamidad.
+
+Mag-ingat po kayo lagi riyan.",gemini,2026-08-26T05:20:16.963+00:00
+de51dac4-ac52-4b09-bd30-ab294e8c1a88,Samson Jefferson,Magandang umaga,"Magandang umaga po! Upang agad naming maipasa ang inyong kahilingan sa aming rescue team, pakibigay po ang mga sumusunod na detalye:
+
+1. **Tunay na Pangalan** (pangalan po ng nag-uulat)  
+2. **Barangay, Lungsod at Probinsya** kung saan naganap ang pangyayari  
+3. **Landmark** – pinakamalapit na tulay, ilog, simbahan, paaralan, tindahan, o iba pang palatandaan na makakatulong sa aming mga rescuer na mahanap ang lokasyon  
+4. **Numero o Contact** na maaari naming tawagan o i‑text  
+5. **Tulong na kailangan** (hal. emergency rescue/search‑and‑rescue, medikal na tulong, pagkain at supply, iba pa)
+
+*Paalala po: Siguraduhing tama at kumpleto ang mga detalye na inyong ibibigay dahil ito ang magiging batayan ng aming team sa pagsasagawa ng aksyon.*  
+
+Maraming salamat",groq,2026-08-27T02:11:41.307+00:00
+m_DBIovPNX_NQTTZGxFzNNJwojfMp8MaUUULmYoiIsQyJOer7pP5U5pFeK9vhMk4k-FntbPBSe7Wq_xtHUx0F68A,Sedrick Opulencia,Tulong po,"Upang mabilis kayong matulungan ng MDRRMC Talisay, paki-bigay ang:
+
+Pangalan
+Barangay sa Talisay
+Landmark
+Contact No.
+Tulong na kailangan (rescue, medical, atbp)
+
+Siguraduhing tama ang detalye dahil ito ang basihan ng aksyon ng aming team para sa mga nasalanta ng kalamidad.",gemini,2026-09-02T02:32:25.805+00:00
+m_umlIpcQp1u2d4b1fSoYjVAojfMp8MaUUULmYoiIsQyLc8k0OWnlGHJb4KgvgkSSiH7rFpSjMKsPM0RYTsn88Hw,Sedrick Opulencia,Magandang gabi po,"Magandang gabi po, Sedrick Opulencia! Ano po ang maipaglilingkod ko sa inyo?
+
+Paki-bigay po ang:
+📍 Brgy. sa Talisay
+📍 Landmark
+📞 Contact No.
+🚨 Tulong na kailangan
+
+Siguraduhing tama ang detalye dahil ito ang basihan ng aksyon ng aming team para sa nasalanta ng kalamidad.",gemini,2026-09-04T13:56:38.661+00:00
+m_gMkGejxv7iEYIsE3SYnv4wojfMp8MaUUULmYoiIsQyL-7VrH_TjWZsBc-o24VsLkUzeGpqI3ZX-RcIJjN49liw,Sedrick Opulencia,tama po,"Maraming salamat, Sedrick Opulencia! Naipasa na po sa aming rescue team ang ulat para sa Brgy. Tumaway.
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aksyon ng aming team sa pagresponde dito sa Talisay. Manatili po kayong ligtas!",gemini,2026-09-08T15:39:01.723+00:00
+e5aea449-6d2f-423c-8abd-2694994aabd6,Samson Jefferson,May tulong ba akong mahihingi sa inyo? Kailangan po namin ng pera pang gastos sa hospital,"Paumanhin po, ang aming team ay nakafocus lamang sa mga nasalanta ng kalamidad (bagyo, lindol, bulkang Taal) sa Talisay. Kung emergency ito dulot ng kalamidad, ibigay ang: Pangalan, Barangay, Landmark, Contact, at Tulong na kailangan. Siguraduhing tama ito bilang basihan ng aming pag-aksyon.",gemini,2026-08-29T21:55:21.871+00:00
+39cdab8c-3535-497d-9b8b-68f03401398e,Samson Jefferson,Ok,"Salamat po sa pag-unawa. Kung may emergency po kayo dulot ng bagyo, lindol, o bulkan dito sa Talisay, iwan lamang ang inyong Pangalan, Barangay, Landmark, at Numero. Siguraduhing tama ito dahil ito ang basihan ng aming team sa pag-aksyon. Mag-ingat po!",gemini,2026-08-29T21:55:39.004+00:00
+2bb8b9a7-9e18-44ba-872c-14cff648149a,Samson Jefferson,Magadang araw may bata pong nawawala dito sa caloocan ang sabi inanod daw po sa ilog gawa ng biglang bumaha,"Magandang araw po. Lubos po kaming nababahala sa balitang may batang inanod sa ilog dahil sa biglang pagbaha riyan sa Caloocan. Napaka-kritikal po ng sitwasyong ito at kailangan ng agarang aksyon.
+
+Upang mabilis naming maipasa ang impormasyong ito sa aming emergency rescue team para sa gagawing search and rescue operation, maaari po bang pakibigay agad ang mga sumusunod na detalye:
+
+1. **Tunay na Pangalan:** (Pangalan ninyo bilang nag-uulat, at pangalan din po ng bata kung inyong nalalaman)
+2. **Brgy. Location sa Caloocan:** (Saang barangay po eksaktong nangyari ito sa Caloocan?)
+3. **Landmark:** (Ano pong malapit na tulay, sapa, ilog, o kilalang lugar kung saan huling nakita ang bata o kung saan siya inanod?)
+4. **Numero o Contact:** (Ano pong aktibong numero ang maaari naming tawagan para sa karagdagang impormasyon?)
+5. **Tulong na kailangan:** (Emergency Search and Rescue operation po ba?)
+
+*Paalala po: Siguraduhing tama ang mga detalye na inyong ibibigay dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon, depende sa kailangan ng user. Ang aming team ay nakafocus lamang sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad (tulad ng biglang pagbaha sa inyong lugar).*
+
+Paki-send po agad ang inyong tugon upang maaksyunan po natin ito sa lalong madaling panahon. Mag-ingat po kayo riyan.",gemini,2026-08-26T12:31:35.9+00:00
+m_1nb3JoW2hpdL-j841fvUDgojfMp8MaUUULmYoiIsQyJbFkNtiy5hWscEppoS3lTo1UiXEy4AzBHDVJTCy3BGxw,Sedrick Opulencia,Nasusunog po yung bahay namin dito sa Barangay Leynes at naiwan po sa loob yung dalawang kapatid ko at bunso. Bilisan nyo po kailangan po namin ang tulong nyo,"Kailangan po namin agad ang inyong:
+Pangalan
+Landmark sa Brgy. Leynes
+Contact No.
+
+🚨 Tulong: Rescue sa Sunog
+
+Pakisiguradong tama ang mga detalye dahil ito ang basehan ng aksyon ng aming team. Lumayo po sa sunog at mag-ingat habang ipinapadala ang tulong!",gemini,2026-09-02T02:36:37.489+00:00
+df16c88b-b503-46f6-98da-73133043b52f,Ocina John Paul,Nasunog nga gawa ng bulkan,"Mabuhay po! Nauunawaan po namin na kayo ay nasalanta ng sunog na dulot ng bulkan. Upang agad naming maipasa ang inyong kahilingan sa aming emergency team, pakibigay po ang mga sumusunod na detalye:
+
+1. **Tunay na pangalan:**  
+2. **Barangay at eksaktong lokasyon:**  
+3. **Malapit na landmark (hal. simbahan, paaralan, kanto, atbp.):**  
+4. **Contact number (mobile o landline):**  
+5. **Anong tulong ang kailangan nin",groq,2026-08-26T13:08:21.132+00:00
+86472b5a-dc12-4643-8ac2-d830386831bb,Ocina John Paul,"Villegas, Justine Lay
+Poblacion 23456
+Malapit sa motel
+0912345678
+Naipit ng bumagsak na kisame gawa ng sunog","Paumanhin po, ngunit ang aming serbisyo ay tumutugon lamang sa mga pangangailangan dulot ng natural na kalamidad tulad ng bagyo, lindol, o pagput",groq,2026-08-26T13:08:38.988+00:00
+864a3ccc-76a5-4b76-aef7-2487c4ecb2d5,Ocina John Paul,Bat putol,"Pasensya po sa abala. Ang aming serbisyo ay nakatuon lamang sa pagtulong sa mga nasalanta ng **natural na kalamidad** tulad ng bagyo, lindol, at pagputok ng bulkan. Dahil ang insidente na binanggit ninyo ay sunog mula sa bumagsak na kisame—na hindi direktang dulot ng nabanggit na mga kalamidad—hindi po namin ito kayang tugunan.
+
+Kung ang sunog ay resulta ng **",groq,2026-08-26T13:08:51.567+00:00
+m_in-sIAy68HOXFiuAr23FAAojfMp8MaUUULmYoiIsQyJbfECeQQ0CnjRfub89JtwzbXd3otNPig9UABGLpRcszg,Sedrick Opulencia,"Wala na po kameng makain simula nung umaga pa dito sa Barangay Aya at hindi pa po humuhupa ang baha kaya hindi po kame makalabas din, baka po may pagkain kayo na pedeng ipadala dito","Magandang gabi po, Sedrick Opulencia! Naitala po:
+
+📍 Brgy. Aya
+🚨 Tulong: Pagkain/Supply (baha)
+
+Paki-bigay po ang:
+📍 Landmark:
+📞 Contact No.:
+
+Siguraduhing tama ang detalye dahil ito ang basihan ng aksyon ng aming team para sa mga nasalanta ng kalamidad sa Talisay.",gemini,2026-09-04T14:00:39.693+00:00
+m_2creRWv7h-ImxifmtR3HUgojfMp8MaUUULmYoiIsQyKXQOGd6VmgDprpn9BKEmhb8oFI9xymXFj8xENZkTWpJQ,Sedrick Opulencia,Malapit po kame dito sa kanto yung marami pong adik na nakatambay,"Salamat, Sedrick Opulencia! Naitala na po:
+
+📍 Brgy. Aya (Kanto)
+🚨 Tulong: Pagkain/Supply
+
+Paki-bigay po ang inyong Contact No.
+
+Siguraduhing tama ang detalye dahil ito ang basihan ng aksyon ng aming team para sa mga nasalanta ng kalamidad sa Talisay.",gemini,2026-09-04T14:02:23.482+00:00
+m_fE16mnLnRJ2RoWv3yaggCgojfMp8MaUUULmYoiIsQyIyUG1Liuj9FRlR121Mh3AHio9uNFx3b4Vh6PklJS9IHw,Sedrick Opulencia,Ito din plaa po contact number ko 09696969696,"<think>
+Here's a thinking process:
+
+Analyze User Input:
+   - User says: ""Ito din plaa po contact number ko 09696969696""
+   - Context: The user (Sedrick Opulencia) previously reported being in Brgy. Aya, near a corner with many drug users, requesting food/supply due to flooding. The bot asked for a contact number.
+   - User provides: 09696969696
+
+Check Constraints:
+   - Role: Tagalog AI bot assistant for MDRRMC Talisay Batangas 4220 Philippines
+   - Must ask/gather details: name (already known), barangay, landmark, contact, type of help
+   - After gathering, remind user to verify details as it's the basis for team action
+   - Focus: Only for victims of typhoon, earthquake, Taal volcano eruption, and natural disasters in Talisay Batangas 4220
+   - Keep responses short: Under 300 characters
+   - Use name respectfully: ""Sedrick Opulencia"" (no titles/prefixes)
+   - Do not ask for name again
+   - Language: Tagalog
+
+Draft Response (Mental Refinement):
+   Salamat, Sedrick Opulencia!",groq,2026-09-04T14:02:31.107+00:00
+56648e84-2f00-4e14-ab9e-598d9bf20edb,Samson Jefferson,joel bigtay,"Salamat po, Joel Bigtay. Naitala po namin ang inyong pangalan.
+
+Upang mabilis po naming maipadala ang emergency rescue team para sa bata, kailangan pa po namin ang mga sumusunod na kulang na detalye:
+
+1. **Barangay sa Caloocan:** Saang barangay po eksaktong nangyari ang pagbaha at pagka-anod sa bata?
+2. **Landmark:** Ano pong malapit na tulay, sapa, o kilalang lugar/gusali kung saan huling nakita ang bata upang doon mag-umpisa ang paghahanap?
+
+Narito po ang hawak naming detalye sa kasalukuyan:
+* **Tunay na Pangalan:** Joel Bigtay
+* **Brgy. Location:** Caloocan *(Hinihintay pa po ang Barangay)*
+* **Landmark:** *(Hinihintay pa po)*
+* **Numero o Contact:** 09123123533
+* **Tulong na kailangan:** Emergency Search and Rescue (dahil sa baha)
+
+*Paalala po: Siguraduhing tama ang mga detalye na inyong ibibigay dahil ito ang basihan ng aming team sa pag-sasagawa ng aksyon, depende sa inyong kailangan. Ang aming team po ay nakafocus lamang sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang mga natural na kalamidad (tulad ng baha sa inyong lugar).*
+
+Paki-send po agad ang inyong **Barangay** at **Landmark** upang agad na makapagsagawa ng aksyon ang ating rescue team. Mag-ingat po kayo riyan.",gemini,2026-08-26T12:52:05.212+00:00
+0f6caef8-a8fd-4fb9-bce6-afdcb5131805,Samson Jefferson,Bonggoy ho pangalan ko are ho number ko 09344728583,"Maraming salamat po sa pagbibigay ng inyong pangalan at contact number, **Bonggoy** (09344728583).
+
+Upang makapagpadala po agad ang aming rescue team ng tulong, kailangan pa po naming ang mga sumusunod na detalye:
+
+1. **Barangay, Lungsod at Probinsya:** Saang barangay, lungsod (o bayan) at probinsya po naganap ang insidente?  
+2. **Landmark:** Ano pong pinakamalapit na kilalang lugar (tulay, simbahan, paaralan, tindahan, o iba pang palatandaan) na makakatulong sa aming mga rescuer na madaling mahanap ang lokasyon?  
+3. **Tulong na kailangan:** Ano po ang eksaktong uri ng tulong na inyong hinihingi (hal. emergency rescue/search‑and‑rescue, medikal na tulong, pagkain at supply, iba pa)?
+
+*Paalala po: Siguraduhing tama at kumpleto ang mga detalye na inyong ibibigay dahil ito ang magiging batayan",groq,2026-08-26T14:57:46.744+00:00
+8575f01c-2b19-4885-995f-bf163b940413,Samson Jefferson,Brgy miranda malapit sa ilog ilaya,"Maraming salamat po sa karagdagang impormasyon! Upang agad naming maipasa ang inyong kahilingan sa aming rescue team, kailangan pa po namin ang ilang detalye:
+
+1. **Tunay na Pangalan:** (Sino po ang nag-uulat?)
+2. **Lungsod at Probinsya:** Saang bayan/lungsod at probinsya po matatagpuan ang **Brgy. Miranda**?
+3. **Numero o Contact:** (Ano pong numero ang maaari naming tawagan o i‑text?)
+4. **Tulong na kailangan:** (Halimbawa: emergency rescue/search‑and‑rescue, medikal na tulong, pagkain at supply, iba pa)
+
+*Paalala po: Siguraduhing tama at kumpleto ang mga detalyeng inyong ibibigay dahil ito po ang magiging batayan ng aming team sa pagsasagawa ng aksyon.*  
+
+Maraming salamat po, at mag‑ingat po",groq,2026-08-26T14:58:15.292+00:00
+70d3b62b-fd9f-460c-a165-966d0cf48d13,Samson Jefferson,"Madami dami po kailanhan maka likas dine sa brgy miranda sana po ma rescue kami
+
+Bonggoy ho pangalan ko are ho number ko 09344728583","Maraming salamat po sa pagbibigay ng inyong pangalan at contact number, **Bonggoy** (09344728583).
+
+Upang agad naming maipasa ang kahilingan ninyo sa aming rescue team, kailangan pa po naming ang mga sumusunod na detalye:
+
+1. **Lungsod at Probinsya:** Saang bayan/lungsod at probinsya po matatagpuan ang **Brgy. Miranda**?
+2. **Landmark:** Ano pong pinakamalapit na kilalang lugar (tulay, ilog, simbahan, paaralan, tindahan, o iba pang palatandaan) na makakatulong sa aming mga rescuer na madaling mahanap ang lokasyon?
+3. **Tulong na kailangan:** Kumpirma",groq,2026-08-26T14:58:41.4+00:00
+4bdf92df-9392-436b-a445-68d9e39c4137,Samson Jefferson,Talisay batangas ho kailangan ng rescue,"Magandang araw po! Salamat sa pag‑ulat ninyo na kailangan ng rescue sa **Talisay, Batangas**.  
+Upang agad naming maipasa ang kahilingan sa aming rescue team, kailangan po naming ang mga sumusunod na detalye:
+
+1. **Tunay na Pangalan** (pangalan po ng nag‑uulat)  
+2. **Barangay** sa Talisay kung saan naganap ang pangyayari  
+3. **Landmark** – pinakamalapit na ilog, tulay, simbahan, paaralan, tindahan, o anumang palatandaan na makakatulong sa aming rescuer na mahanap ang lokasyon  
+4. **Numero o Contact** na maaari naming taw",groq,2026-08-26T14:59:27.607+00:00
+2e11feb1-a063-47fc-b48f-bdb2660e1073,Samson Jefferson,Salamat,"Maraming salamat po sa inyong mensahe. Upang agad naming maipasa ang kahilingan ninyo sa aming rescue team, kailangan po naming ang kumpletong detalye:
+
+1. **Tunay na Pangalan** (pangalan po ng nag-uulat)  
+2. **Barangay** sa Talisay, Batangas kung saan naganap ang pangyayari  
+3. **Landmark** – pinakamalapit na ilog, tul",groq,2026-08-26T14:59:31.272+00:00
+m_v5aki7FI5q1XQ4kYNJHUtdg6eG5Oh-YFV4phGSVs1XoldULdnlFHOxUclFN1i--GPoLvL0FNuWa_ehdrha2PGw,Samson Jefferson,Magandang gabi,"Magandang gabi rin po, Samson Jefferson! Tama po ba ang detalye?
+
+Brgy: Aya
+Landmark: Sa tulay
+Contact: 0923123125
+Tulong: Search & Rescue (bata)
+
+Siguraduhing tama ang detalye dahil ito ang basihan ng aming team sa pag-aksyon para sa mga nasalanta ng kalamidad dito sa Talisay Batangas.",gemini,2026-09-04T15:57:37.736+00:00
+m_DDuU3QOLYISQCBNafOjfNNg6eG5Oh-YFV4phGSVs1XoMRfjEOPTF_50hsybfOQgCX_bImsTy2qm-G1ZnM5ychA,Samson Jefferson,Magandang tanghali po,"Magandang tanghali po, G. Jefferson Samson! Ano po ang maipaglilingkod ko sa inyo? Pakibigay ang:
+
+-Barangay sa Talisay
+-Landmark
+-Contact No.
+-Kailangang tulong
+
+Siguraduhing tama ang detalye dahil ito ang aming basihan sa pag-aksyon para sa mga nasalanta ng kalamidad.",gemini,2026-09-02T03:14:08.569+00:00
+5c0e4343-6bd2-454b-8913-d653dae22f5a,Ocina John Paul,Nigga,"Mabuhay po! Upang matulungan po kayo ng aming team, maaari po ba ninyong ibigay ang mga sumusunod na detalye?
+
+1. **Tunay na pangalan:**  
+2. **Barangay at eksaktong lokasyon:**  
+3. **Landmark na malapit sa inyo:**  
+4. **Numero o contact number:**  
+5. **Tulong na kailangan?** *(hal. medical, emergency, supply at pagkain, atbp.)*  
+
+**Paalala:** Siguraduhin pong tama ang mga detalye na inyong ibibigay dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon, depende sa inyong kailangan. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang mga natural na kalamidad.",gemini,2026-08-29T14:14:33.772+00:00
+1d304f81-9594-4a47-a6b2-e1952a819a4c,Ocina John Paul,Someone's got stabbed near Pob. 1 can you help us?,"Naiintindihan po namin ang sitwasyon ninyo at handa kaming tumulong hangga’t makakaya. Upang maipasa po namin agad ang inyong kahilingan sa aming emergency team,",groq,2026-08-26T13:05:22.688+00:00
+58f646bc-cc9d-407f-ab18-99ab3eef3c27,Ocina John Paul,Huhu wala napo ako oras mag fill up need ko na po ng tulong agad natumbahan po ng pader manoo namin😭,"Naiintindihan ko po, emergency po ito. Para po maipadala namin agad ang emergency rescue team sa inyo, paki-type po agad ang mga mabilisang detalyeng ito:
+
+1. **Tunay na Pangalan mo o ng Lolo mo:**
+2. **Barangay at Lokasyon:**
+3. **Malapit na Landmark:**
+4. **Numero o Contact Number:**
+5. **Tulong na kailangan:** (Medical at emergency rescue po ba?)
+
+**Mahalagang Paalala:** Siguraduhin po na **tama ang lahat ng detalye** na inyong ibibigay dahil ito ang magiging basihan ng aming team para mabilis kayong mahanap at matulungan. 
+
+Ang aming team ay nakatutok lamang sa pagtugon sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad. Paki-send po agad ang detalye!",gemini,2026-08-26T08:05:51.782+00:00
+fc267c96-0c18-4e72-bac8-6e2be22419c5,Ocina John Paul,Patay na lolo ko,"Lubos po kaming nakikiramay sa inyo. Napakabilis at napaka-urgent po ng sitwasyong ito. Upang maipadala po namin agad ang emergency rescue at retrieval team sa inyong lokasyon, pakiusap po ay ibigay ninyo agad ang mga detalyeng ito:
+
+1. **Tunay na Pangalan ng Lolo at ng Nagre-report:**
+2. **Barangay at eksaktong Lokasyon:**
+3. **Sikat na Landmark malapit sa inyo:**
+4. **Numero o Contact Number:**
+5. **Tulong na kailangan:** (Emergency rescue, retrieval, o medical assistance po ba?)
+
+**Mahalagang Paalala:** Pakiusap po, siguraduhing **tama ang lahat ng mga detalye** na inyong ibibigay dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng mabilisang aksyon. 
+
+Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad. I-send po agad ang detalye para makapunta agad ang team.",gemini,2026-08-26T08:06:23.279+00:00
+2e8b9425-0bb6-43cb-803f-ea8eef570b3e,Ocina John Paul,Manok po namin ang naipit,"Pasensya na po sa pagkakamali, manok po pala ang naipit ng pader at hindi ang inyong lolo. 
+
+Upang matulungan po kayo ng aming team kung kayo ay kasalukuyang nasalanta ng kalamidad, maaari ninyo bang ibigay ang mga sumusunod na detalye?
+
+1. **Tunay na pangalan:**
+2. **Barangay at Lokasyon:**
+3. **Landmark na malapit sa inyo:**
+4. **Numero o Contact Number:**
+5. **Tulong na kailangan?** *(Medical, emergency rescue, supply at pagkain, atbp.)*
+
+**Mahalagang Paalala:** Pakiusap na siguraduhing tama ang lahat ng mga detalye na inyong ibibigay dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon, depende sa inyong pangangailangan. 
+
+Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.",gemini,2026-08-26T08:06:35.606+00:00
+9fcffb50-1efc-4646-8a05-d0939f53b6e3,Ocina John Paul,???,"Pasensya po sa pagkalito. Upang matulungan po kayo ng aming team, maaari po ba ninyong ibigay ang mga sumusunod na detalye?
+
+1. **Tunay na pangalan:**  
+2. **Barangay at eksaktong lokasyon:**  
+3. **Landmark na malapit sa inyong kinaroroonan:**  
+4. **Numero o contact number:**  
+5. **Anong tulong ang kailangan ninyo?** *(hal. medikal, emergency rescue, supply at pagkain, atbp.)*  
+
+**Paalala:** Pakisiguro po na tama at kumpleto ang lahat ng impormasyon dahil ito ang magiging batayan ng aming team sa mabilis na pag‑responde. Salamat po!",groq,2026-08-26T13:09:24.562+00:00
+43a5c289-89ad-43d5-9983-f7f4448c949b,Ocina John Paul,"John Dark Choco
+Sa Brgy Sampaloc malapit sa Jollibee ata tas ang number ay 09153582613 at kelangan po ng medical","Maraming salamat po sa pagbibigay ng impormasyon. Narito po ang naitala naming detalye:
+
+1. **Tunay na pangalan:** John Dark Choco  
+2. **Barangay at lokasyon:** Brgy. Sampaloc  
+3. **Landmark:** Malapit sa Jollibee  
+4. **Contact number:** 0915‑358‑2613  
+5. **Kailangang tulong:** Medikal (medical assistance)
+
+**Paalala:** Pakisiguro po na tama at kumpleto ang mga detalye sa itaas dahil ito ang magiging batayan ng aming emergency team sa mabilis na",groq,2026-08-26T13:10:25.063+00:00
+m_4jaXy8X7CC8Ilo0qDyQoqwojfMp8MaUUULmYoiIsQyJJE2fwyq0nvq76eSQhRUBjbySNYvrCBGZkj0185nG8Ew,Sedrick Opulencia,Goodmorning po may alam kayong vaccination center dito sa Tumaway?,"Magandang araw po, Sedrick Opulencia! Ang MDRRMC po ay nakatutok lamang sa emergency dulot ng bagyo, lindol, o bulkang Taal sa Talisay.
+
+May emergency tulong po ba kayo? Siguraduhing tama ang mga detalye dahil ito ang basihan ng aksyon ng aming team sa pagresponde. Mag-ingat po!",gemini,2026-09-09T01:59:07.85+00:00
+m_ddCQpxxLOtFMEm2q3KS5cAojfMp8MaUUULmYoiIsQyJmfGRaIRiiX7SJzQFwreKccvZVYzb7ueyfd7UOE7I8cg,Sedrick Opulencia,Wala po,"Salamat po, Sedrick Opulencia! Kung magkaroon ng emergency dulot ng bagyo, lindol, o Bulkang Taal sa Talisay, mag-abiso lamang. 
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aksyon ng aming team sa pagresponde. Mag-ingat po kayo!",gemini,2026-09-09T01:59:43.096+00:00
+c273cf1e-d3fb-4904-9b9b-84421c578f38,Samson Jefferson,Magandang umaga,"<think>
+
+</think>
+
+Magandang umaga! Para matulungan kayo ng MDRRMC Talisay, pakibigay: Tunay na Pangalan, Barangay, Landmark, Contact No., at Tulong na kailangan (rescue, med, etc.). Siguraduhing tama ang detalye dahil ito ang aming basihan sa pag-aksyon sa kalamidad.",groq,2026-08-30T03:31:28.87+00:00
+m_UCejdsbE_VTiziYylKeMG9g6eG5Oh-YFV4phGSVs1Xo1hw2WYZaLcKc6vga26E3dIZeZf3NYKf5BOcmF5M4TQg,Samson Jefferson,Bakit inulit mo,"Pasensya na po, Samson Jefferson! Sinisigurado lang po natin ang inyong kumpirmasyon. Siguraduhing tama ang mga detalye dahil ito ang basihan ng aming team sa pag-sasagawa ng aksyon para sa nasalanta ng kalamidad dito sa Talisay Batangas. Kumpirmado po ba ang inyong ulat?",gemini,2026-09-04T15:58:23.283+00:00
+m_50e6QqwHqdeOzwO6HIr7g9g6eG5Oh-YFV4phGSVs1XpKNZfd_EiA-ug8hIcCrpQnpUOj-V3WEeGrtZVcZUFUOA,Samson Jefferson,"Ako hoy taga pob 4 malapit sa manukan, kailangan po namin ng rescue para makalipat ng evacuation center
+
+Are ho number ko 09373647388","Maraming salamat, G. Jefferson Samson. Tama po ba ang detalye?
+
+-Brgy: Pob 4
+-Landmark: Malapit sa manukan
+-Contact: 09373647388
+-Tulong: Rescue
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aming team sa pag-aksyon para sa mga nasalanta ng kalamidad sa Talisay.",gemini,2026-09-02T03:16:17.007+00:00
+m_-8O9VXKjlzPsY34iVdtFstg6eG5Oh-YFV4phGSVs1Xogtzb1Qm-Fzah7OkVztBgqTUK3NSor2i4_ow7BTXyh0w,Samson Jefferson,magandang gabi po,"Magandang gabi po, Samson Jefferson! Ano po ang maipaglilingkod ko sa inyo? 
+
+May bago pa po ba kayong ulat o kailangang tulong ukol sa kalamidad sa Talisay Batangas? Siguraduhing tama ang mga detalye dahil ito ang basihan ng aming team sa pag-sasagawa ng aksyon.",gemini,2026-09-09T12:03:04.989+00:00
+f53a06f1-c3cb-421c-ae96-9411a8c7c02b,Samson Jefferson,Magandang araw po,"Magandang araw din po sa inyo. Kami po ay narito upang tumulong sa mga nasalanta ng mga natural na kalamidad tulad ng bagyo, lindol, pagputok ng bulkan, at iba pa.
+
+Upang mabilis po kayong marespondehan at matulungan ng aming team, maaari niyo po bang ibigay ang mga sumusunod na detalye:
+
+1. **Tunay na Pangalan:**
+2. **Brgy. Location (at Lungsod/Probinsya):**
+3. **Landmark (malapit na kilalang lugar, tindahan, o gusali):**
+4. **Numero o Contact Number:**
+5. **Tulong na kailangan** *(Medical, Emergency rescue, Supply at pagkain, o iba pa)*:
+
+*Paalala po: Paki-siguradong tama at kumpleto ang lahat ng detalye na inyong ibibigay dahil ito po ang magiging basihan ng aming team sa pag-sasagawa ng aksyon para sa inyong kaligtasan.*",gemini,2026-08-24T03:30:20.5+00:00
+00a9a6c9-04fc-4336-9013-7f715ed94e44,Samson Jefferson,"Brgy aya lang po malapit sa paradahan ng tricycle contact po 09472726387
+
+Kailangan po namin ng medical na tulong  dine kahit ambulansya may naipit ho dine ng bumagsak na puno salamat","Naiintindihan po namin ang inyong emergency na sitwasyon. Upang agad na makarating ang aming rescue at medical team sa inyong lokasyon para saklolohan ang naipit ng puno, kailangan pa po namin ang ilang kulang na detalye. 
+
+Maaari po bang pakibigay ang mga sumusunod:
+
+1. **Tunay na Pangalan:** (Sino po ang aming hahanapin o kokontakin pagdating ng rescue team?)
+2. **Lungsod at Probinsya:** (Saang bayan/lungsod at probinsya po matatagpuan ang Brgy. Aya?)
+
+Narito po ang mga detalye na nakuha na namin sa inyo:
+*   **Brgy. Location:** Brgy. Aya *(hihintayin po namin ang Lungsod/Probinsya)*
+*   **Landmark:** Malapit sa paradahan ng tricycle
+*   **Numero o Contact:** 09472726387
+*   **Tulong na kailangan:** Emergency Medical Rescue / Ambulansya (may naipit sa bumagsak na puno)
+
+*Paalala po: Pakisiguradong tama at kumpleto ang lahat ng detalyeng inyong ibibigay dahil ito po ang magiging basihan ng aming team sa pag-sasagawa ng agarang aksyon. Ang aming team po ay nakatutok sa mabilisang pagtulong sa mga nasalanta ng kalamidad tulad ng bagyong nagdulot ng pagbagsak ng puno sa inyong lugar.*",gemini,2026-08-24T05:17:12.451+00:00
+9c7d51c0-cb43-4e5e-b15f-7c40309bfe40,Ocina John Paul,Tama po,"Maraming salamat po sa pag‑kumpirma ng inyong mga detalye. Ipapa‑pasok na po namin ang inyong kahilingan sa aming emergency team upang agad na maipadala ang kinakailangang medikal na tulong.
+
+**Paalala:** Kung sakaling may pagbabago o karagdagang impormasyon (hal. bagong contact number, ibang lokasyon, o karagdagang pangangailangan), pakisabi po agad upang mas mapabilis ang aming pagtugon.
+
+Nasa mabuting kamay po kayo. 🙏",groq,2026-08-26T13:10:44.87+00:00
+577fc45c-6760-47bc-9f1f-36159df3f15f,Samson Jefferson,Magandang umaga,"<think>
+Thinking Process:
+
+Analyze the Request:
+    *   User Input: ""Magandang umaga"" (Good morning).
+    *   Persona: Tagalog AI bot assistant ng MDRRMC Talisay Batangas 4220 Philippines.
+    *   Goal: Greet back, ask for necessary details (Name, Barangay, Landmark, Contact, Help needed), remind about accuracy, state focus (disaster victims in Talisay), and keep it under 300 characters.
+
+Drafting the Response (Internal Monologue & Trial):
+       Draft 1:* Magandang umaga po! MDRRMC Talisay ito. Pakibigay ang inyong Tunay na Pangalan, Barangay, Landmark, Contact No., at Tulong na kailangan (rescue, med, etc.). Siguraduhing tama ang detalye dahil ito ang basihan ng aming pag-aksyon sa mga kalamidad sa Talisay.
+       Character Count Check (Draft 1):* ~260 characters. Good.
+       Content Check:*
+        *   Greeting? Yes.
+        *   Ask details? Yes (Name, Brgy, Landmark, Contact, Help).
+        *   Reminder? Yes.
+        *   Focus? Yes (",groq,2026-08-30T03:31:29.477+00:00
+m_poeyTZPw1otOygoacmFnvNg6eG5Oh-YFV4phGSVs1XrHtRB6ohhfHKPGcnKEsASi1IhZUn-0MG9uwn1oIoBIfQ,Samson Jefferson,Tama po,"Salamat sa kumpirmasyon, Jefferson Samson! Naipasa na ang inyong detalye sa aming team. Siguraduhing tama ang mga ito dahil ito ang aming basihan sa pag-aksyon para sa mga nasalanta ng kalamidad dito sa Talisay. Mag-ingat po habang naghihintay ng rescue!",gemini,2026-09-02T03:23:08.542+00:00
+m_l9GLIQwZwuPJhiM2O5rdqbNLZslaRe8FEJXRU94BDARXQno-AhnojAF7BpYzTvSjfDkKUCIfhQCTIWuMCnffiQ,Ocina John Paul,Hello,"Magandang araw po, User 8440! Ano po ang maipaglilingkod ko sa inyo?
+
+Pakibigay ang:
+Pangalan
+Barangay sa Talisay
+Landmark
+Contact number
+Tulong na kailangan
+
+Siguraduhing tama ang detalye dahil ito ang basihan ng aming aksyon para sa mga nasalanta ng natural na kalamidad.",gemini,2026-09-02T03:22:38.138+00:00
+m_l8la524AiyAADIT9vmWKwrNLZslaRe8FEJXRU94BDAQULAsfW8gxTWBjz9ygntDZIWU4XvqoHGqrRvx0FkxIlg,Ocina John Paul,Magandang araw,"Magandang araw po, User 8440! Ano po ang maipaglilingkod ko sa inyo?
+
+Pakibigay ang:
+Pangalan
+Barangay sa Talisay
+Landmark
+Contact #
+Tulong (rescue, medical, pagkain)
+
+Siguraduhing tama ang detalye dahil ito ang basihan ng aming aksyon para sa mga nasalanta ng kalamidad sa Talisay.",gemini,2026-09-02T03:23:00.329+00:00
+473760f1-0999-43c6-bd3e-4a791de64e27,Ocina John Paul,That's absolutely correct!,"Maraming salamat sa pag-kumpirma! Ipinapasa na po ang inyong detalye sa aming emergency team upang maipadala agad ang tulong na pagkain.
+
+Ang MDRRMC Talisay Batangas 4220 ay nakatutok sa mabilis na pag-aksyon para sa mga nasalanta ng natural na kalamidad. Manatili pong ligtas!",gemini,2026-08-30T03:57:27.816+00:00
+8927f840-cec0-4cd6-93d0-f696def683c4,Ocina John Paul,Thank you po,"Walang anuman po! Makakaasa kayo na ginagawa ng MDRRMC Talisay Batangas 4220 ang lahat upang maipadala ang tulong. 
+
+Siguraduhin lamang pong tama ang inyong detalye dahil ito ang aming basihan sa pag-aksyon para sa mga nasalanta ng natural na kalamidad. Manatili pong ligtas!",gemini,2026-08-30T03:57:47.612+00:00
+459508d1-5fa0-45e0-9242-c16a12822c39,Sedrick Opulencia,"Ako po si Berto, taga Poblacion 1 malapit sa kanto, mataas na po ang baha dito sa Barangay namin at nadala po ng baha yung kapatid ko at kasalukuyang po naming hinahanap pa ngayon, kung maari po na tulungan niyo kami sa paghahanap","Maraming salamat sa pag-ulat, Berto. Ikinalulungkot namin ang inyong sitwasyon at gagawin namin ang lahat para maiparating ito agad sa aming emergency rescue team para sa inyong kapatid.
+
+Para po maipadala namin ang tulong sa lalong madaling panahon, may ilang detalye pa po kaming kailangang linawin at kunin. Pakisagot po ang mga sumusunod:
+
+1. **Tunay na Buong Pangalan:** (Ano po ang inyong buong pangalan at pangalan ng inyong kapatid?)
+2. **Siyudad o Munisipyo:** (Saang bayan o lungsod po matatagpuan ang Barangay Poblacion 1?)
+3. **Tiyak na Landmark:** (Mayroon po bang mas malapit na sikat na gusali, paaralan, simbahan, o tindahan malapit sa inyong kanto?)
+4. **Numero o Contact Number:** (Saan pong numero kayo maaaring tawagan o i-text ng rescue team?)
+
+**Paalala:** *Siguraduhin pong tama at kumpleto ang lahat ng detalye na inyong ibibigay dahil ito ang magiging tanging basihan ng aming team sa pag-sasagawa ng agarang aksyon. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, baha, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*",gemini,2026-08-24T03:40:30.714+00:00
+m_nH6PxztkAmRB4daXhj921dg6eG5Oh-YFV4phGSVs1Xqft0mWl8i7UfThETuaPTY9o_K7N-xZWjY61hUri6C_xg,Samson Jefferson,May irereport po ako,"Magandang gabi po, Samson Jefferson! Ano po ang maipaglilingkod ko sa inyo? Pakibigay po ang:
+
+Barangay sa Talisay
+Landmark
+Contact No.
+Tulong na kailangan
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aming team sa pag-aksyon sa mga nasalanta ng kalamidad.",gemini,2026-09-04T18:30:50.512+00:00
+m_jjyT6Rz0Ank1ZsSb-TKvtdg6eG5Oh-YFV4phGSVs1XowXLrOw8ONU8Qnbd94xMgXJGLkIUFIv7OiFcdppRL9vQ,Samson Jefferson,may bago hong i rereport e,"Magandang gabi, Samson Jefferson! Ano po ang bagong ulat? Pakibigay po ang Barangay sa Talisay, Landmark, Contact No., at Tulong na kailangan.
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aming team sa pag-aksyon sa mga nasalanta ng kalamidad sa Talisay Batangas.",gemini,2026-09-09T12:03:44.69+00:00
+m_2iVHAu5dRYm34L8V7AQJtNg6eG5Oh-YFV4phGSVs1XoJ7Nmbw_MDrR-ZjgB6rkyfUCNmoivWKvDSTv0uaMKFxA,Samson Jefferson,Salamat po,"Walang anuman, Jefferson Samson! Naka-handa na ang aming team sa MDRRMC Talisay batay sa inyong binigay na detalye. 
+
+Manatili po kayong ligtas habang naghihintay ng responde para sa inyong emergency dulot ng kalamidad. Mag-ingat po kayo lagi!",gemini,2026-09-02T04:11:31.241+00:00
+2426d80c-3aee-4ab3-98ce-d0f393f1f366,Ocina John Paul,Hellow,"Magandang araw! Ako ang bot ng MDRRMC Talisay Batangas. Pakibigay ang:
+
+Tunay na pangalan
+Barangay
+Malapit na landmark
+Contact number
+Tulong na kailangan
+
+Siguraduhing tama ang detalye dahil ito ang basihan ng aming aksyon para sa nasalanta ng natural na kalamidad.",gemini,2026-08-30T03:55:32.414+00:00
+e189c38f-d95e-49ad-8de3-64a9d4de9162,Ocina John Paul,Hello,"Magandang araw mula sa MDRRMC Talisay! Pakibigay po ang:
+
+Tunay na pangalan
+Barangay sa Talisay
+Landmark
+Contact number
+Tulong na kailangan (rescue, medical, pagkain)
+
+Siguraduhing tama ang detalye dahil ito ang basihan ng aming aksyon sa mga nasalanta ng natural na kalamidad.",gemini,2026-08-30T03:55:43.251+00:00
+97ed208f-17db-4db5-acc4-551587212e07,Sedrick Opulencia,"Ako po si Justine Dimautugan taga Barangay Quiling, tumaas na po ang baha dito at lumikas na po kami sa malapit na evacuation center, sa bilis po ng pagtaas ng baha wala na pong kaming nasalbang gamit at ngayon po humihingi po kame ng supplies para po sa mga bata. Ang kontak number ko po ay 09162625369 nasa school po kame","Magandang hapon po, Justine Dimautugan. Naitala ko na po ang iyong pangalan, contact number na 09162625369, at ang inyong pangangailangan para sa mga supplies para sa mga bata dahil sa pagbaha.
+
+Upang mas mabilis na makarating ang tulong ng aming team sa inyong kinaroroonan, kailangan pa po namin ang ilang mahahalagang detalye:
+
+1. **Siyudad o Munisipyo:** Saang bayan o lungsod po matatagpuan ang **Barangay Quiling**?
+2. **Pangalan ng Paaralan/Evacuation Center (Landmark):** Ano po ang partikular na pangalan ng school o evacuation center kung nasaan kayo ngayon?
+
+*Paalala: Siguraduhin pong tama at kumpleto ang lahat ng detalyeng inyong ibibigay dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon, depende sa inyong pangangailangan. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, baha, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*",gemini,2026-08-24T08:14:23.015+00:00
+76ee3268-67a4-4323-9c55-98f7319c192c,Sedrick Opulencia,Nasa school po kame ngayon,"Maraming salamat sa pagtugon, Justine. Para po mahanap at mapuntahan kayo agad ng aming team upang maihatid ang mga supplies para sa mga bata, kailangan po namin ang mga karagdagang detalyeng ito:
+
+1. **Pangalan ng Paaralan (Landmark):** Ano po ang partikular na pangalan ng school na inyong tinutuluyan ngayon? (Halimbawa: *Quiling Elementary School*)
+2. **Siyudad o Munisipyo:** Saang bayan o lungsod po matatagpuan ang **Barangay Quiling**?
+
+**Paalala:** *Siguraduhin pong tama ang lahat ng mga detalyeng inyong ibibigay dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon para sa inyong pangangailangan. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, baha, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*",gemini,2026-08-24T08:14:45.17+00:00
+9ed47173-cdba-4f19-b1dc-c432adde04fe,Sedrick Opulencia,Magandang umaga po,"Magandang umaga rin po sa inyo! Ako ang inyong AI assistant na nakatalagang kumuha ng inyong mga detalye upang maiparating sa aming emergency response team. 
+
+Maaari niyo po bang ibigay ang mga sumusunod na impormasyon para sa inyong hiling na tulong?
+
+1. **Tunay na Pangalan:**
+2. **Barangay (Brgy) at Siyudad/Munisipyo (Lokasyon):**
+3. **Landmark** (Malapit na sikat na lugar, simbahan, paaralan, o gusali):
+4. **Numero o Contact Number:**
+5. **Tulong na kailangan** (Medical, emergency rescue, supply at pagkain, o iba pa):
+
+**Paalala:** *Siguraduhin pong tama at kumpleto ang lahat ng detalyeng inyong ibibigay dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon, depende sa inyong pangangailangan. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, baha, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*",gemini,2026-08-25T03:21:43.275+00:00
+4a30ccc8-e386-43d2-a3aa-a72397f7d952,Sedrick Opulencia,"Ako po si Mark Panganiban taga talisay, barangay buco at ang kontak number ko po ay 09282837726","Maraming salamat po, Mark Panganiban. Naitala ko na po ang inyong pangalan, lokasyon na **Barangay Buco, Talisay**, at ang inyong contact number na **09282837726**.
+
+Upang mas mabilis po kayong matunton ng aming relief team para maihatid ang mga kailangang gamit na pamalit at mahihigan, mayroon na lamang po kaming isang mahalagang katanungan:
+
+1. **Pangalan ng Evacuation Center (Landmark):** Ano pong partikular na paaralan, covered court, simbahan, o gusali ang inyong tinutuluyan ngayon diyan sa Barangay Buco?
+
+**Paalala:** *Siguraduhin pong tama ang lahat ng mga detalyeng inyong ibibigay dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon, depende sa inyong pangangailangan. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, baha, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*",gemini,2026-08-25T09:37:36.899+00:00
+571e099a-7775-48e9-a549-9084ae08cebd,Sedrick Opulencia,hello,"Hello po! Ako ang inyong AI assistant na nakatalagang kumuha ng inyong mga detalye upang maiparating sa aming emergency response at relief team. 
+
+Maaari niyo po bang ibigay ang mga sumusunod na impormasyon para sa inyong hiling na tulong?
+
+1. **Tunay na Pangalan:**
+2. **Barangay (Brgy) at Siyudad/Munisipyo (Lokasyon):**
+3. **Landmark** (Malapit na sikat na lugar, simbahan, paaralan, o kilalang gusali):
+4. **Numero o Contact Number:**
+5. **Tulong na kailangan** (Medical, emergency rescue, supply at pagkain, o iba pa):
+
+**Paalala:** *Siguraduhin pong tama ang mga detalye na inyong ibibigay dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon, depende sa inyong pangangailangan. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, baha, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*",gemini,2026-08-25T12:17:50.298+00:00
+m_RfhwBG-77Twtdhxhk1rFhtg6eG5Oh-YFV4phGSVs1XqWLma8LoA2VDnsCIoR7542aqCsQBkj3DLrZHtd0DG7TA,Samson Jefferson,Ito po number ko,"Samson Jefferson, paki-ibigay po ang inyong contact number, barangay sa Talisay, landmark, at kailangang tulong (rescue, medical, etc.).
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aming team sa pag-sasagawa ng aksyon para sa nasalanta ng kalamidad sa Talisay Batangas.",gemini,2026-09-04T18:32:35.463+00:00
+m_D6B1E0BTImbDkZvRzq8lhdg6eG5Oh-YFV4phGSVs1XqUsjSNxn8wSYF3WKWqc73wwIa-ZoswA40mU9QTypVFMA,Samson Jefferson,09375773334,"Salamat, Samson Jefferson. Nakuha po ang numero (09375773334). Pakibigay po ang:
+
+Barangay sa Talisay
+Landmark
+Tulong na kailangan
+
+Siguraduhing tama ang detalye dahil ito ang basihan ng aming team sa pag-aksyon sa mga nasalanta ng kalamidad sa Talisay Batangas.",gemini,2026-09-04T18:32:54.46+00:00
+f339fdaa-f944-4942-93ad-a8996d22a48b,Samson Jefferson,Tulong po,"Nandito po kami para tumulong at naghahanda na ang aming rescue team para rumesponde. Subalit, napakahalaga po na maibigay ninyo ang mga kulang na detalye upang hindi maligaw ang mga sasaklolong ambulansya:
+
+1. **Tunay na Pangalan:** (Sino po ang aming hahanapin o kokontakin pagdating doon?)
+2. **Lungsod at Probinsya:** (Saang bayan/lungsod at probinsya po matatagpuan ang **Brgy. Aya**?)
+
+*Paalala po: Siguraduhing tama at kumpleto ang mga detalye na inyong ibibigay dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon. Ang aming team po ay nakapokus sa pagtulong sa mga nasalanta ng kalamidad, tulad ng bagyong nagdulot ng pagbagsak ng puno sa inyong lugar.*
+
+Paki-send po agad ang inyong **Pangalan** at **Lungsod/Probinsya**.",gemini,2026-08-24T06:28:08.631+00:00
+434bafa5-971b-421e-96d4-e9cb2f599b5a,Samson Jefferson,Ako po si rosmary taga santa maria talisay batangas,"Maraming salamat po, Ms. Rosmary. Upang masiguro po natin na hindi maliligaw ang ating emergency rescue team, nais lang po namin linawin ang inyong eksaktong lokasyon dahil nabanggit niyo po ang ""Brgy. Aya"" kanina at ngayon naman ay ""Santa Maria.""
+
+Maaari po bang pakikumpirma kung tama po ang mga nakalap naming detalye:
+
+1. **Tunay na Pangalan:** Rosmary 
+2. **Eksaktong Brgy. at Bayan:** Brgy. Aya po ba o Brgy. Santa Maria sa Talisay, Batangas? 
+3. **Landmark:** Malapit sa paradahan ng tricycle
+4. **Numero o Contact:** 09472726387
+5. **Tulong na kailangan:** Emergency Medical Rescue / Ambulansya (may naipit sa bumagsak na puno)
+
+*Paalala po: Paki-siguraduhing tama ang lahat ng detalye na inyong ibibigay dahil ito po ang magiging basihan ng aming team sa pag-sasagawa ng aksyon. Ang aming team po ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng kalamidad tulad ng bagyo, lindol, at pag-putok ng bulkan.*
+
+Pakisagot po agad kung **Brgy. Aya** o **Brgy. Santa Maria** ang eksaktong lokasyon para maipadala na po namin ang tulong.",gemini,2026-08-24T06:28:57.756+00:00
+1bad7c7c-8672-456d-839b-54e88113d6c3,Samson Jefferson,May sunog po dine ito ho number ko 098373376111 malapit sa palengke,"Naiintindihan po namin ang emergency na sitwasyon. Upang mabilis naming maaksyunan at maipasa ang impormasyon sa aming rescue team, kailangan po namin ang inyong kumpletong detalye.
+
+Maaari po bang pakibigay ang mga kulang na impormasyon:
+
+1. **Tunay na Pangalan:** (Sino po ang aming hahanapin o kokontakin?)
+2. **Brgy. Location (Lungsod/Probinsya):** (Saang barangay, bayan, at probinsya po ito?)
+3. **Tulong na kailangan:** (Emergency Fire Rescue / Bumbero po ba dahil sa sunog?)
+
+Narito po ang mga detalye na nakuha namin sa inyo ngayon:
+* **Landmark:** Malapit sa palengke
+* **Numero o Contact:** 098373376111
+
+*Paalala po: Siguraduhing tama at kumpleto ang mga detalye na inyong ibibigay dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon, depende sa inyong pangangailangan. Ang aming team po ay nakapokus lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang mga natural na kalamidad.*
+
+Paki-send po agad ang inyong **Pangalan** at **Eksaktong Barangay/Lungsod** upang makapag-responde agad ang team.",gemini,2026-08-24T06:29:47.011+00:00
+681c2bfd-57ea-40eb-9e15-7ad5ca9bb663,Samson Jefferson,Tama ho salamat,"Salamat po sa pag-kumpirma. Ngunit upang maipadala po namin ang tamang tulong at maipaabot ito sa mga kinauukulan, kailangan pa rin po namin ang mga kulang na detalye para sa ulat na ito:
+
+1. **Tunay na Pangalan:** (Kayo pa rin po ba si Ms. Rosmary o may ibang contact person para sa sunog na ito?)
+2. **Eksaktong Barangay, Lungsod, at Probinsya:** (Saang barangay, bayan/lungsod, at probinsya po matatagpuan ang palengke na may sunog? Ito po ba ay sa Talisay, Batangas pa rin?)
+
+Narito po ang mga detalye na hawak namin sa kasalukuyan:
+* **Landmark:** Malapit sa palengke
+* **Numero o Contact:** 098373376111
+* **Tulong na kailangan:** Pag-responde sa sunog (Bumbero / Emergency)
+
+*Paalala po: Paki-siguraduhing tama at kumpleto ang lahat ng detalye na inyong ibibigay dahil ito po ang magiging basihan ng aming team sa pag-sasagawa ng aksyon, depende sa inyong kailangan. Nais din po naming ipaalala na ang aming team ay nakapokus lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*
+
+Paki-send po agad ang inyong **Pangalan** at **Eksaktong Barangay, Lungsod, at Probinsya** upang agad naming maaksyunan ito.",gemini,2026-08-24T06:30:10.808+00:00
+5424d4a5-8fcd-4c30-97d4-fb5d5646fb53,Samson Jefferson,magandang umaga,"Magandang umaga po! Para matulungan ng MDRRMC Talisay, pakibigay ang:
+
+-Tunay na Pangalan
+-Barangay sa Talisay
+-Landmark
+-Contact No.
+-Kailangan na tulong (rescue, medical, etc.)
+
+Siguraduhing tama ang detalye dahil ito ang aming basihan sa pag-aksyon sa mga nasalanta ng kalamidad.",gemini,2026-08-30T03:57:50.345+00:00
+4a669db7-6f1f-49f5-9be8-a3b71bba208a,Samson Jefferson,magandang araw po nataas napo ang tubig dito sa brgy tranca,"Magandang araw din po. Nabatid po namin ang inyong sitwasyon ukol sa tumataas na tubig dyan sa Brgy. Tranca. 
+
+Upang agad na makapag-responde at makapagpadala ng tulong ang aming team, maaari niyo po bang ibigay ang mga sumusunod na detalye:
+
+1. **Tunay na Pangalan:** 
+2. **Lungsod at Probinsya:** (Saang bayan/lungsod at probinsya po matatagpuan ang Brgy. Tranca?)
+3. **Landmark:** (Malapit na kilalang lugar, simbahan, paaralan, o tindahan)
+4. **Numero o Contact:** 
+5. **Tulong na kailangan:** (Emergency rescue/evacuation, supply at pagkain, medical, o iba pa?)
+
+*Paalala po: Siguraduhing tama ang mga detalye na inyong ibibigay dahil ito po ang magiging basihan ng aming team sa pag-sasagawa ng aksyon, depende sa inyong kailangan. Ang aming team po ay nakapokus lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*
+
+Paki-send po agad ang inyong mga detalye upang mabilis po kayong maitala at matulungan.",gemini,2026-08-25T04:03:31.264+00:00
+3335190a-f7cd-40b3-8d9b-4d11eb4b7177,Ocina John Paul,"John Big Dih
+Brgy. Sampaloc 
+Malapit sa 7/11
+09123456789
+Need po ng pagkain gawa wala napo kameng stock na food","Salamat po! Naitala:
+Pangalan: John Big Dih
+Brgy: Sampaloc
+Landmark: Malapit sa 7/11
+Contact: 09123456789
+Tulong: Pagkain
+
+Pakisigurong tama ang detalye dahil ito ang basihan ng aming aksyon para sa mga nasalanta ng natural na kalamidad sa Talisay Batangas.",gemini,2026-08-30T03:56:54.381+00:00
+m_gxXDxc2l7lVJiQaB7geQPtg6eG5Oh-YFV4phGSVs1XrmZhFPgOmIaBRpBhYxjMtLZZR6n2O0wBB5y3lQKpdFsw,Samson Jefferson,Bakit po,"Samson Jefferson, kailangan po ang Barangay, Landmark, at Tulong na kailangan para mabilis na makapunta ang aming team.
+
+Siguraduhing tama ang detalye dahil ito ang basihan ng aming pag-aksyon sa mga nasalanta ng kalamidad dito sa Talisay Batangas. Ano po ang inyong lokasyon at kailangang tulong?",gemini,2026-09-04T18:44:19.309+00:00
+m_gxkLFcSPfc8P5zD50eKsZdg6eG5Oh-YFV4phGSVs1XriHwZXlikMStCWXPrPyYqkKYndbVqClSjflyIlRrLYgA,Samson Jefferson,dito po sa balas kailangan namin ng tulong gawa ng wala po mainom na inuming tubig mga tao dine,"Salamat, Samson Jefferson. Nakuha po: Brgy. Balas at kailangan ng inuming tubig. 
+
+Pakibigay po ang landmark at paki-kumpirma kung 09375773334 pa rin ang contact. 
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aming team sa pag-aksyon sa mga nasalanta sa Talisay Batangas.",gemini,2026-09-09T12:04:41.04+00:00
+m_g8KFpT1j_W_kvH0nYan1Htg6eG5Oh-YFV4phGSVs1Xp4SRltQzxMqYAsvvz8uaepEd98B845k2B3_fR4HLdzbg,Samson Jefferson,Malapit lang sa bakery nag tumbahan mga poste dine,"Samson Jefferson, nakuha po ang landmark (bakery) at ulat sa nabuwal na poste.
+
+Anong Barangay po ito sa Talisay?
+Contact: 09375773334
+
+Siguraduhing tama ang detalye dahil ito ang basihan ng aming team sa pag-aksyon para sa mga nasalanta ng kalamidad sa Talisay.",gemini,2026-09-04T18:46:02.34+00:00
+m_LD3kvnC8fEqaz_W0Af5jq9g6eG5Oh-YFV4phGSVs1XqvmTpNL57doCKE49tDg7oJmOqiGNXZHEAoeO2u5ZeAqQ,Samson Jefferson,Taga pob 5 po ako,"Salamat, Samson Jefferson. Nakuha po ang Brgy. Poblacion 5 at No. (09375773334).
+
+Pakibigay po ang:
+Landmark
+Tulong na kailangan (rescue, med, etc.)
+
+Siguraduhing tama ang detalye dahil ito ang basihan ng aming team sa pag-aksyon sa mga nasalanta ng kalamidad dito sa Talisay Batangas.",gemini,2026-09-04T18:46:03.516+00:00
+m_hibRpkX10HPqN6m-1Gio_dg6eG5Oh-YFV4phGSVs1XoND4o54yfeHrRYFzL3wvTmONS2Wqmw5EuOFEptous5Vg,Samson Jefferson,ok,"Samson Jefferson, pakibigay po ang landmark sa Brgy. Balas at paki-kumpirma kung 09375773334 pa rin ang contact number? 
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aming team sa pag-aksyon para sa mga nasalanta ng kalamidad dito sa Talisay Batangas.",gemini,2026-09-09T12:34:47.89+00:00
+m_gMivnGz7sq45jMbepLZoJtg6eG5Oh-YFV4phGSVs1Xq9AAZBgB8zwD8J59Cm8N7aKQ08UmYeW2SBDTxYoHolKg,Samson Jefferson,Nauunawaan nyo po ba?,"Opo, Samson Jefferson! Nauunawaan po. Kumpleto na ang detalye: Brgy. Poblacion 5, malapit sa bakery, 09375773334, at nagtumbahang poste.
+
+Siguraduhing tama ang mga ito dahil ipinapasa na po sa MDRRMC Talisay response team para sa agarang aksyon. Mag-iingat po!",gemini,2026-09-04T18:54:33.589+00:00
+m_nV1wYbVu19u8OqZeRKr0Hdg6eG5Oh-YFV4phGSVs1XrXhWCN2Y5n7og4xpILahY_Q-Ib4T88QIVzw2i-9r1yZw,Samson Jefferson,Ok,"Maraming salamat, Samson Jefferson! Naitala na po at ipinasa sa MDRRMC response team ang inyong ulat. 
+
+Siguraduhing tama ang mga detalye dahil ito ang aming basihan sa pag-aksyon sa mga nasalanta ng kalamidad dito sa Talisay Batangas. Mag-iingat po kayo!",gemini,2026-09-04T18:55:08.464+00:00
+m_foOGwGKfOr_zdKCLE3ZkCQojfMp8MaUUULmYoiIsQyLT9BEldKyKZqF6I1wt30YCS705nMFLnESmdcPLGsFfxw,Sedrick Opulencia,"Magandang gabi po may sugatan po dito sa tumaway dahil sa natumbang poste, kailangan po namin ang tulong nyo agaran","Magandang gabi po, Sedrick Opulencia! Naitala po:
+📍 Brgy. Tumaway
+🚨 Medical/Rescue (natumbang poste)
+
+Paki-bigay po ang:
+📍 Landmark
+📞 Contact No.
+
+Siguraduhing tama ang detalye dahil ito ang basihan ng aksyon ng aming team sa MDRRMC Talisay sa pagresponde.",gemini,2026-09-09T14:56:54.964+00:00
+m_A4fDLy-VQKf2-ku1mD9iXdg6eG5Oh-YFV4phGSVs1XrX5bcFiOTKXLi_BC8GpxzN7dfUvGaocQ0BSgvJsGwEuA,Samson Jefferson,Salamat din po,"Walang anuman, Samson Jefferson! Naka-standby na po ang MDRRMC response team para sa inyong ulat sa Pob 5. 
+
+Siguraduhing tama ang naibigay na detalye dahil ito ang aming basihan sa pag-aksyon para sa mga nasalanta ng kalamidad dito sa Talisay Batangas. Manatili po kayong ligtas!",gemini,2026-09-04T18:56:34.023+00:00
+m_imauN1GibwOvq3GgEHWGFAojfMp8MaUUULmYoiIsQyK0ErX7W6MLpACVG4m2wP1UcQ2QRgW7rgsUgje9s2Fdhg,Sedrick Opulencia,Malapit po ito sa Mercury drug store sa kanto ito rin po ang contact number ko 09827273747,"Maraming salamat, Sedrick Opulencia! Kumpirmahin po natin:
+
+📍 Brgy. Tumaway
+📍 Landmark: Mercury Drug sa kanto
+📞 Contact: 09827273747
+🚨 Tulong: Medical / Rescue
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aksyon ng aming team sa MDRRMC Talisay sa pagresponde. Mag-ingat po!",gemini,2026-09-09T14:57:49.245+00:00
+m_8BshN3mwP13KFvP4gUkWyQojfMp8MaUUULmYoiIsQyKVEWZxkQdGegluZiYkcuewyRjYaRYK2JqlyYwL0ON4_Q,Sedrick Opulencia,Tama po lahat,"Maraming salamat, Sedrick Opulencia! Naipasa na po sa aming team ang ulat para sa agarang aksyon sa Brgy. Tumaway.
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aksyon ng aming team batay sa inyong kailangan. Manatili po kayong ligtas!",gemini,2026-09-09T14:58:16.783+00:00
+m_FTJzSyqLKLphPAFSNUY2jAojfMp8MaUUULmYoiIsQyJDmQfvmajShc-cQyuZZS1VSd2aJwoa3VaIMJfj6gr6bg,Sedrick Opulencia,magandang umaga po,"Magandang umaga po, Sedrick Opulencia! Ano po ang maipaglilingkod ko sa inyo?
+
+Paki-bigay po ang:
+📍 Brgy. sa Talisay
+📍 Landmark
+📞 Contact No.
+🚨 Tulong na kailangan
+
+Siguraduhing tama ang detalye dahil ito ang basihan ng aksyon ng aming team para sa nasalanta ng kalamidad sa Talisay.",gemini,2026-09-06T09:30:12.8+00:00
+m_ulM3EDjjQSHnjD2sS1mbSgojfMp8MaUUULmYoiIsQyJdIEOeu8gX0dYOZCQuRMhIyaCm4n6PR8yffbVT-51Upg,Sedrick Opulencia,Tulong may nalunod na bata dine sa Poblacion 6,"Magandang araw po, Sedrick Opulencia! Naitala po:
+
+📍 Brgy. Poblacion 6
+🚨 Tulong: Rescue / Medical (Nalunod)
+
+Paki-bigay po ang:
+📍 Landmark
+📞 Contact No.
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aksyon ng aming team sa MDRRMC Talisay sa pagresponde.",gemini,2026-09-09T17:10:01.231+00:00
+m_GJxnTLz22JDbkTvU3QjBgAojfMp8MaUUULmYoiIsQyL7BJrhpRh-9eGqzYjXT5kfR_48cDXhBVbMdD8j_yF5mA,Sedrick Opulencia,Malapit po ito sa Lawa,"Maraming salamat, Sedrick Opulencia! Naitala po natin:
+
+📍 Brgy. Poblacion 6
+📍 Landmark: Malapit sa Lawa
+🚨 Tulong: Rescue / Medical (Nalunod)
+
+Paki-bigay po ang inyong Contact No.
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aksyon ng aming team sa MDRRMC Talisay sa pagresponde.",gemini,2026-09-09T17:10:45.815+00:00
+m_Y456mUqFh0n4x_pLbS4B-AojfMp8MaUUULmYoiIsQyKu13ha74DEmDRN8nezbk2hb30q8uZ6UkzaJ48h2xN3SQ,Sedrick Opulencia,Wala po akong contact number na maibibigay,"Salamat po, Sedrick Opulencia. Paki-bigay na lang po ang Landmark sa Brgy. Poblacion 6 upang matunton agad ng aming rescue team ang bata.
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aksyon ng aming team sa MDRRMC Talisay sa pagresponde. Mag-ingat po!",gemini,2026-09-09T17:11:15.727+00:00
+0a6c206e-866a-4bac-82ad-5423e2d49fdc,Sedrick Opulencia,Tama po ang impormasyon,"**Kasulukuyang nakalap naming detalye**
+
+- **Tunay na Pangalan:** *(pakisabi po ang buong pangalan)*
+- **Brgy Location:** Barangay Quiling",groq,2026-08-27T02:20:15.256+00:00
+m_4AaeDctO0Dvx_uNb4uehNwojfMp8MaUUULmYoiIsQyLGtKNCnAJLGKdABV_VUO94LpagQhEYeMzk7UB7Nab9IA,Sedrick Opulencia,"inaapoy na po ng lagnat yung kapatid ko at wala na po kameng gamot na maibigay baka po may supply kayo na pwedeng ipadala dito samen sa San Guillermo, malapit po ang bahay namin sa elementary school","Magandang araw po, Sedrick Opulencia! Naitala po:
+
+📍 Brgy. San Guillermo
+📍 Landmark: Malapit sa Elem. School
+🚨 Tulong: Medical / Gamot
+
+Paki-bigay po ang Contact No.
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aksyon ng aming team para sa mga nasalanta ng kalamidad sa Talisay.",gemini,2026-09-06T09:32:32.46+00:00
+m_6HGoxqKmyjyjQwO7S8yaoQojfMp8MaUUULmYoiIsQyKgvea2y9pdxbsJt-hS83c2cTm_Y1gn35KlAx5BJy6Ilw,Sedrick Opulencia,wala po akong contact number na maibibigay sa inyo,"Salamat, Sedrick Opulencia. Naitala na po:
+
+📍 Brgy. San Guillermo
+📍 Landmark: Malapit sa Elem. School
+🚨 Tulong: Medical / Gamot
+📞 Contact: Wala
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aksyon ng aming team sa MDRRMC para sa mga nasalanta ng kalamidad sa Talisay.",gemini,2026-09-06T09:33:07.063+00:00
+m_LnedPmr7O5xur1g0GDXBqgojfMp8MaUUULmYoiIsQyKTDiuapqGN-nCSongaSUmpg2sphEgyFvwQR7Qx50reYA,Sedrick Opulencia,tama po,"Maraming salamat, Sedrick Opulencia! Naipasa na po ang detalye sa aming MDRRMC team.
+
+Paalala po na siguraduhing tama ang detalye dahil ito ang basihan ng aksyon para sa mga nasalanta ng kalamidad dito sa Talisay Batangas 4220. Mag-ingat po kayo!",gemini,2026-09-06T09:33:24.241+00:00
+m_gbDH9uEcQJVAGdt72qJ0vAojfMp8MaUUULmYoiIsQyKyzq7ztPbrZh29-6m-D9ysLCVRMqVdI0TNo0gsXSZUkA,Sedrick Opulencia,magandang umaga po,"Magandang umaga po, Sedrick Opulencia! Ano po ang maipaglilingkod ko sa inyo?
+
+Kung may emergency dulot ng kalamidad sa Talisay, paki-bigay ang:
+📍 Barangay
+📍 Landmark
+📞 Contact No.
+🚨 Tulong na kailangan
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aming aksyon.",gemini,2026-09-11T00:07:17.298+00:00
+45e1c45c-7755-4170-a2ae-1f124812f263,Sedrick Opulencia,medyo malapit po sa Miranda Elem School,"Magandang tanghali po, **Jepoy Torehas**! Salamat po sa karagdagang impormasyon.
+
+**Narito po ang kasalukuyang detalye na naitala namin:**
+
+- **Buong Pangalan:** Jepoy Torehas  
+- **Barangay at Lungsod/M",groq,2026-08-28T06:06:24.214+00:00
+m__MVrxtJEypXCJN2vY-2CBQojfMp8MaUUULmYoiIsQyLyWhz7-Wt5GCJRCX7IuaoqRorNOZpp3W809Xe8n4Aadw,Sedrick Opulencia,Hello,"Magandang araw po, Sedrick Opulencia! Ano po ang maipaglilingkod ko sa inyo?
+
+Paki-bigay po ang:
+📍 Brgy. sa Talisay
+📍 Landmark
+📞 Contact No.
+🚨 Tulong na kailangan
+
+Siguraduhing tama ang detalye dahil ito ang basihan ng aksyon ng aming team para sa mga nasalanta ng kalamidad sa Talisay.",gemini,2026-09-06T09:55:08.153+00:00
+m_1NJeo58KaWRwQNAXplVyzAojfMp8MaUUULmYoiIsQyJSzUmzSPXZQ34JvZ3osJ848cpLQudxq1Wgxsy8VieDJA,Sedrick Opulencia,May alam po kayo nagbebenta ng balot dito sa Quiling?,"Magandang araw po, Sedrick Opulencia! Ang MDRRMC team po ay nakatutok lamang sa pagtulong sa mga nasalanta ng bagyo, lindol, bulkang Taal, at kalamidad sa Talisay Batangas.
+
+May emergency po ba kayong kailangang ireport kaugnay ng kalamidad?",gemini,2026-09-06T09:56:59.577+00:00
+m_0uHQAS8J0c0x5oY0jhFqBgojfMp8MaUUULmYoiIsQyI5ANoyh3zIYl7SH0wnmW5pJGHidXM1Tf0BrHjb52OKRQ,Sedrick Opulencia,po rescue naman. naiipit kami. hindi makalabas. ewan kung barangay ano namin,"Magandang araw po, Sedrick Opulencia! Para sa agarang rescue, paki-bigay po ang:
+
+📍 Malapit na landmark o sikat na lugar (para mahanap ang brgy)
+📞 Contact No.
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aksyon ng aming team sa MDRRMC Talisay sa pagresponde. Mag-ingat po!",gemini,2026-09-11T00:08:15.039+00:00
+9542bc2a-cf81-44f7-bffd-e9e7a142b8f3,Ocina John Paul,"Villegas, Justine Lay
+Poblacion 23456
+Malapit sa motel
+0912345678
+Naipit ng bumagsak na kisame gawa ng sunog","Paumanhin po, ngunit ang aming serbisyo ay tumutugon lamang sa mga pangangailangan dulot ng natural na kalamidad tulad ng bagyo, lindol, at pagputok ng bulkan. Hindi po namin kayang mag‑alok ng tulong para sa insidente ng sunog. Salamat po sa pag‑unawa.",groq,2026-08-26T13:07:52.596+00:00
+1a22d0aa-0522-4a3c-96b4-a21c8b376245,Sedrick Opulencia,wala pong pangalan ang simbahan,"Maraming salamat po, Maria Santos, sa pag‑kumpirma. Nauunawaan po naming walang pangalan ang simbahan, kaya’t kailangan po namin ng iba pang **mas tiyak na landmark** upang mabilis na matunton ng rescue team ang nasusunog na bahay.
+
+**Narito po ang kasalukuyang detalye:**
+
+- **Tunay na Pangalan:** Maria Santos  
+- **Brgy Location:** Barangay Quiling, Talisay  
+- **Numero o Contact:** 0921‑212‑3312  
+- **Landmark:** Malapit sa simbahan (walang pangalan)  
+-",groq,2026-08-27T01:55:35.712+00:00
+6d8e4aaa-4eaf-4506-a6b6-8239a58d67e7,Sedrick Opulencia,"Tulong po need po namin ng rescue, mataas na po ang baha dito sa Quiling, talisay, nasa itaas na po kame ng bubong sa taas ng baha, ito po ang kontak number ko 09182727379 medyo malapit po kame sa high way","Maraming salamat po sa pagbibigay ng impormasyon. Narito po ang kasalukuyang detalye na aming naitala:
+
+- **Tunay na Pangalan:** *(pakisabi po ang inyong buong pangalan)*
+- **Brgy Location:** Barangay Quiling, Talisay
+- **Numero o Contact:** 09182727379
+- **Landmark:** Malapit po sa highway (pakisabi po ang eksaktong pangalan ng highway o anumang kilalang kanto/tindahan na nasa tabi nito)
+- **Tulong na kailangan:** Rescue para sa baha (kumpirma po kung kailangan",groq,2026-08-27T02:18:47.159+00:00
+ca0a93b0-97d1-41a5-90dc-d31c74f099ae,Sedrick Opulencia,Bilisan nyo po ang mabilis nataas ang baha,"Maraming salamat po sa inyong mensahe. Nauunawaan po naming kailangang mabilis na maipadala ang rescue team dahil sa pagtaas ng baha.
+
+**Narito po ang kasalukuyang detalye na naitala namin:**
+
+- **Tunay na Pangalan:** *(pakisabi po ang buong",groq,2026-08-27T02:19:23.751+00:00
+121b11fc-12e4-45eb-9b3a-bffe271e364c,Sedrick Opulencia,tulong po nagkaroon po ng landslide dito sa Buco at natabunan po yung dalawang kapatid ko. bilisan nyo po,"Magandang araw po! Nauunawaan po namin ang inyong sitwasyon at agad naming ipapasa ang kahilingan sa aming rescue team. Upang mas mabilis naming mahanap at matulungan ang inyong mga kapatid, kailangan po naming makumpirma ang mga sumusunod na detalye:
+
+1. **Buong Pangalan:**  
+2. **Barangay at Lungsod/Munisipyo:** (hal. Barangay Buco, ___)  
+3. **Mas tiyak na Landmark:** (hal. pangalan ng kalye, kanto, bahay, paaralan, o anumang kilalang gusali malapit sa nasirang lugar)  
+4. **Contact Number:**  
+5. **Tulong na kailangan:** (hal. rescue para sa landslide, medikal na pangangailangan, atbp.)
+
+**Paalala:** *Siguraduhing tama ang lahat ng detalye dahil ito ang magiging batayan ng aming rescue team sa pag‑aaksyon.*  
+
+Maraming salamat po! 🙏",groq,2026-08-28T01:46:56.801+00:00
+dac577b6-c160-4da9-b1b2-92cbd3fa0cf9,Sedrick Opulencia,"ito po ang contact number ko 0921212434 malapit po kame sa simbahan na walang pangalan, sa talisay po ito at ako po si Menard Clefford","Magandang araw po, **Menard Clefford**! Salamat po sa pagbibigay ng ilang detalye. Upang agad naming maipadala ang tamang tulong, kailangan pa po namin ng kaunti pang impormasyon:
+
+1. **Barangay:** Saang barangay po ito sa Talisay? (Hal. Barangay Quiling, Barangay Buco, atbp.)  
+2. **Mas tiyak na landmark:** Maliban sa “simbahan na walang pangalan,” mayroong bang kalye, kanto, tindahan, o anumang",groq,2026-08-28T01:48:51.109+00:00
+e20e326a-59ae-43e1-8fe6-57eb6950f060,Sedrick Opulencia,Salamat po at sana makapunta agad kayi,"Maraming salamat po, **Isay Dimautugan**. Naitala na po namin ang inyong kumpirmasyon at ang inyong mga detalye para sa ating team.
+
+Muli, amin pong ipinapaalala na **siguraduhing tama ang lahat ng mga detalyeng ibinigay ninyo** dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon para sa inyong pangangailangan. 
+
+Ang aming team ay naka-focus lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad. 
+
+Mangyaring manatili po sa isang ligtas na lugar at panatilihing nakabukas ang inyong linya ng komunikasyon. Mag-ingat po kayo riyan!",gemini,2026-08-29T08:01:16.032+00:00
+m_SVLzRdHeBgOi46rt2dGwngojfMp8MaUUULmYoiIsQyIzC64WH862R3JTdPvGEKTW61rOkPV6oInoqEk9OwejMg,Sedrick Opulencia,Wala po,"Salamat po, Sedrick Opulencia. Kung magkaroon po ng emergency dulot ng bagyo, lindol, pagputok ng Taal, o kalamidad sa Talisay, mag-abiso lang po. Siguraduhing tama ang mga detalye dahil ito ang basihan ng aksyon ng aming team. Mag-ingat po!",gemini,2026-09-06T09:58:26.157+00:00
+m_ocTEem5Mm6pktZezh9eU6QojfMp8MaUUULmYoiIsQyKAuUUOasMq_kNm1gYbveRPIZaLyoXWROVhj8eEE5HPOw,Sedrick Opulencia,mlpt sa Tumaway,"Salamat po, Sedrick Opulencia! Naitala po:
+📍 Lokasyon: Malapit sa Tumaway
+🚨 Tulong: Rescue (Naiipit)
+
+Paki-bigay po ang exact Landmark at Contact No.
+
+Siguraduhing tama ang detalye dahil ito ang basihan ng aksyon ng aming team sa MDRRMC Talisay. Mag-ingat po!",gemini,2026-09-11T00:09:19.009+00:00
+m_Tu5_AtYE4aey0lF2Wmm-iwojfMp8MaUUULmYoiIsQyJKqivGdvS42ySYDpqahZwARGJkxpXiSgqA71-m__mqfw,Sedrick Opulencia,Hello,"Magandang araw po, Sedrick Opulencia! Ano po ang maipaglilingkod ko sa inyo?
+
+Paki-bigay po ang:
+📍 Brgy. sa Talisay
+📍 Landmark
+📞 Contact No.
+🚨 Tulong na kailangan
+
+Siguraduhing tama ang detalye dahil ito ang basihan ng aksyon ng aming team para sa nasalanta ng kalamidad sa Talisay.",gemini,2026-09-06T10:25:05.693+00:00
+m_fSVKfs4ulKgQa150jNrZiwojfMp8MaUUULmYoiIsQyKMUnoTB4aDtizPqi2qzW2xbGR13vw2xyeuh_zMIiGDGQ,Sedrick Opulencia,are ho ang contact number 09121212122,"Salamat po, Sedrick Opulencia! Naitala po:
+
+📍 Lokasyon: Malapit sa Tumaway
+📞 Contact: 09121212122
+🚨 Tulong: Rescue (Naiipit)
+
+May specific landmark pa po ba na malapit sa inyo?
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aksyon ng aming team sa MDRRMC Talisay sa pagresponde.",gemini,2026-09-11T00:10:00.501+00:00
+9c892eb0-97e6-45c1-8c72-79575b84f970,Samson Jefferson,"09123123533
+oo rescue kailangan namin","Salamat po sa pagbibigay ng inyong contact number (09123123533).  
+Upang agad naming maipasa ang kahilingan ninyo sa aming rescue team, kailangan po naming ang mga sumusunod na detalye:
+
+1. **Pangalan ng nag-uulat:**  
+2",groq,2026-08-26T12:51:38.135+00:00
+fbca8588-b2aa-466b-8fb4-96e0cb8242ba,Sedrick Opulencia,Magandang umaga po,"Magandang umaga Justine Tigasin. Naitala po ang detalye:
+
+📍 Poblacion 4 (malapit sa simbahan)
+📞 09761636722
+🚨 Tulong: Rescue/Evacuation (2 matanda, 3 bata) dahil sa usok ng Taal
+
+Pakisiguro pong tama ang detalye dahil ito ang basehan ng aming team sa pag-aksyon. Manatili po muna sa ligtas na lugar.",gemini,2026-08-30T04:06:01.073+00:00
+m_4j4z8p3WKmI4jFKtj2HUpQojfMp8MaUUULmYoiIsQyJRijMxT1bKlbk37NIoaDQvl7hZR6nqiu9yQOqumH5nCQ,Sedrick Opulencia,saan po kaya may barikan dito sa poblacion?,"Magandang araw po, Sedrick Opulencia! Ang MDRRMC ay nakatutok lamang sa pagtulong sa mga nasalanta ng bagyo, lindol, bulkang Taal, at kalamidad sa Talisay.
+
+May emergency po ba kayo kaugnay ng kalamidad? Siguraduhing tama ang detalye dahil ito ang basihan ng aksyon ng aming team.",gemini,2026-09-06T10:29:18.012+00:00
+m_ZD0b4zCGQ4a7WWpfemOBGQojfMp8MaUUULmYoiIsQyKrxjyOLbouHW2Tumgi7r7IGMye4s1qoRbft_w8Yl1ePA,Sedrick Opulencia,magandang tanghali po saan po kaya basketball court dito sa aya,"Magandang tanghali po, Sedrick Opulencia! Nakatutok po kami sa sakuna at emergency. Kailangan niyo po ba ng tulong sa Brgy. Aya?
+
+Paki-bigay po:
+📍 Landmark
+📞 Contact No.
+🚨 Tulong na kailangan
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aming pag-aksyon.",gemini,2026-09-11T02:54:50.193+00:00
+50417234-b2f1-4e87-9e35-6cef091e623c,Samson Jefferson,Magandang gabi,"Magandang gabi po! Nais po naming agad kayong matulungan. Upang maipasa namin ang inyong kahilingan sa aming rescue team, mangyaring ibigay po ninyo ang mga sumusunod na detalye:
+
+1. **Tunay na Pangalan:** (Sino po ang nag-uulat?)
+2. **Barangay, Lungsod at Probinsya:** (Saang barangay, lungsod at probinsya po naganap ang pangyayari?)
+3. **Landmark:** (Ano pong malapit na kilalang lugar, tulay, sapa, simbahan, o gusali kung saan huling nakita ang sitwasyon?)
+4. **Numero o Contact:** (Ano pong numero po ang maaari naming tawagan o i‑text?)
+5. **Tulong na kailangan:** (Halimbawa: emergency rescue/search‑and‑rescue, medikal na tulong, pagkain at supply, iba pa",groq,2026-08-26T14:56:28.379+00:00
+893efbd3-912c-4a8b-ba60-f91cdef601c2,Sedrick Opulencia,"Ako po si Jayson Tibayan taga Barangay Miranda at ang kontak number ko po ay 09762336722. Lumalakas po lalo yung pagbuga ng usok ng taal, kailangan po namin ng rescue para makaalis po dito malapit po dito sa paaralan sa kanto","Magandang araw, Jayson Tibayan! Naitala po ang detalye:
+
+📍 Brgy. Miranda (kanto malapit sa paaralan)
+📞 09762336722
+🚨 Rescue / Evacuation (usok ng Taal)
+
+Siguraduhing tama ang detalye dahil ito ang basehan ng aksyon ng aming team. Manatili po muna sa ligtas na lugar habang nag-aabang.",gemini,2026-08-30T04:08:15.894+00:00
+ef2c45d4-1bb7-4b0a-91f7-1f0a4d2c8490,Sedrick Opulencia,Hello po,"Magandang araw! Upang matulungan kayo ng MDRRMC Talisay, paki-bigay ang:
+
+Pangalan
+Barangay
+Landmark
+Contact No.
+Tulong na kailangan (rescue, pagkain, atbp)
+
+Siguraduhing tama ang detalye dahil ito ang basehan ng aksyon ng aming team sa pagtulong sa nasalanta ng kalamidad.",gemini,2026-08-30T04:08:36.567+00:00
+2afe55cf-40ed-4033-98e4-8012fd3d57f9,Sedrick Opulencia,May nasusunog pong bahay dito sa Poblacion 7,"Naiintindihan ko po, may emergency na nagaganap dahil sa nasusunog na bahay sa Poblacion 7. 
+
+Upang agad po naming maiparating ito sa aming emergency response team, maaari niyo po bang ibigay ang mga sumusunod na mahahalagang detalye:
+
+1. **Tunay na Pangalan:**
+2. **Siyudad o Munisipyo:** (Saan pong bayan o lungsod matatagpuan ang Poblacion 7?)
+3. **Landmark:** (Ano pong malapit na sikat na lugar, simbahan, paaralan, o kilalang gusali malapit sa nasusunog na bahay?)
+4. **Numero o Contact Number:**
+5. **Tulong na kailangan:** (Kumpirmahin po natin kung emergency fire rescue ang kailangan)
+
+**Paalala:** *Siguraduhin pong tama ang mga detalye na inyong ibibigay dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng mabilisang aksyon, depende sa inyong pangangailangan. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*",gemini,2026-08-26T07:39:06.813+00:00
+ee199993-8a4f-4f16-850f-8d77b3c47720,Sedrick Opulencia,"Ako si Jobert Austria taga talisay, Poblacion 7 at kontak number ko ay 09123736366, malapit po yung bahay na nasusunog sa kanto","Maraming salamat po, Jobert Austria. Naitala ko na po ang inyong pangalan, lokasyon sa Poblacion 7, Talisay, at ang inyong contact number na 09123736366.
+
+Upang mabilis na makatugon ang ating emergency team, maaari niyo po bang linawin ang mga sumusunod na detalye:
+
+1. **Landmark:** Mayroon po bang mas partikular na pangalan ng kalye o kanto, o kilalang establisyimento, tindahan, o gusali malapit sa nasusunog na bahay? (Medyo malawak po kasi kung ""kanto"" lamang).
+2. **Tulong na kailangan:** Kumpirmahin po natin, emergency fire rescue (at medical assistance kung may mga nasugatan) po ba ang kailangan sa kasalukuyan?
+
+**Paalala:** *Siguraduhin pong tama ang lahat ng mga detalyeng inyong ibibigay dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng mabilisang aksyon, depende sa inyong pangangailangan. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*",gemini,2026-08-26T07:42:14.553+00:00
+2a5b1a12-4ecc-48ab-85aa-8f5218ed2519,Sedrick Opulencia,"Tulong po, may nakulong po sa loob ng bahay na nasusunog dito sa amin sa barangay tranca  medyo  malapit po kame sa simbahan","Napakaselan po ng inyong sitwasyon dahil may nakulong sa loob ng nasusunog na bahay sa Barangay Tranca. Upang maiparating po natin ito agad sa emergency rescue team, maaari niyo po bang ibigay ang mga sumusunod na kulang na detalye:
+
+1. **Tunay na Pangalan:**
+2. **Siyudad o Munisipyo:** (Saang bayan o lungsod po matatagpuan ang Barangay Tranca?)
+3. **Landmark:** (Ano pong pangalan ng simbahan na malapit sa inyo upang mas mabilis kayong matunton?)
+4. **Numero o Contact:**
+5. **Tulong na kailangan:** (Kumpirmahin po natin kung Emergency Fire Rescue at Medical Assistance para sa mga nakulong ang kailangan?)
+
+**Paalala:** *Siguraduhin pong tama ang mga detalye na inyong ibibigay dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon, depende sa inyong kailangan. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, baha, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*",gemini,2026-08-26T12:24:07.967+00:00
+20ecaa7c-4b73-493c-adc1-7e585930bce5,Sedrick Opulencia,"ako po si Justince Salisi, taga tranca at ang kontak number ko po ay 09121214568","Maraming salamat po, Justince Salisi. Naitala ko na po ang inyong pangalan at contact number na **09121214568**.
+
+Dahil napakabilis ng pangangailangan sa inyong sitwasyon, maaari niyo po bang ibigay ang mga natitirang detalye upang maitawag agad natin ito sa mga nararapat na awtoridad:
+
+1. **Siyudad o Munisipyo:** Saang bayan o lungsod po matatagpuan ang Barangay Tranca?
+2. **Landmark:** Ano pong pangalan ng simbahan na malapit sa inyo upang mas mabilis na matunton ang nasusunog na bahay?
+3. **Tulong na kailangan:** Kumpirmahin po natin, emergency fire rescue at medical assistance po ba para sa mga nakulong sa loob ng nasusunog na bahay ang kailangan?
+
+**Paalala:** *Siguraduhin pong tama ang mga detalye na inyong ibibigay dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon, depende sa inyong kailangan. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*",gemini,2026-08-26T12:24:53.957+00:00
+c679bbcd-2df8-428a-90a2-d04a75f88915,Sedrick Opulencia,Maganda umaga po,"Magandang umaga po! Upang matulungan kayo ng MDRRMC Talisay, paki-bigay ang:
+
+Pangalan
+Barangay
+Landmark
+Contact No.
+Tulong na kailangan (rescue, pagkain, atbp)
+
+Siguraduhing tama ito dahil ito ang basehan ng aksyon ng aming team para sa mga nasalanta ng kalamidad dito.",gemini,2026-08-30T01:00:31.138+00:00
+m_OHbL59PI3_Ie2U3U6CGnNQojfMp8MaUUULmYoiIsQyJpPafTJjhm9SIs_gNWNzR8a_hZkXicVJVuvvBhawEcCg,Sedrick Opulencia,"Ang pangalan ko po ay Menard Castillo malapit po ito sa simbahan, ito din po ang contact number ko 09172636662","Naitala po, Menard Castillo:
+
+📍 Brgy. Leynes (malapit sa simbahan)
+📞 09172636662
+🚨 Tulong: Rescue sa Sunog
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aksyon ng aming team. Lumayo po muna sa sunog at manatiling ligtas habang inaaksyunan ito!",gemini,2026-09-02T02:37:42.194+00:00
+m_BRh4yPerxl1F1HW4rEhLvQojfMp8MaUUULmYoiIsQyKFnwPx7nb-zj69LIxzdVCEV0RsTaxcLNGcZdePuwcNfQ,Sedrick Opulencia,Salamat po,"Walang anuman, Menard. Naimporma na ang aming team. Siguraduhing tama ang inyong naibigay na detalye dahil ito ang basihan ng aming aksyon para sa emergency na ito. Lumayo po muna sa lugar ng sunog at manatiling ligtas!",gemini,2026-09-02T02:37:54.766+00:00
+337c0490-dc7a-48a8-b072-77faba11ffeb,Sedrick Opulencia,tulong po,"Naiintindihan po namin ang kagyat na pangangailangan ninyo. Upang maipasa agad po namin ang kahilingan sa aming emergency response team, kailangan po namin ang **tiyak na pangalan ng simbahan** na malapit sa inyong lokasyon.
+
+**Narito po ang kasalukuyang detalye na aming naitala:**
+
+- **Tunay na Pangalan:** Justince Salisi  
+- **Brgy Location:** Barangay Tranca, Talisay  
+- **Landmark:** Malapit sa simbahan (**paki‑sabihin po ang eksaktong pangalan ng simbahan**)  
+- **Numero o Contact:** 09121214568  
+- **Tulong na kailangan:** Emergency fire rescue at medical assistance para sa mga nakulong sa nasusunog na bahay  
+
+**Paki‑kumpirma po kung tama ang mga nabang",groq,2026-08-27T01:52:26.416+00:00
+2a1a0bb0-a0f7-4d91-a8f1-1f6a6e77cd6e,Sedrick Opulencia,sa talisay po ito,"**Kasulukuyang nakalap naming detalye**
+
+- **Tunay na Pangalan:** Maria Santos  
+- **Brgy Location:** Barangay Quiling, Talisay  
+- **Numero o Contact:** 0921‑212‑3312  
+- **Landmark:** Malapit sa simbahan *(kailangan po ang eksaktong pangalan ng simbahan)*  
+- **Tulong na kailangan:** Emergency fire‑rescue (kumpirmahin po kung may kasamang medical assistance para sa mga nasugatan o nakulong)
+
+**Paki‑kumpirma",groq,2026-08-27T01:54:47.663+00:00
+m_bX7M5fw5bf4TQ8v_Vl8NeAojfMp8MaUUULmYoiIsQyLMOFKTMQHCNqeV3qsLdxTHQGNyOUvjzgdTkEAQ8PXAKQ,Sedrick Opulencia,"Wala na po, thank u","Walang anuman, Sedrick Opulencia! Kung may emergency po kayo dulot ng kalamidad sa Talisay, mag-abiso lang po. Siguraduhing tama ang ibibigay na detalye dahil ito ang basihan ng aksyon ng aming team. Mag-ingat po kayo!",gemini,2026-09-06T10:32:59.42+00:00
+8bbfc7d3-e708-4512-bd4b-790d8a4a7d33,Sedrick Opulencia,"Ako po si Justine Tigasin taga Poblacion 4 at ang kontak number ko po ay 09761636722. Lumalakas po lalo yung pagbuga ng usok ng taal, kailangan po namin ng rescue para makaalis po dito. Dalawang matanda po at may 3 tatlong bata kaming kasama malapit po dito sa simbahan","<think>
+Here's a thinking process:
+
+Analyze User Input:
+   - Name: Justine Tigasin
+   - Location: Poblacion 4, Talisay (implied, based on context)
+   - Contact: 09761636722
+   - Situation: Taal volcano ash eruption is worsening (""Lumalakas po lalo yung pagbuga ng usok ng taal"")
+   - Request: Rescue needed to evacuate (""kailangan po namin ng rescue para makaalis po dito"")
+   - Vulnerable Individuals: 2 elderly, 3 children
+   - Landmark: Near the church (""malapit po dito sa simbahan"")
+
+Check Against Constraints:
+   - Role: Tagalog AI bot assistant for MDRRMC Talisay Batangas 4220 Philippines
+   - Task: Ask for/collect details: real name, barangay, landmark/close location, contact number, type of help needed (rescue, medical, emergency, supply/food, etc.)
+   - After collecting/confirming details, remind user to ensure details are accurate as it's the basis for team action.
+   - Focus: Only assists those affected by typhoons, earthquakes, Taal volcano eruption, and other natural disasters in Talisay Batangas 422",groq,2026-08-30T01:08:37.326+00:00
+61175483-7ce6-45c4-a0a1-82dda62d47fb,Sedrick Opulencia,Ako po si Berto Magsaysay taga Talisay Poblacion 1 malapit sa kanto at ang contact number ko po ay 09126783460,"Maraming salamat sa mabilis na pagtugon, Berto Magsaysay. Naitala ko na ang iyong pangalan, lokasyon sa Poblacion 1, Talisay, at ang iyong contact number na 09126783460.
+
+Para sa kaligtasan at mas mabilis na pag-aksyon ng aming emergency rescue team, mayroon lamang kaming ilang karagdagang detalye na kailangang malaman:
+
+1. **Pangalan ng iyong kapatid:** (Ano po ang pangalan ng kapatid na kasalukuyang nawawala?)
+2. **Karagdagang Landmark:** (Mayroon po bang malapit na barangay hall, paaralan, simbahan, o kilalang malaking tindahan malapit sa kanto ninyo para mas madali kayong mahanap?)
+
+*Paalala: Siguraduhin pong tama at kumpleto ang lahat ng detalyeng inyong ibibigay dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng agarang aksyon, lalo na sa ganitong sitwasyon. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, baha, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*",gemini,2026-08-24T03:42:19.669+00:00
+c09256df-f4ff-4e38-9b1d-06d1362bf8d4,Sedrick Opulencia,Ang pangalan po ng kapatid ko ay Berta Magsaysay at malapit din po kami sa simbahan,"Maraming salamat sa karagdagang impormasyon, Berto. Naitala ko na ang pangalan ng iyong kapatid na si Berta Magsaysay at ang inyong lokasyon malapit sa simbahan.
+
+Narito ang kabuuan ng mga detalyeng aming nakalap:
+
+*   **Tunay na Pangalan:** Berto Magsaysay (Kapatid na nawawala: Berta Magsaysay)
+*   **Lokasyon (Brgy/Siyudad):** Poblacion 1, Talisay
+*   **Landmark:** Malapit sa kanto at malapit sa simbahan
+*   **Numero o Contact:** 09126783460
+*   **Tulong na kailangan:** Emergency rescue / paghahanap sa kapatid na nadala ng baha
+
+**Paalala:** *Siguraduhin pong tama ang lahat ng mga detalyeng ito dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon para sa inyong pangangailangan. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, baha, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*
+
+Ipapasa ko na po agad ang inyong mga detalye sa aming emergency response team para sa agarang pag-aksyon. Mangyaring manatili po kayo sa ligtas na lugar at panatilihing bukas ang inyong linya ng komunikasyon.",gemini,2026-08-24T03:43:16.286+00:00
+1f8a01ed-b68e-4719-aff6-da5bc8f45bd2,Sedrick Opulencia,Maraming salamat po,"Walang anuman po, Berto. Naisumite na po namin ang inyong mga detalye sa aming emergency response team para sa agarang pag-aksyon.
+
+Muli, amin pong ipinapaalala na siguraduhing tama at nakumpirma ninyo ang lahat ng detalyeng inyong ibinigay (tulad ng inyong pangalan, lokasyon sa Poblacion 1, Talisay, landmark na malapit sa kanto at simbahan, contact number na 09126783460, at ang paghahanap sa inyong kapatid na si Berta) dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon. 
+
+Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, baha, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.
+
+Mangyaring manatili po kayo sa isang ligtas na lugar at panatilihing bukas ang inyong telepono para sa tawag ng ating rescue team. Mag-ingat po kayo.",gemini,2026-08-24T03:44:03.033+00:00
+43a7435a-dc45-4dc0-a944-a083835c9cb2,Sedrick Opulencia,Hello po,"Magandang araw po! Ako ang inyong AI assistant na nakalaang kumuha ng inyong impormasyon para sa aming emergency response team. 
+
+Maaari niyo po bang ibigay ang mga sumusunod na detalye para sa inyong hiling na tulong?
+
+1. **Tunay na Pangalan:**
+2. **Barangay (Brgy) Location at Siyudad/Munisipyo:**
+3. **Landmark** (Malapit na sikat na lugar, simbahan, paaralan, o gusali):
+4. **Numero o Contact Number:**
+5. **Tulong na kailangan** (Medical, emergency rescue, supply at pagkain, o iba pa):
+
+**Paalala:** *Siguraduhin pong tama at kumpleto ang lahat ng detalyeng inyong ibibigay dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon, depende sa inyong pangangailangan. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, baha, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*",gemini,2026-08-24T05:02:39.894+00:00
+cadf9f97-110c-499a-a4fb-268e50c64b1c,Sedrick Opulencia,"Ako po si Justine Villegas taga Barangay Buco malapit sa waiting shade sa kanto at ang kontak number ko po ay 09227364771, kailangan ko po ng tulong nyo gawa nang nabagsakan ng puno dito samin at sugatan po, mas maganda po kung makaka respond agad kayo ngayon","Maraming salamat sa pag-ulat, Justine Villegas. Ikinalulungkot namin ang nangyari at gagawin namin ang lahat upang maiparating agad ito sa aming emergency medical at rescue team para sa sugatan na nabagsakan ng puno.
+
+Upang mas mabilis na makarating ang tulong sa inyo ngayon, mayroon lamang kaming ilang mahalagang detalye na kailangang linawin:
+
+1. **Siyudad o Munisipyo:** Saang bayan o lungsod po matatagpuan ang **Barangay Buco**?
+2. **Karagdagang Landmark:** Mayroon po bang mas sikat na lugar, simbahan, paaralan, o kilalang gusali malapit sa waiting shade sa kanto ninyo?
+3. **Ilan po ang sugatan?** (Para maihanda ng medical team ang kaukulang tulong)
+
+**Paalala:** *Siguraduhin pong tama ang lahat ng mga detalyeng inyong ibibigay dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon para sa inyong pangangailangan. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*",gemini,2026-08-24T05:05:35.345+00:00
+4dc42182-d483-46c0-a008-1f10500ba46b,Sedrick Opulencia,Ang lokasyon pala po ay Barangay Sampaloc,"Maraming salamat sa paglilinaw, Justine. Naitala ko na po na ang tamang lokasyon ay sa **Barangay Sampaloc** (at hindi sa Barangay Buco).
+
+Upang tuluyan po nating maipadala ang emergency medical at rescue team para sa dalawang sugatan na nabagsakan ng puno, kailangan na lamang po namin ang detalyeng ito:
+
+1. **Siyudad o Munisipyo:** Saang bayan o lungsod po matatagpuan ang **Barangay Sampaloc**?
+
+*Paalala: Siguraduhin pong tama ang lahat ng mga detalyeng inyong ibibigay dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon para sa inyong pangangailangan. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*",gemini,2026-08-24T05:07:33.92+00:00
+9d08f8ef-9930-43c5-9c17-1747da81e966,Sedrick Opulencia,Sa talisay,"Maraming salamat sa paglilinaw, Justine. Ngayong kumpleto na ang inyong impormasyon, naitala ko na ang inyong lokasyon sa Barangay Sampaloc, Talisay.
+
+Narito ang kabuuan ng mga detalyeng aming nakalap:
+
+*   **Tunay na Pangalan:** Justine Villegas
+*   **Lokasyon (Brgy/Siyudad):** Barangay Sampaloc, Talisay
+*   **Landmark:** Malapit sa waiting shade sa kanto at malapit sa sementeryo
+*   **Numero o Contact:** 09227364771
+*   **Tulong na kailangan:** Emergency medical at rescue para sa dalawang (2) sugatan na nabagsakan ng puno
+
+**Paalala:** *Siguraduhin pong tama ang lahat ng mga detalyeng ito dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon para sa inyong pangangailangan. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*
+
+Ipapasa ko na po agad ang inyong mga detalye sa aming emergency response team para sa agarang pag-responde. Mangyaring manatili po kayo sa isang ligtas na lugar at panatilihing bukas ang inyong linya ng komunikasyon. Mag-ingat po kayo.",gemini,2026-08-24T05:07:52.249+00:00
+b541cb4c-63ba-4ff7-8605-f6f513249cd1,Sedrick Opulencia,Salamat po,"Walang anuman po, Justine. Ginagawa na po ng aming koponan ang lahat upang maiparating ang inyong sitwasyon sa aming emergency medical at rescue team para sa dalawang sugatan.
+
+Muli, nais po naming ipaalala na siguraduhing tama ang lahat ng mga detalyeng inyong ibinigay (tulad ng inyong pangalan na **Justine Villegas**, lokasyon sa **Barangay Sampaloc, Talisay**, landmark na **malapit sa waiting shade at sementeryo**, at contact number na **09227364771**) dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon para sa inyong pangangailangan. 
+
+Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, baha, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.
+
+Mangyaring manatili po kayo sa isang ligtas na lugar at panatilihing bukas ang inyong telepono para sa tawag ng ating rescue team. Mag-ingat po kayo.",gemini,2026-08-24T05:08:24.695+00:00
+3e275a23-535f-4d4c-9ef1-2c3b8421b6c8,Sedrick Opulencia,Sa Quiling Elementary School po,"Maraming salamat sa paglilinaw, Justine. Naitala ko na po na kayo ay kasalukuyang nasa **Quiling Elementary School**.
+
+Upang tuluyan po naming maipadala ang aming team para sa mga kailangang supplies para sa mga bata, mayroon na lamang po kaming isang huling katanungan:
+
+1. **Siyudad o Munisipyo:** Saang bayan o lungsod po matatagpuan ang **Barangay Quiling**?
+
+*Paalala: Siguraduhin pong tama ang lahat ng mga detalyeng inyong ibibigay dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon para sa inyong pangangailangan. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, baha, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*",gemini,2026-08-24T08:16:18.85+00:00
+926cd58f-4e14-435d-8393-d07a8f27abef,Sedrick Opulencia,"Ang pangalan ko po ay John Paul Manalsal taga talisay, Barangay Miranda. Naipit po yung kapatid ko sa bumagsak na puno dito sa bahay namin, malapit po kami sa Barangay hall at ang kontak number ko po ay 09923447471","Magandang umaga rin po, John Paul. Nakikiramay po kami sa inyong sitwasyon at agad po naming ipaprioridad ito para sa ating emergency rescue team dahil sa panganib na kinakaharap ng inyong kapatid.
+
+Upang masigurado po natin na mabilis na makakarating ang tulong, narito po ang mga detalyeng aking naitala mula sa inyo:
+
+*   **Tunay na Pangalan:** John Paul Manalsal
+*   **Lokasyon (Brgy/Siyudad):** Barangay Miranda, Talisay
+*   **Landmark:** Malapit sa Barangay Hall (sa inyong bahay)
+*   **Numero o Contact:** 09923447471
+*   **Tulong na kailangan:** Emergency rescue para sa kapatid na naipit sa bumagsak na puno
+
+**Paalala:** *Siguraduhin pong tama ang lahat ng mga detalyeng ito dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon para sa inyong pangangailangan. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, baha, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*
+
+Ipinapasa ko na po agad ang inyong mga detalye sa aming emergency response at rescue team para sa agarang pag-responde sa inyong lokasyon. Mangyaring panatilihing bukas ang inyong linya ng komunikasyon para sa tawag ng ating rescuers. Mag-ingat po kayo riyan.",gemini,2026-08-25T03:23:52.756+00:00
+898d56e1-498b-43c8-934d-d52ea3c8b461,Sedrick Opulencia,Salamat po,"Walang anuman po, John Paul. Kasalukuyan na pong nakikipag-ugnayan ang aming koponan sa mga emergency rescuers upang mabilis na maipadala ang tulong para sa inyong kapatid.
+
+Muli, nais po naming ipaalala na siguraduhing tama ang lahat ng mga detalyeng inyong ibinigay:
+
+*   **Tunay na Pangalan:** John Paul Manalsal
+*   **Lokasyon:** Barangay Miranda, Talisay
+*   **Landmark:** Malapit sa Barangay Hall
+*   **Numero o Contact:** 09923447471
+*   **Tulong na kailangan:** Emergency rescue para sa kapatid na naipit sa bumagsak na puno
+
+Mangyaring siguraduhing tama ang mga detalyeng ito dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, baha, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.
+
+Mangyaring manatili sa isang ligtas na lugar at panatilihing bukas ang inyong linya ng komunikasyon para sa tawag ng rescue team. Mag-ingat po kayo.",gemini,2026-08-25T03:24:20.804+00:00
+c268c85f-051e-4078-8e54-66e8a123fd42,Sedrick Opulencia,Nag evacuate po kami sa Bulos Elementary School,"Maraming salamat sa paglilinaw, Mark. Ngayong kumpleto na ang inyong impormasyon, narito po ang kabuuan ng mga detalyeng aming nakalap para sa aming team:
+
+*   **Tunay na Pangalan:** Mark Panganiban
+*   **Lokasyon (Brgy/Siyudad):** Barangay Buco, Talisay
+*   **Landmark:** Bulos Elementary School (Evacuation Center)
+*   **Numero o Contact:** 09282837726
+*   **Tulong na kailangan:** Mga extrang gamit na pamalit at mahihigan (supplies)
+
+**Paalala:** *Siguraduhin pong tama ang lahat ng mga detalyeng ito dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon para sa inyong pangangailangan. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, baha, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*
+
+Ipinapasa ko na po ang inyong mga detalye sa aming relief team upang maihanda at maihatid ang mga kailangang gamit sa inyong lokasyon. Mangyaring manatiling ligtas sa evacuation center at panatilihing bukas ang inyong linya ng komunikasyon. Mag-ingat po kayo.",gemini,2026-08-25T09:39:59.716+00:00
+636c3516-93de-4522-b293-9abb9c9f906b,Sedrick Opulencia,sa buco po,"Magandang araw po, **Menard Clefford**! Salamat po sa pagbibigay ng ilang detalye. Upang agad naming maipadala ang rescue team sa landslide sa Barangay Buco, kailangan pa po namin ng kaunting karagdagang impormasyon:
+
+1. **Mas tiyak na landmark** – bukod sa “simbahan na walang pangalan,” mayroong bang kalye, kanto, tindahan, bahay, o anumang kilalang gusali na malapit sa nasirang lugar? (hal. *Kalye Rizal, kanto ng Barangay Hall, o bahay na may pulang bakod",groq,2026-08-28T01:49:03.372+00:00
+m_UV3IhRJ20263s7Hqfr74VQojfMp8MaUUULmYoiIsQyL0iVDfgxI20wSlmmNuU25xgPXk8FOMsVANzrBOtdImEw,Sedrick Opulencia,Magandang umaga po,"Magandang umaga po, Sedrick Opulencia! Ano po ang maipaglilingkod ko sa inyo?
+
+Paki-bigay po:
+📍 Brgy. sa Talisay
+📍 Landmark
+📞 Contact No.
+🚨 Tulong na kailangan
+
+Siguraduhing tama ang detalye dahil ito ang basihan ng aksyon ng aming team para sa mga nasalanta ng kalamidad sa Talisay.",gemini,2026-09-08T00:50:39.535+00:00
+b4e66244-c38c-4cc6-8aeb-83e9a8123ebb,Sedrick Opulencia,Balas Elementary School po pala,"Maraming salamat sa paglilinaw at pagtatama, Mark. Na-update ko na po ang inyong landmark sa aming system. 
+
+Narito po ang pinakabagong talaan ng inyong mga detalye:
+
+*   **Tunay na Pangalan:** Mark Panganiban
+*   **Lokasyon (Brgy/Siyudad):** Barangay Buco, Talisay
+*   **Landmark:** Balas Elementary School (Evacuation Center)
+*   **Numero o Contact:** 09282837726
+*   **Tulong na kailangan:** Mga extrang gamit na pamalit at mahihigan (supplies)
+
+**Paalala:** *Siguraduhin pong tama ang lahat ng mga detalyeng ito dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon para sa inyong pangangailangan. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, baha, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*
+
+Ipinapasa ko na po ang inyong mga updated na detalye sa aming relief team upang maihanda at maihatid ang mga kailangang gamit sa tamang lokasyon. Mangyaring manatiling ligtas sa evacuation center at panatilihing bukas ang inyong linya ng komunikasyon. Mag-ingat po kayo.",gemini,2026-08-25T09:40:10.697+00:00
+e0885b80-ee61-485b-9e73-c218c7f76091,Sedrick Opulencia,goodmorning,"Magandang umaga po! Upang mabilis naming maipadala ang tamang tulong, pakibigay po ang mga sumusunod na detalye:
+
+1. **Buong pangalan**  
+2. **Barangay at lungsod/munisipyo** (hal. Barangay Quiling, Talisay)  
+3. **Mas tiyak na landmark** (hal. pangalan ng kalye, kanto, tindahan, simbahan, o anumang kilalang gusali malapit sa inyong lokasyon)  
+4. **Contact number**  
+5. **Tulong na kailangan** (hal. rescue dahil sa baha, fire‑rescue, medikal na pangangailangan, pagkain/supplies, atbp.)
+
+*Paalala:* Siguraduhing tama ang lahat ng detalye dahil ito ang magiging batayan ng aming rescue team sa pag‑aaksyon",groq,2026-08-28T01:45:25.455+00:00
+d7f20ff8-7e69-49e8-baef-e4b4e4de37df,Sedrick Opulencia,"may bumagsak po na puno dito sa tumaway malapit sa kalsada, nahaharang po ang pagdaan ng mga sasakyan","Magandang araw po. Nakarating po sa amin ang inyong ulat tungkol sa bumagsak na puno na nakaharang sa kalsada. 
+
+Upang maiparating po natin ito agad sa ating emergency response at clearing team, maaari niyo po bang ibigay ang mga sumusunod na detalye:
+
+1. **Tunay na Pangalan:**
+2. **Barangay at Siyudad/Munisipyo (Lokasyon):** (Ang Tumaway po ba ay Barangay? Saang bayan o lungsod po ito matatagpuan?)
+3. **Landmark:** (May malapit po bang paaralan, simbahan, tindahan, o kilalang gusali malapit sa bumagsak na puno?)
+4. **Numero o Contact Number:**
+5. **Tulong na kailangan:** (Ito po ba ay emergency clearing ng bumagsak na puno na dulot ng kalamidad?)
+
+**Paalala:** *Siguraduhin pong tama ang lahat ng mga detalyeng inyong ibibigay dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, baha, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*",gemini,2026-08-25T12:27:54.015+00:00
+5251e7b9-4471-4c92-b786-5ce556383ac3,Sedrick Opulencia,"ako po si Justine Nabunturan taga talisay, tumaway at ang kontak number ko po ay 091121212221","Maraming salamat po, Justine Nabunturan. Naitala ko na po ang inyong pangalan, lokasyon sa Tumaway, Talisay, at ang inyong contact number na 091121212221.
+
+Upang maipadala po natin ang aming clearing team sa eksaktong lugar, mayroon lamang po kaming kaunting katanungan para makumpleto ang detalye:
+
+1. **Landmark:** Mayroon po bang mas partikular na landmark malapit sa kalsada kung saan bumagsak ang puno? (Halimbawa: malapit sa arko, eskwelahan, tapat ng isang tindahan, o kilalang gusali?)
+2. **Tulong na kailangan:** Kumpirmahin ko lang po, ito po ba ay clearing operation para sa bumagsak na puno na dulot ng nakaraang kalamidad (tulad ng bagyo o lindol)?
+
+**Paalala:** *Siguraduhin pong tama ang lahat ng mga detalyeng inyong ibibigay dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon, depende sa inyong pangangailangan. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*",gemini,2026-08-25T12:29:10.906+00:00
+cbbdddb9-4228-43db-b991-a561f6e81b2b,Sedrick Opulencia,malapit po sa tindahan ni mang berto,"Maraming salamat po sa karagdagang detalye, Justine. 
+
+Ngayong kumpleto na po ang inyong impormasyon, narito po ang kabuuan ng mga detalyeng aming naitala:
+
+*   **Tunay na Pangalan:** Justine Nabunturan
+*   **Brgy Lokasyon:** Tumaway, Talisay
+*   **Landmark:** Malapit sa tindahan ni Mang Berto (sa kalsada kung saan may bumagsak na puno)
+*   **Numero o Contact:** 091121212221
+*   **Tulong na kailangan:** Clearing operation para sa bumagsak na puno na nakaharang sa kalsada dulot ng kalamidad
+
+**Paalala:** *Siguraduhin pong tama ang mga detalye na inyong ibinigay dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon, depende sa inyong pangangailangan. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, baha, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*
+
+Ipinapasa ko na po ang mga detalyeng ito sa aming emergency clearing team upang magawan agad ng aksyon at maalis ang nakaharang na puno sa kalsada. Mangyaring panatilihing bukas ang inyong linya para sa tawag ng aming team. Mag-ingat po kayo riyan.",gemini,2026-08-25T12:29:36.222+00:00
+1cd9c1e2-b8c5-4f79-8ab2-17f5253801ed,Sedrick Opulencia,"Gumuho po yung parte ng bahay namin gawa ng lindol at nabagsakan po yung kamay ng tatay ko, taga talisay, barangay Quiling po kame","Napakaselan po ng inyong sitwasyon at kailangan po natin ng mabilisang aksyon para sa inyong tatay na nabagsakan ng bahagi ng bahay dulot ng lindol. 
+
+Upang maipadala po namin agad ang emergency medical at rescue team sa inyong lokasyon sa **Barangay Quiling, Talisay**, maaari niyo po bang ibigay ang mga sumusunod na detalye:
+
+1. **Tunay na Pangalan:**
+2. **Landmark:** (Ano pong kilalang lugar, paaralan, simbahan, barangay hall, o tanyag na tindahan/gusali ang malapit sa inyong bahay?)
+3. **Numero o Contact:**
+4. **Tulong na kailangan:** (Kumpirmahin po natin kung emergency rescue at medical assistance para sa sugat ng inyong tatay ang kailangan?)
+
+**Paalala:** *Siguraduhin pong tama ang lahat ng mga detalyeng inyong ibibigay dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon, depende sa inyong pangangailangan. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*",gemini,2026-08-26T10:45:14.434+00:00
+78a557ec-2e7d-4a4c-9a93-6affd9d47325,Sedrick Opulencia,malapit din po ito sa kalsada,"Magandang araw po, **Menard Clefford**! Salamat po sa pagbibigay ng ilang detalye. Upang mabilis naming maipadala ang rescue team sa landslide sa **Barangay Buco, Talisay**, kailangan po namin ng kaunting karagdagang impormasyon:
+
+1. **Mas tiyak na landmark** – bukod sa “simbahan na walang pangalan” at “malapit sa kalsada,” mayroong bang pangalan ng kalsada (hal. Kalsada Rizal, Kalsada Luzon, atbp.), o anumang kilalang gusali, tindahan, bahay, kanto, o bakod na malapit sa nasir",groq,2026-08-28T01:49:23.539+00:00
+m_hrdEDhT6fkRX87IPInmSsAojfMp8MaUUULmYoiIsQyL-6-eAW4-D1jFXgiD7FqwGyq-9UPywfUk5c8R1WKT9kQ,Sedrick Opulencia,saan po may basketball court dito?,"Magandang araw po, Sedrick Opulencia! Nakatutok po ang MDRRMC sa sakuna at kalamidad. Kailangan niyo po ba ng tulong emergency (rescue, medical, ayuda) sa Talisay?
+
+Paki-bigay po ang Brgy, Landmark, at Contact No. Siguraduhing tama ang detalye dahil ito ang basihan ng aksyon ng aming team.",gemini,2026-09-11T02:55:41.836+00:00
+53272055-b7dd-4734-b2c7-dae656afa8b1,Sedrick Opulencia,Ako po si Erika Magsino malapit po bahay namin sa highway at ang kontak number ko po ay 09917272632,"Maraming salamat po sa pagbibigay ng impormasyon, Erika. Dahil emergency po ang sitwasyon ng inyong tatay, narito po ang mga detalyeng aming naitala:
+
+*   **Tunay na Pangalan:** Erika Magsino
+*   **Brgy Location:** Barangay Quiling, Talisay
+*   **Landmark:** Malapit sa highway
+*   **Numero o Contact:** 09917272632
+*   **Tulong na kailangan:** Emergency rescue at medical assistance para sa tatay na nabagsakan ng gumuhong bahagi ng bahay dulot ng lindol
+
+Maaari niyo po bang kumpirmahin kung tama ang lahat ng detalyeng ito? Mayroon pa po ba kayong maidaragdag na mas partikular na landmark sa highway (tulad ng tapat ng gasolinahan, tindahan, o kulay ng inyong bahay) para mas mabilis kayong matunton ng aming rescue team?
+
+**Paalala:** *Siguraduhin pong tama ang mga detalyeng ito dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon, depende sa inyong kailangan. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*",gemini,2026-08-26T10:46:19.075+00:00
+640994a6-79c9-4c0e-876d-a26656551a69,Sedrick Opulencia,"Tulong po, may nakulong pa sa loob ng bahay na nasusunog dito sa amin","Napakaselan at emergency po ng inyong sitwasyon dahil may nakulong sa loob ng nasusunog na bahay. Kailangan po natin ng mabilisang aksyon upang maiparating ito sa mga awtoridad at rescue teams.
+
+Maaari niyo po bang ibigay agad ang mga sumusunod na mahahalagang detalye:
+
+1. **Tunay na Pangalan:**
+2. **Brgy Location (at Siyudad/Munisipyo):**
+3. **Landmark** (Malapit na sikat na lugar, simbahan, paaralan, o kilalang gusali upang madaling mahanap ang bahay):
+4. **Numero o Contact:**
+5. **Tulong na kailangan:** (Emergency fire rescue at medical assistance para sa mga nakulong)
+
+**Paalala:** *Siguraduhin pong tama ang mga detalye na inyong ibibigay dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon, depende sa inyong kailangan. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*",gemini,2026-08-26T12:22:29.897+00:00
+3b3b5129-7a33-49c1-bca9-03ea25505027,Sedrick Opulencia,"taga barangay tranca po ako talisay, medyo malapit sa simbahan","Maraming salamat po, Justince. Naitala ko na po na ang inyong lokasyon ay sa **Barangay Tranca, Talisay**. 
+
+Narito po ang buod ng mga detalyeng aming nakalap para sa agarang pagtugon:
+
+*   **Tunay na Pangalan:** Justince Salisi
+*   **Brgy Location:** Barangay Tranca, Talisay
+*   **Landmark:** Malapit sa simbahan (Maaari niyo po bang ibigay ang tiyak na pangalan ng simbahan?)
+*   **Numero o Contact:** 09121214568
+*   **Tulong na kailangan:** Emergency fire rescue at medical assistance para sa mga nakulong sa nasusunog na bahay.
+
+Maaari niyo po bang kumpirmahin kung tama ang lahat ng detalyeng ito? Kung may partikular na pangalan po ang kalapit na simbahan, paki-sabi po agad upang mas mabilis kayong matunton ng mga rescue team.
+
+**Paalala:** *Siguraduhin pong tama ang mga detalye dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon, depende sa inyong kailangan. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.*",gemini,2026-08-26T12:25:42.403+00:00
+648650a3-09e5-479d-a4a2-f344f7739a03,Sedrick Opulencia,kailangan po agad ang tulong nyo,"Naiintindihan ko po ang labis na urgensya ng inyong sitwasyon at nais po namin kayong matulungan agad. 
+
+Upang maipasa po natin ito sa emergency team, maaari niyo po bang ibigay ang huling mahalagang detalye para sa inyong landmark:
+
+* **Ano po ang tiyak na pangalan ng simbahan na malapit sa inyo?** (Ito po ay para mas mabilis kayong matunton ng mga sasakyan ng rescue).
+
+Narito po ang kasalukuyang detalye na aming naitala:
+
+*   **Tunay na Pangalan:** Justince Salisi
+*   **Brgy Location:** Barangay Tranca, Talisay
+*   **Landmark:** Malapit sa simbahan (Kailangan po ang tiyak na pangalan)
+*   **Numero o Contact:** 09121214568
+*   **Tulong na kailangan:** Emergency fire rescue at medical assistance para sa mga nakulong sa nasusunog na bahay
+
+**Paalala:** Siguraduhin pong tama ang mga detalye dahil ito ang basihan ng aming team sa pag-sasagawa ng aksyon, depende sa kailangan ng user. Ang aming team ay nakatutok lamang sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.",gemini,2026-08-26T12:26:15.898+00:00
+6dca8e83-b44b-4d2c-b3b4-43d832ab4b3e,Sedrick Opulencia,nagliliyab po yung bahay ng kapitbahat namin dito sa barangay quiling,"Naiintindihan po namin ang agarang pangangailangan ninyo. Upang mabilis naming maiparating ang kahilingan sa aming emergency response team, kailangan po naming makuha ang mga sumusunod na detalye:
+
+1. **Tunay na Pangalan:**  
+2. **Siyudad o Munisipyo:** (Saang bayan/lungsod po matatagpuan ang Barangay Quiling?)  
+3. **Mas tiyak na Landmark:** (Halimbawa: pangalan ng kalye, kanto, tindahan, simbahan, o anumang kilalang gusali na malapit sa nasusunog na bahay)  
+4. **Numero o Contact Number:**  
+5. **Tulong na kailangan:** (Kumpirmahin po kung emergency fire rescue lamang, o may kasamang medical",groq,2026-08-27T01:53:06.146+00:00
+2beb1419-0d41-45a1-b243-fa468baa9221,Sedrick Opulencia,"malapit po ito sa simbahan, ang pangalan ko po ay Maria Santos at ang kontak number ko po ay 09212123312","Maraming salamat po, Maria Santos, sa pagbibigay ng pangalan at contact number (**09212123312**). Upang agad naming maipadala ang aming emergency fire‑rescue team sa Barangay Quiling, kailangan pa po namin ng kaunti pang detalye:
+
+1. **Siyudad o Munisipyo:** Saang bayan o lungsod po matatagpuan ang Barangay Quiling?  
+2. **Eksaktong pangalan ng simbahan** na malapit sa nasusunog na bahay (halimbawa: *Simbahan ng San Juan* o *Parokya ng Sta. Maria*).  
+3. **Tulong na kailangan:** Kumpirmahin po natin—emergency fire rescue lamang po ba, o may kasamang medical assistance para sa",groq,2026-08-27T01:54:25.04+00:00
+7999f0bb-6316-469d-8633-64c073e8a00d,Sedrick Opulencia,daliaan nyo po o,"Maraming salamat po sa inyong mensahe, Maria Santos.  
+Upang agad naming maipadala ang fire‑rescue team sa nasusunog na bahay sa **Barangay Quiling**, kailangan po naming makumpirma ang mga sumusunod na detalye:
+
+1. **Siyudad o Munisipyo:** Saang bayan o lungsod po matatagpuan ang Barangay Quiling?  
+2. **Eksaktong pangalan ng simbahan** na malapit sa nasusunog na bahay (halimbawa: *Simbahan ng San Juan*, *Parokya ng Sta. Maria*, atbp.).  
+3. **Tulong na kailangan:** Kumpirmahin po natin—**emergency fire rescue lamang po ba** o kailangan din ng **medical assistance** para sa mga nasugatan o nakulong?
+
+**Paalala:** *Siguraduhin po na tama ang lahat ng detalye dahil ito ang magiging batayan ng",groq,2026-08-27T01:54:33.02+00:00
+e4adb9d0-d491-4196-be54-951833cebf13,Sedrick Opulencia,tama po,"Maraming salamat po, Maria Santos, sa pag‑kumpirma ng mga detalye. Narito po ang kasalukuyang naitala namin:
+
+- **Tunay na Pangalan:** Maria Santos  
+- **Brgy Location:** Barangay Quiling, Talisay  
+- **Numero o Contact:** 0921‑212‑3312  
+- **Landmark:** Malapit sa simbahan *(kailangan po ang eksaktong pangalan ng simbahan)*  
+- **Tulong na kailangan:** Emergency fire‑rescue *(kumpirma po kung kailangan din ng medical assistance para sa mga nasugatan o nakulong)*  
+
+**Pakisagot po ang mga sumusunod:**
+
+1. **Eksaktong pangalan ng simb",groq,2026-08-27T01:55:03.087+00:00
+3c8b7f4a-7c45-4008-aea8-bc1b0b5b0f09,Sedrick Opulencia,"magandang tanghali po nais ko lang pong ireport sa inyo na may lupa pong humarang sa kalsada dito sa Miranda galing po sa landslide, ako po si Jepoy Torehas, taga talisay, baranagay miranda at ang contact no ko ay 09212167671","Magandang tanghali po, **Jepoy Torehas**! Salamat po sa inyong ulat.
+
+**Narito po ang kasalukuyang detalye na naitala namin:**
+
+- **Buong Pangalan:** Jepoy Torehas  
+- **Barangay at Lungsod/Munisipyo:** Barangay Miranda, Talisay  
+- **Contact Number:** 0921‑216‑7671  
+- **Sitwasyon:** May lupa na humarang sa kalsada dahil sa landslide  
+
+Upang agad naming maipasa ang kahilingan sa aming rescue/relief team, kailangan po namin ang karagdagang impormasyon:
+
+1. **Mas tiyak na landmark o pangalan ng kalsada** – halimbawa, “Kalsada Rizal, kanto ng Barangay Hall,” o anumang kilalang gusali",groq,2026-08-28T06:04:33.114+00:00
+9ac9d7fc-84c8-4790-ac67-a019b78ccb89,Sedrick Opulencia,"magandang tanghali po nais ko lang pong ireport sa inyo na may lupa pong humarang sa kalsada dito sa Miranda galing po sa landslide, ako po si Jepoy Torehas, taga talisay, baranagay miranda at ang contact no ko ay 09212167671","Magandang tanghali po, **Jepoy Torehas**! Salamat po sa inyong ulat. Upang agad naming maipasa sa aming rescue‑team ang kahilingan para sa paglilinis ng daan at anumang karagdagang tulong, kailangan po naming makumpirma ang mga sumusunod na detalye:
+
+1. **Buong pangalan:** Jepoy Torehas (kumpirma po)  
+2. **Barangay at lungsod/munisipyo:** Barangay Miranda, Talisay (kumpirma po)  
+3. **Mas tiyak na landmark / eksaktong lokasyon ng bara:**  
+   - Halimbawa: “kanto ng Kalye Rizal at Kalye Luna,” o “harap ng bahay na may pulang bakod,” o “malapit sa barangay hall,” o anumang pangalan ng kalye",groq,2026-08-28T06:04:33.573+00:00
+5a79525e-48e7-44b9-9015-5b9744050ea3,Sedrick Opulencia,salamat  po,"Walang anuman po! 😊  
+
+**Para kay Jepoy Torehas** – nakatala na po namin ang pangalan, barangay (Miranda, Talisay) at",groq,2026-08-28T06:06:42.203+00:00
+4375f9e2-06ab-4f8a-aed7-493c1941489f,Sedrick Opulencia,Magandang umaga po,"Magandang umaga rin po! 
+
+Upang agad po kayong matulungan ng aming team, maaari niyo po bang ibigay ang mga sumusunod na detalye:
+
+1. **Tunay na Pangalan:**
+2. **Barangay at Lungsod/Munisipyo (Location):**
+3. **Landmark:** (Anumang kilalang kalsada, kanto, o gusali na pinakamalapit sa inyo)
+4. **Numero o Contact Number:**
+5. **Tulong na kailangan:** (Medical, emergency rescue, supply at pagkain, atbp.)
+
+**Paalala:** Mangyaring siguraduhing tama at kumpleto ang lahat ng detalye na inyong ibibigay dahil ito po ang magiging basihan ng aming team sa pag-sasagawa ng aksyon. Ang aming team ay nakatutok lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.",gemini,2026-08-29T07:55:55.273+00:00
+9d58964e-965a-405e-bad2-b71a6e07964f,Sedrick Opulencia,"Meron pa po ba kayong pagkain dyan? Ubos na po kase ang supply namin dito sa bahay at malakas parin po ang ulan, baka mapapadalhan nyo po kami ng supplies dito sa talisay, barangay Leynes malapit po kame sa kanto po malapit sa school at ang pangalan ko po ay Isay Dimautugan ito po ang kontak number ko 09937374666","Magandang araw po, **Isay Dimautugan**! Maraming salamat sa pagbibigay ng inyong mga detalye upang agad kayong matulungan sa inyong pangangailangan sa pagkain at supply dahil sa patuloy na malakas na ulan.
+
+Upang masiguradong mahanap kayo agad ng aming team sa **Barangay Leynes, Talisay**, maaari po ba nating linawin ang inyong landmark:
+
+1. **Tiyak na Landmark:** Nabanggit niyo po na malapit kayo sa kanto malapit sa school. Ano po ang **pangalan ng school** na ito, at may pangalan po ba ang **kanto** o kalye na inyong tinutukoy?
+
+**Paalala:** Mangyaring siguraduhing tama ang lahat ng detalye na inyong ibibigay dahil ito po ang magiging basihan ng aming team sa pagsasagawa ng aksyon, depende sa inyong pangangailangan. Ang aming team ay nakatutok lamang sa pagbibigay-tulong sa mga nasalanta na dulot ng bagyo, lindol, pagputok ng bulkan, at iba pang natural na kalamidad.",gemini,2026-08-29T07:58:36.65+00:00
+afc0992b-016a-44c3-87e3-de1b653be251,Sedrick Opulencia,Ang pangalan po ng school ay George B. Vargas Elementary School,"Magandang araw po, **Isay Dimautugan**! Maraming salamat sa paglilinaw. 
+
+Narito po ang buong detalye na aming nakuha mula sa inyo:
+
+*   **Tunay na Pangalan:** Isay Dimautugan
+*   **Brgy Location:** Barangay Leynes, Talisay
+*   **Landmark:** Kanto malapit sa George B. Vargas Elementary School
+*   **Numero o Contact:** 09937374666
+*   **Tulong na kailangan:** Supply at pagkain (dahil sa patuloy na malakas na ulan)
+
+Maaari po bang paki-kumpirma kung tama at kumpleto ang lahat ng detalyeng ito? 
+
+**Paalala:** Pakisigurado pong tama ang mga detalye dahil ito ang magiging basihan ng aming team sa pag-sasagawa ng aksyon, depende sa inyong pangangailangan. Ang aming team ay naka-focus lamang sa pagtulong sa mga nasalanta na dulot ng bagyo, lindol, pag-putok ng bulkan, at iba pang natural na kalamidad.",gemini,2026-08-29T08:00:48.99+00:00
+m_DM2N06EVQiDuZ9WhTwW0gQojfMp8MaUUULmYoiIsQyKmgrGyFKJm7ZSNoUPT3wgJejyLaOh83SCAvzyQtPM1ew,Sedrick Opulencia,"May inanod pong bata dito sa Santa Maria batang lalake at kulay blue po yung damit at short ang pangalan po ay bertong, malapit po ito sa ilog. Ito din po ang contact number ko 09717263663","Magandang araw po, Sedrick Opulencia! Naitala po ang emergency:
+
+📍 Brgy. Santa Maria
+📍 Landmark: Malapit sa ilog
+📞 Contact: 09717263663
+🚨 Tulong: Rescue (Inanod na bata)
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aksyon ng aming team sa pagresponde sa Talisay.",gemini,2026-09-08T00:51:37.017+00:00
+m_EHpPz5PZEEjCZifT1BqJUgojfMp8MaUUULmYoiIsQyIvvYp7QjU1-YvHAzrhNQHsBnBv1FHKf94lTDggyDrPZw,Sedrick Opulencia,Tama po,"Maraming salamat, Sedrick Opulencia! Naipasa na po agad sa aming MDRRMC rescue team ang inyong ulat para sa Brgy. Santa Maria.
+
+Siguraduhing tama ang mga detalye dahil ito ang basihan ng aksyon ng aming team sa pagresponde dito sa Talisay Batangas. Manatili po kayong ligtas!",gemini,2026-09-08T00:52:20.028+00:00
+m_xIsudh2T9tc3FNEu5Ei_zwojfMp8MaUUULmYoiIsQyJFNgoPmeGYnIgs4GHPDN7r6BDcUrTUPmwUTBlTIltj_A,Sedrick Opulencia,wag nlng nga,"Salamat po, Sedrick Opulencia. Handa po ang aming team sa MDRRMC Talisay na tumulong sakaling magkaroon ng emergency dulot ng bagyo, lindol, o kalamidad.
+
+Siguraduhing tama ang mga detalye kung mag-uulat dahil ito ang basihan ng aming aksyon. Manatili po kayong ligtas!",gemini,2026-09-11T02:56:25.235+00:00
