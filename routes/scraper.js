@@ -57,49 +57,53 @@ async function runScraper() {
             continue;
         }
 
-        // ── 2. Fetch comments for this post ──────────────────────────────────
+        // ── 2. Fetch comments for this post (with pagination) ────────────────
         try {
-            const commentsUrl = `https://graph.facebook.com/${API_VERSION}/${post.id}/comments`;
-            const commentsRes = await axios.get(commentsUrl, {
-                params: {
-                    fields: "id,from,message,created_time",
-                    limit: 100,
-                    access_token: TOKEN
-                }
-            });
-
-            const comments = commentsRes.data?.data || [];
-
             // Track which comment IDs the API actually returned for this post
             const apiCommentIds = new Set();
+            let nextCommentsUrl = `https://graph.facebook.com/${API_VERSION}/${post.id}/comments`;
+            let commentParams = {
+                fields: "id,from,message,created_time",
+                limit: 100,
+                access_token: TOKEN
+            };
 
-            for (const comment of comments) {
-                const commentText = comment.message || "";
-                const commentBarangay = detectBarangay(commentText);
-                const incidentType = detectIncidentType(commentText);
+            while (nextCommentsUrl) {
+                const commentsRes = await axios.get(nextCommentsUrl, { params: commentParams });
+                const comments = commentsRes.data?.data || [];
 
-                // Parse date and time from created_time
-                const commentDt = new Date(comment.created_time);
-                const commentDate = commentDt.toISOString().split("T")[0]; // YYYY-MM-DD
-                const commentTime = commentDt.toISOString().split("T")[1].split(".")[0]; // HH:MM:SS
+                for (const comment of comments) {
+                    const commentText = comment.message || "";
+                    const commentBarangay = detectBarangay(commentText);
+                    const incidentType = detectIncidentType(commentText);
 
-                try {
-                    await FbComment.upsert({
-                        id: comment.id,
-                        postId: post.id,
-                        userName: comment.from?.name || "Unknown",
-                        commentText: commentText,
-                        commentDate: commentDate,
-                        commentTime: commentTime,
-                        barangay: commentBarangay,
-                        incidentType: incidentType
-                    });
-                    apiCommentIds.add(comment.id);
-                    commentsUpserted++;
-                } catch (commentErr) {
-                    console.error(`❌ Scraper: Failed to upsert comment ${comment.id}:`, commentErr.message);
-                    continue;
+                    // Parse date and time from created_time
+                    const commentDt = new Date(comment.created_time);
+                    const commentDate = commentDt.toISOString().split("T")[0]; // YYYY-MM-DD
+                    const commentTime = commentDt.toISOString().split("T")[1].split(".")[0]; // HH:MM:SS
+
+                    try {
+                        await FbComment.upsert({
+                            id: comment.id,
+                            postId: post.id,
+                            userName: comment.from?.name || "Unknown",
+                            commentText: commentText,
+                            commentDate: commentDate,
+                            commentTime: commentTime,
+                            barangay: commentBarangay,
+                            incidentType: incidentType
+                        });
+                        apiCommentIds.add(comment.id);
+                        commentsUpserted++;
+                    } catch (commentErr) {
+                        console.error(`❌ Scraper: Failed to upsert comment ${comment.id}:`, commentErr.message);
+                        continue;
+                    }
                 }
+
+                // Follow pagination until all comments are fetched
+                nextCommentsUrl = commentsRes.data?.paging?.next || null;
+                commentParams = {}; // next URL already includes access_token and all params
             }
 
             // ── 3. Reconciliation — purge deleted comments ────────────────────

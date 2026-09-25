@@ -10,6 +10,7 @@ const { requireApiKey, verifyFacebookSignature } = require("./utils/auth");
 const { getUserProfile } = require("./utils/meta");
 const geminiPool = require("./utils/geminiKeyPool");
 const nlpClient  = require("./utils/nlpClient");
+const nlpWorker  = require("./jobs/nlpWorker");
 const { detectBarangay, extractContacts, extractName } = require("./utils/extractors");
 
 const app = express();
@@ -220,22 +221,6 @@ app.post("/webhook", webhookLimiter, verifyFacebookSignature, async (req, res) =
                 // location_status: Express deterministic barangay extraction
                 const locationStatus = (exprBarangay && exprBarangay !== "Unknown") ? "found" : "not_found";
 
-                // ── NLP classification (runs in parallel; non-blocking) ──────────────
-                const nlp = await nlpClient.classify(userMessage).catch(() => null);
-                // ml_status: Python ML subsystem ('complete' | 'failed')
-                const mlStatus = nlp ? "complete" : "failed";
-
-                // ── Merge: Express extraction wins for entities (guaranteed uptime) ──
-                // Python NLP may also return barangay/contacts — use as supplement only
-                // when Express didn't detect anything.
-                const finalBarangay = (exprBarangay !== "Unknown")
-                    ? exprBarangay
-                    : (nlp?.barangay ?? null);
-
-                const finalContacts = exprContacts.length > 0
-                    ? exprContacts
-                    : (nlp?.contact_numbers ?? null);
-
                 // Resolve effective sender name:
                 //   1. Facebook profile name (if real)
                 //   2. Name extracted from message text (e.g. "ako si Juan")
@@ -243,6 +228,8 @@ app.post("/webhook", webhookLimiter, verifyFacebookSignature, async (req, res) =
                 const facebookName   = (profile.name && !profile.name.startsWith("User ")) ? profile.name : null;
                 const effectiveName  = facebookName || exprName || "Unknown User";
 
+                // ── Save conversation immediately (non-blocking for Facebook Messenger) ──
+                // The database trigger will automatically enqueue an outbox job in public.nlp_jobs
                 await Conversation.upsert({
                     conversationId,
                     senderPSID,
@@ -251,35 +238,31 @@ app.post("/webhook", webhookLimiter, verifyFacebookSignature, async (req, res) =
                     provider,
                     senderName: effectiveName,
                     // Status fields — independent failure domains
-                    mlStatus,
+                    mlStatus: "pending",
                     locationStatus,
-                    needsReview:             nlp?.needs_review             ?? false,
-                    lowConfidenceFields:     nlp?.low_confidence_fields    ?? null,
-                    // NLP semantic fields — null when ML server is not running
-                    intent:                  nlp?.intent                   ?? null,
-                    urgency:                 nlp?.urgency                  ?? null,
-                    incidentType:            nlp?.incident_type            ?? null,
-                    intentConfidence:        nlp?.intent_confidence        ?? null,
-                    urgencyConfidence:       nlp?.urgency_confidence       ?? null,
-                    incidentTypeConfidence:  nlp?.incident_type_confidence ?? null,
-                    // Entity fields — sourced from Express (always) with NLP as fallback
-                    barangay:       finalBarangay,
-                    contactNumbers: finalContacts,
+                    needsReview: false,
+                    lowConfidenceFields: null,
+                    // NLP semantic fields — initially null, populated asynchronously by nlpWorker
+                    intent: null,
+                    urgency: null,
+                    incidentType: null,
+                    intentConfidence: null,
+                    urgencyConfidence: null,
+                    incidentTypeConfidence: null,
+                    // Entity fields — sourced from Express deterministic regex
+                    barangay: exprBarangay !== "Unknown" ? exprBarangay : null,
+                    contactNumbers: exprContacts.length > 0 ? exprContacts : null,
                 });
 
-                if (nlp) {
-                    const reviewTag = nlp.needs_review ? ` ⚠️ NEEDS_REVIEW (${(nlp.low_confidence_fields || []).join(", ")})` : "";
-                    console.log(
-                        `🧠 NLP   : intent=${nlp.intent} urgency=${nlp.urgency} incident=${nlp.incident_type}` +
-                        ` (conf: ${nlp.intent_confidence}/${nlp.urgency_confidence}/${nlp.incident_type_confidence})${reviewTag}`
-                    );
-                }
+                // Immediately kick the background queue worker (non-blocking)
+                nlpWorker.kick();
+
                 console.log(
-                    `📍 Entity: name="${effectiveName}" barangay="${finalBarangay}"` +
-                    ` contacts=${finalContacts?.join(", ") || "none"}`
+                    `📍 Entity: name="${effectiveName}" barangay="${exprBarangay}"` +
+                    ` contacts=${exprContacts?.join(", ") || "none"}`
                 );
                 console.log(
-                    `📊 Status: ml_status="${mlStatus}" location_status="${locationStatus}"`
+                    `📊 Status: ml_status="pending" location_status="${locationStatus}"`
                 );
 
                 // If we resolved a real FB name, retroactively fix stale placeholder rows
@@ -494,67 +477,65 @@ app.get("/api/user-history/:senderPSID", requireApiKey, async (req, res) => {
     }
 });
 
-// ── NLP Retry / Backfill Mechanism ───────────────────────────────────────────
+// ── NLP Retry / Backfill Mechanism (Unified via nlp_jobs queue) ───────────────
 /**
- * Retries ML classification for conversations where ml_status = 'failed'.
+ * Re-enqueues failed conversations into public.nlp_jobs and triggers worker processing.
  * @param {{ limit?: number, hoursAgo?: number }} options
- * @returns {Promise<{ attempted: number, successful: number, failed: number, skipped?: boolean, reason?: string }>}
+ * @returns {Promise<{ re-enqueued: number, message: string }>}
  */
-async function retryFailedMlClassifications({ limit = 50, hoursAgo = 24 } = {}) {
-    const isOnline = await nlpClient.isHealthy().catch(() => false);
-    if (!isOnline) {
-        return { attempted: 0, successful: 0, failed: 0, skipped: true, reason: "NLP service is offline" };
-    }
-
+async function requeueFailedMlJobs({ limit = 50, hoursAgo = 24 } = {}) {
     const failedRecords = await Conversation.findFailedMl({ limit, hoursAgo });
     if (!failedRecords || failedRecords.length === 0) {
-        return { attempted: 0, successful: 0, failed: 0, message: "No failed ML records found" };
+        return { reEnqueued: 0, message: "No failed ML records found to re-enqueue" };
     }
 
-    console.log(`🔄 NLP Backfill: Retrying ${failedRecords.length} records with ml_status='failed'...`);
-    let successful = 0;
-    let failed = 0;
+    console.log(`🔄 NLP Outbox Requeue: Enqueuing ${failedRecords.length} failed record(s)...`);
+    let count = 0;
 
     for (const record of failedRecords) {
-        try {
-            const nlp = await nlpClient.classify(record.user_message);
-            if (nlp) {
-                await Conversation.updateMlClassification(record.conversation_id, nlp);
-                successful++;
-            } else {
-                await Conversation.markMlAttempt(record.conversation_id);
-                failed++;
-            }
-        } catch (err) {
-            await Conversation.markMlAttempt(record.conversation_id);
-            failed++;
-        }
+        const { error } = await supabase
+            .from("nlp_jobs")
+            .upsert({
+                entity_type: "conversation",
+                entity_id: record.conversation_id,
+                source_text: record.user_message,
+                status: "pending",
+                attempts: 0,
+                next_attempt_at: new Date().toISOString(),
+                updated_at: new Date().toISOString()
+            }, { onConflict: "entity_type,entity_id" });
+
+        if (!error) count++;
     }
 
-    console.log(`🔄 NLP Backfill Complete: ${successful} succeeded, ${failed} failed.`);
-    return { attempted: failedRecords.length, successful, failed };
+    // Trigger worker to process immediately
+    nlpWorker.kick();
+
+    return { reEnqueued: count, message: `Re-enqueued ${count} job(s) into nlp_jobs queue` };
 }
 
-// ── API: Retry failed ML classifications (manual or cron-triggered) ───────────
+// ── API: Retry failed ML classifications (re-enqueues and kicks worker) ───────
 app.post("/api/nlp/retry", requireApiKey, async (req, res) => {
     try {
         const limit = parseInt(req.query.limit || req.body?.limit || "50", 10);
         const hoursAgo = parseInt(req.query.hoursAgo || req.body?.hoursAgo || "24", 10);
-        const result = await retryFailedMlClassifications({ limit, hoursAgo });
-        res.json({ success: true, ...result });
+        const result = await requeueFailedMlJobs({ limit, hoursAgo });
+        // Kick asynchronous processing so HTTP response returns immediately without timing out
+        nlpWorker.kick();
+        res.status(202).json({ success: true, accepted: true, ...result });
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
 });
 
-// Periodic background backfill check (every 15 minutes by default)
+// Periodic background check: reconcile any orphaned failed records into the outbox
 const NLP_BACKFILL_INTERVAL_MS = parseInt(process.env.NLP_BACKFILL_INTERVAL_MS || "900000", 10);
 if (NLP_BACKFILL_INTERVAL_MS > 0) {
     setInterval(async () => {
         try {
-            await retryFailedMlClassifications({ limit: 25, hoursAgo: 24 });
+            await requeueFailedMlJobs({ limit: 25, hoursAgo: 24 });
         } catch (err) {
-            console.warn("⚠️  Periodic NLP backfill failed:", err.message);
+            console.warn("⚠️ Periodic NLP outbox reconciliation failed:", err.message);
         }
     }, NLP_BACKFILL_INTERVAL_MS);
 }
@@ -569,7 +550,7 @@ app.listen(PORT, async () => {
     console.log(`📰 FB Scraper   : active (FB_PAGE_ID: ${process.env.FB_PAGE_ID || 'NOT SET'})`);
 
     // Check NLP microservice (non-blocking — server starts even if ML is down)
-    const nlpUrl    = process.env.NLP_SERVICE_URL || "http://localhost:8100";
+    const nlpUrl    = process.env.NLP_SERVICE_URL || "http://localhost:7860";
     const nlpOnline = await nlpClient.isHealthy().catch(() => false);
     if (nlpOnline) {
         console.log(`🧠 NLP Service  : ONLINE  (${nlpUrl})`);
