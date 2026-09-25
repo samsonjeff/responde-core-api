@@ -32,6 +32,7 @@ let _cooldownUntil   = 0;      // exponential back-off: don't retry until this t
  * Classify a single text string.
  *
  * @param {string} text  The raw user message to classify.
+ * @param {number|{ timeoutMs?: number, throwOnError?: boolean }} [options] Timeout in ms or options object.
  * @returns {Promise<{
  *   intent: string,
  *   urgency: string,
@@ -43,11 +44,14 @@ let _cooldownUntil   = 0;      // exponential back-off: don't retry until this t
  *   contact_numbers: string[]
  * }|null>} Classification result, or null if the ML server is unavailable.
  */
-async function classify(text) {
+async function classify(text, options = {}) {
     if (!text || !text.trim()) return null;
 
-    // Back-off: skip call if server recently failed
-    if (!_serverAvailable && Date.now() < _cooldownUntil) {
+    const timeoutMs = typeof options === "number" ? options : (options.timeoutMs || NLP_TIMEOUT);
+    const throwOnError = typeof options === "object" && options.throwOnError === true;
+
+    // Back-off: skip call if server recently failed (unless throwOnError is explicitly requested by a retry worker)
+    if (!throwOnError && !_serverAvailable && Date.now() < _cooldownUntil) {
         return null;
     }
 
@@ -56,7 +60,7 @@ async function classify(text) {
             `${NLP_BASE_URL}/classify`,
             { text },
             {
-                timeout: NLP_TIMEOUT,
+                timeout: timeoutMs,
                 headers: { "Content-Type": "application/json" }
             }
         );
@@ -67,6 +71,10 @@ async function classify(text) {
 
         return response.data;
     } catch (err) {
+        if (throwOnError) {
+            throw err;
+        }
+
         // Log only on first failure; don't spam logs on every message
         if (_serverAvailable) {
             const reason = err.code === "ECONNREFUSED"

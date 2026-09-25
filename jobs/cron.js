@@ -1,5 +1,6 @@
 const { runScraper } = require("../routes/scraper");
 const { runMessengerSync } = require("./messengerSync");
+const { processNlpJobs } = require("./nlpWorker");
 const supabase = require("../supabase/client");
 
 let isScraping = false;
@@ -79,6 +80,24 @@ function startCronJobs() {
             console.error("❌ Dedup cleanup error:", err.message);
         }
     }, CLEANUP_INTERVAL_MS);
+
+    // ── NLP Queue Worker Sweep ────────────────────────────────────────────────
+    // Sweeps public.nlp_jobs for pending or retry records
+    const nlpSweepIntervalSec = parseInt(process.env.NLP_SWEEP_INTERVAL_SECONDS || "20", 10);
+    const nlpSweepIntervalMs = Math.max(nlpSweepIntervalSec, 5) * 1000;
+
+    console.log(`🤖 Cron: NLP Worker sweep scheduled (running every ${nlpSweepIntervalSec}s)`);
+
+    // Kick an initial sweep on startup
+    processNlpJobs().catch(err => console.error("❌ Initial NLP sweep error:", err.message));
+
+    setInterval(async () => {
+        try {
+            await processNlpJobs();
+        } catch (err) {
+            console.error("❌ Scheduled NLP sweep error:", err.message);
+        }
+    }, nlpSweepIntervalMs);
 }
 
 module.exports = { startCronJobs };
