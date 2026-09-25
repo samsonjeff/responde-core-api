@@ -2,6 +2,7 @@ require("dotenv").config();
 const axios = require("axios");
 const express = require("express");
 const helmet = require("helmet");
+const cookieParser = require("cookie-parser");
 const rateLimit = require("express-rate-limit");
 const crypto = require("crypto");
 const supabase = require("./supabase/client");
@@ -12,6 +13,8 @@ const geminiPool = require("./utils/geminiKeyPool");
 const nlpClient  = require("./utils/nlpClient");
 const nlpWorker  = require("./jobs/nlpWorker");
 const { detectBarangay, extractContacts, extractName } = require("./utils/extractors");
+const requireSession = require("./middleware/requireSession");
+const requireRole    = require("./middleware/requireRole");
 
 const app = express();
 
@@ -48,6 +51,9 @@ app.set("trust proxy", 1);
 
 // ── Security Middleware ───────────────────────────────────────────────────────
 app.use(helmet());
+
+// Parse httpOnly cookies (required for RBAC session tokens)
+app.use(cookieParser());
 
 // Preserve raw body buffer for HMAC signature verification in webhooks
 app.use(express.json({
@@ -92,6 +98,9 @@ Maging maikli at panatilihin ang iyong mga sagot sa ilalim ng 300 na letra(chara
 console.log("🗄️  Supabase client initialised ✅");
 console.log(`   URL : ${process.env.SUPABASE_URL}`);
 
+// ── Auth Routes (RBAC login, invite, register, role management) ──────────────
+app.use("/api/auth", require("./routes/auth"));
+
 // ── FB Page Scraper ──────────────────────────────────────────────────────────
 app.use("/scraper", require("./routes/scraper"));
 const { startCronJobs } = require("./jobs/cron");
@@ -109,8 +118,8 @@ app.get("/", (req, res) => {
 });
 
 // ── Protected Debug / Inspection API ─────────────────────────────────────────
-// GET /api/debug/conversations (Requires x-api-key header)
-app.get("/api/debug/conversations", requireApiKey, async (req, res) => {
+// GET /api/debug/conversations — requires an authenticated session with admin or super_admin role
+app.get("/api/debug/conversations", requireSession, requireRole("admin", "super_admin"), async (req, res) => {
     try {
         const { psid, limit = 100 } = req.query;
 
@@ -418,8 +427,8 @@ async function sendMessage(senderPSID, text) {
     }
 }
 
-// ── API: Reset entire database ────────────────────────────────────────────────
-app.post("/api/reset-database", requireApiKey, async (req, res) => {
+// ── API: Reset entire database (super_admin only) ────────────────────────────
+app.post("/api/reset-database", requireSession, requireRole("super_admin"), async (req, res) => {
     try {
         const { error, count } = await supabase
             .from("conversations")
@@ -439,7 +448,8 @@ app.post("/api/reset-database", requireApiKey, async (req, res) => {
 });
 
 // ── API: Get full conversation history for a user ─────────────────────────────
-app.get("/api/user-history/:senderPSID", requireApiKey, async (req, res) => {
+// Requires authenticated session with at minimum admin role (staff cannot see raw data)
+app.get("/api/user-history/:senderPSID", requireSession, requireRole("admin", "super_admin"), async (req, res) => {
     try {
         const { senderPSID } = req.params;
         const { limit = 50 } = req.query;
