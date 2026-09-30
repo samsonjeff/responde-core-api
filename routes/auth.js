@@ -9,8 +9,8 @@ const requireRole   = require("../middleware/requireRole");
 const SESSION_COOKIE_NAME = "session_token";
 const COOKIE_OPTIONS = {
     httpOnly:  true,               // JavaScript cannot read this cookie (XSS protection)
-    secure:    process.env.NODE_ENV === "production", // HTTPS only in production
-    sameSite:  "strict",           // No cross-site requests
+    secure:    true,               // HTTPS only — required for SameSite=None
+    sameSite:  "none",             // Cross-site allowed — required for Workers↔Render auth
     maxAge:    7 * 24 * 60 * 60 * 1000 // 7 days in milliseconds
 };
 
@@ -22,8 +22,8 @@ function setSessionCookie(res, token) {
 function clearSessionCookie(res) {
     res.clearCookie(SESSION_COOKIE_NAME, {
         httpOnly: true,
-        secure:   process.env.NODE_ENV === "production",
-        sameSite: "strict"
+        secure:   true,
+        sameSite: "none"
     });
 }
 
@@ -61,7 +61,7 @@ router.post("/login", async (req, res) => {
         // Step 1: Look up user by username OR email (case-insensitive)
         let lookupQuery = supabase
             .from("system_users")
-            .select("id, email, username, role, is_active, locked_until, failed_login_count");
+            .select("id, email, username, full_name, role, is_active, locked_until, failed_login_count, avatar_url, phone_number");
 
         if (isEmail) {
             lookupQuery = lookupQuery.eq("email", cleanIdentifier.toLowerCase());
@@ -162,9 +162,13 @@ router.post("/login", async (req, res) => {
             success:  true,
             message:  "Logged in successfully",
             user: {
-                id:       userRow.id,
-                username: userRow.username,
-                role:     userRow.role
+                user_id:      userRow.id,
+                username:     userRow.username,
+                email:        userRow.email,
+                full_name:    userRow.full_name,
+                role:         userRow.role,
+                avatar_url:   userRow.avatar_url   ?? null,
+                phone_number: userRow.phone_number ?? null,
             }
         });
 
@@ -319,7 +323,22 @@ router.post("/logout", requireSession, async (req, res) => {
 // Requires: valid session cookie
 // ==============================================================================
 router.get("/me", requireSession, (req, res) => {
-    return res.status(200).json({ success: true, user: req.user });
+    // Normalize req.user (camelCase from requireSession) to the snake_case
+    // AuthUser interface expected by the frontend.
+    return res.status(200).json({
+        success: true,
+        user: {
+            user_id:      req.user.id,
+            auth_user_id: req.user.authUserId  ?? null,
+            username:     req.user.username,
+            email:        req.user.email,
+            full_name:    req.user.fullName    ?? null,
+            role:         req.user.role,
+            avatar_url:   req.user.avatarUrl   ?? null,
+            phone_number: req.user.phoneNumber ?? null,
+            expires_at:   req.user.expiresAt   ?? null,
+        }
+    });
 });
 
 

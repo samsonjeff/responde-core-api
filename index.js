@@ -2,6 +2,7 @@ require("dotenv").config();
 const axios = require("axios");
 const express = require("express");
 const helmet = require("helmet");
+const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const rateLimit = require("express-rate-limit");
 const crypto = require("crypto");
@@ -49,8 +50,39 @@ async function tryClaimMessage(mid) {
 // Trust reverse proxy headers (required for deployment platforms like Render/Heroku)
 app.set("trust proxy", 1);
 
+// ── CORS ──────────────────────────────────────────────────────────────────────
+// Must be registered BEFORE helmet and other middleware so preflight OPTIONS
+// requests receive CORS headers and aren't blocked.
+//
+// Allowed origins: the deployed Cloudflare Workers frontend + local dev server.
+// credentials: true is required so the browser sends/receives the httpOnly
+// session cookie on cross-origin requests.
+const ALLOWED_ORIGINS = [
+    process.env.FRONTEND_URL,                                            // e.g. https://responde-frontend-reactjs.sedrickopulencia.workers.dev
+    "https://responde-frontend-reactjs.sedrickopulencia.workers.dev",   // explicit fallback
+    "http://localhost:5173",                                             // Vite dev server
+    "http://localhost:3000",                                             // alt local port
+].filter(Boolean);
+
+app.use(cors({
+    origin: (origin, callback) => {
+        // Allow requests with no Origin header (e.g. mobile apps, curl, same-origin server calls)
+        if (!origin) return callback(null, true);
+        if (ALLOWED_ORIGINS.includes(origin)) return callback(null, true);
+        console.warn(`⛔ CORS blocked origin: ${origin}`);
+        return callback(new Error(`Origin '${origin}' is not allowed by CORS`));
+    },
+    credentials: true,       // Required to echo back Set-Cookie headers
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization", "x-api-key"],
+}));
+
 // ── Security Middleware ───────────────────────────────────────────────────────
-app.use(helmet());
+// crossOriginResourcePolicy must be 'cross-origin' so the browser will accept
+// responses from this API when requested from a different domain.
+app.use(helmet({
+    crossOriginResourcePolicy: { policy: "cross-origin" }
+}));
 
 // Parse httpOnly cookies (required for RBAC session tokens)
 app.use(cookieParser());
