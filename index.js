@@ -59,6 +59,7 @@ app.set("trust proxy", 1);
 // session cookie on cross-origin requests.
 const ALLOWED_ORIGINS = [
     process.env.FRONTEND_URL,
+    "https://responde-frontend.jeffersonsamson380.workers.dev",
     "https://responde-frontend-reactjs.jeffersonsamson380.workers.dev",
     "https://responde.jeffersonsamson380.workers.dev",
     "https://responde-frontend-reactjs.sedrickopulencia.workers.dev",
