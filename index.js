@@ -58,10 +58,13 @@ app.set("trust proxy", 1);
 // credentials: true is required so the browser sends/receives the httpOnly
 // session cookie on cross-origin requests.
 const ALLOWED_ORIGINS = [
-    process.env.FRONTEND_URL,                                            // e.g. https://responde-frontend-reactjs.sedrickopulencia.workers.dev
-    "https://responde-frontend-reactjs.sedrickopulencia.workers.dev",   // explicit fallback
-    "http://localhost:5173",                                             // Vite dev server
-    "http://localhost:3000",                                             // alt local port
+    process.env.FRONTEND_URL,
+    "https://responde-frontend-reactjs.jeffersonsamson380.workers.dev",
+    "https://responde.jeffersonsamson380.workers.dev",
+    "https://responde-frontend-reactjs.sedrickopulencia.workers.dev",
+    "https://responde.sedrickopulencia.workers.dev",
+    "http://localhost:5173",
+    "http://localhost:3000",
 ].filter(Boolean);
 
 app.use(cors({
@@ -69,6 +72,9 @@ app.use(cors({
         // Allow requests with no Origin header (e.g. mobile apps, curl, same-origin server calls)
         if (!origin) return callback(null, true);
         if (ALLOWED_ORIGINS.includes(origin)) return callback(null, true);
+        if (/^https:\/\/responde(-[a-z0-9-]+)?\.[a-z0-9-]+\.workers\.dev$/i.test(origin)) {
+            return callback(null, true);
+        }
         console.warn(`⛔ CORS blocked origin: ${origin}`);
         return callback(new Error(`Origin '${origin}' is not allowed by CORS`));
     },
