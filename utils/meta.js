@@ -1,7 +1,7 @@
 const axios = require("axios");
 const supabase = require("../supabase/client");
 
-const GRAPH_VERSION = process.env.GRAPH_API_VERSION || "v25.0";
+const GRAPH_VERSION = process.env.GRAPH_API_VERSION || process.env.FB_GRAPH_API_VERSION || "v25.0";
 const PAGE_ID = process.env.FB_PAGE_ID;
 
 // ── In-memory profile cache ───────────────────────────────────────────────────

@@ -65,7 +65,7 @@ async function runDiagnostics() {
         if (!process.env.PAGE_ACCESS_TOKEN || !process.env.FB_PAGE_ID) {
             throw new Error("PAGE_ACCESS_TOKEN or FB_PAGE_ID is not set.");
         }
-        const version = process.env.GRAPH_API_VERSION || "v25.0";
+        const version = process.env.GRAPH_API_VERSION || process.env.FB_GRAPH_API_VERSION || "v25.0";
         const url = `https://graph.facebook.com/${version}/${process.env.FB_PAGE_ID}`;
 
         const startTime = Date.now();
@@ -95,7 +95,7 @@ async function runDiagnostics() {
     // Check optional META_ACCESS_TOKEN
     if (process.env.META_ACCESS_TOKEN) {
         try {
-            const version = process.env.GRAPH_API_VERSION || "v25.0";
+            const version = process.env.GRAPH_API_VERSION || process.env.FB_GRAPH_API_VERSION || "v25.0";
             const res = await axios.get(`https://graph.facebook.com/${version}/me`, {
                 params: { access_token: process.env.META_ACCESS_TOKEN },
                 timeout: 8000
