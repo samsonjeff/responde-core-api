@@ -1,6 +1,6 @@
-# fb-scraper-nlp-pipeline
+# responde-core-api
 
-> A unified Express.js service hosted on Render that serves as the data collection and processing engine for the Talisay, Batangas Incident System.
+> Unified backend API, Facebook Messenger automation, and public activity scraping pipeline for the **Responde** Incident & Disaster Management System in **Talisay, Batangas**.
 
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![Express](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
@@ -15,12 +15,13 @@
 
 - [Overview](#overview)
 - [Development & Security Notice](#development--security-notice)
-- [Active Modules & Features](#active-modules--features)
+- [Active Pipeline Modules](#active-pipeline-modules)
 - [Scope: Talisay Batangas Barangays](#scope-talisay-batangas-barangays)
+- [Architecture Decision: Independent Failure Domains](#architecture-decision-independent-failure-domains)
 - [Tech Stack](#tech-stack)
 - [Security & Credential Protection](#security--credential-protection)
 - [Environment Configuration](#environment-configuration)
-- [Database Schema (Supabase SQL)](#database-schema-supabase-sql)
+- [Pipeline Database Schema (Supabase SQL)](#pipeline-database-schema-supabase-sql)
 - [API Endpoints](#api-endpoints)
 - [Installation & Running Locally](#installation--running-locally)
 - [License](#license)
@@ -29,13 +30,13 @@
 
 ## Overview
 
-**fb-scraper-nlp-pipeline** is a production-ready backend pipeline designed for emergency and community incident monitoring in **Talisay, Batangas**. 
+**responde-core-api** is the core backend service powering automated emergency intake and public incident monitoring for **Talisay, Batangas**.
 
-The system operates two primary workflows:
-1. **Automated Emergency Messaging**: Handles incoming Facebook Messenger queries with AI-powered replies (Google Gemini with multi-key rotation pool), extracting reported barangay locations and emergency details.
-2. **Public Page Activity Scraping**: Periodically scrapes public Facebook Page posts and comments using Meta Graph API, parsing texts for incident keywords and mapping them to official barangays in real time.
+The system operates two primary automated pipeline workflows:
+1. **Automated Emergency Messaging (Messenger Bot)**: Ingests incoming Facebook Messenger messages, generates context-aware conversational replies using Google Gemini (backed by a resilient 15-key rotation pool with rate-limit cooldown), deterministically extracts resident contact details and barangays, and enqueues classification jobs into a durable outbox queue.
+2. **Public Page Activity Scraping**: Periodically scrapes public Facebook Page posts and comments via Meta Graph API (v25.0), maps emergency keywords against official Talisay barangays, and automatically reconciles deleted or edited comments.
 
-All structured data is persisted in a centralized **Supabase (PostgreSQL)** database.
+All structured incident and conversation data is persisted into **Supabase (PostgreSQL)** with strict Row Level Security (RLS).
 
 ---
 
@@ -45,33 +46,32 @@ All structured data is persisted in a centralized **Supabase (PostgreSQL)** data
 
 ---
 
-## Active Modules & Features
+## Active Pipeline Modules
 
-### 1. Messenger Bot Module (AI Auto-Reply & Parsing)
+### 1. Messenger Bot Module (AI Auto-Reply & Intake)
 | Feature | Description |
 |---|---|
-| **Webhook Integration** | Real-time reception of Facebook Page Messenger webhooks |
-| **Profile Extraction** | Real-time resolution of sender real name via Meta Graph API with in-memory caching |
-| **AI Engine** | **Google Gemini** with multi-key rotation pool and automatic cooldown handling |
-| **Entity Extraction** | Automatic extraction of Talisay barangays and emergency keywords |
-| **Conversation Logging** | Full conversation history with sender real name logged into `conversations` table |
-| **Unsent Message Sync** | Periodic Graph API thread reconciliation detecting and pruning messages deleted/unsent by users |
+| **Webhook Ingestion** | Real-time intake of Facebook Page Messenger webhooks with HMAC-SHA256 signature verification |
+| **Distributed Message Dedup** | Multi-instance safe deduplication using PostgreSQL unique constraints (`processed_messages`) |
+| **Sender Profile Resolution** | Resolves resident names via Meta Graph API with in-memory caching and retroactive backfill |
+| **Multi-Key Gemini Pool** | Round-robin rotation across active API keys with automatic 429/503 cooldown and 401 key fencing |
+| **Deterministic Extraction** | Regex extraction for Philippine phone numbers, barangays, and resident names |
+| **Durable NLP Outbox** | Transactionally records conversations and delegates classification to an asynchronous queue (`nlp_jobs`) |
 
-### 2. FB Page Scraper Module (Public Activity Processing)
+### 2. Facebook Page Scraper Module (Public Activity Ingestion)
 | Feature | Description |
 |---|---|
-| **Automated Scraping** | Periodic background scraping of posts and comments (default: 300s) |
-| **Comment Reconciliation** | Compares active Graph API comment IDs against DB to automatically prune deleted comments |
-| **Keyword Parsing Engine** | Text parsing for incident types (floods, fires, landslides, etc.) |
-| **Strict Location Filtering** | Location matching strictly against the **21 official barangays of Talisay, Batangas** (defaults to `'Unknown'`) |
-| **Data Persistence** | Structured saving into `fb_posts` and `fb_comments` tables with upsert handling for comment edits |
-| **Control APIs** | Manual trigger endpoint (`POST /scraper/run`) and status monitor (`GET /scraper/status`) |
+| **Periodic Background Scraping** | Configurable scheduled cron scraping of posts and comments (default: every 350s) |
+| **Comment Reconciliation** | Prunes deleted comments from the database by reconciling against active Graph API comment IDs |
+| **Keyword Parsing Engine** | Classifies disaster types (floods, fires, volcanic activity, landslides, typhoons) |
+| **Strict Barangay Matching** | Filters and normalizes locations against the **21 official barangays of Talisay, Batangas** |
+| **Control Endpoints** | Manual scrape execution (`POST /scraper/run`) and operational health check (`GET /scraper/status`) |
 
 ---
 
 ## Scope: Talisay Batangas Barangays
 
-All parsed locations are matched strictly against the 21 official barangays of Talisay, Batangas:
+All parsed locations are matched strictly against the 21 official barangays of Talisay, Batangas (falling back to `'Unknown'` when unmatched):
 
 > Aya, Balas, Banga, Buco, Caloocan, Leynes, Miranda, Poblacion Barangay 1, Poblacion Barangay 2, Poblacion Barangay 3, Poblacion Barangay 4, Poblacion Barangay 5, Poblacion Barangay 6, Poblacion Barangay 7, Poblacion Barangay 8, Quiling, Sampaloc, San Guillermo, Santa Maria, Tranca, Tumaway.
 
@@ -79,12 +79,12 @@ All parsed locations are matched strictly against the 21 official barangays of T
 
 ## Architecture Decision: Independent Failure Domains
 
-> **Reliability Note for Thesis Panel:**
-> The system uses independent failure domains: deterministic extraction (phone, name, barangay) always completes and is saved immediately via Express, while semantic classification (intent, urgency, incident type) is best-effort via Python ML and reconciled asynchronously via retry/backfill if it fails. This ensures a Python ML outage never results in a lost or incomplete emergency report for the fields that can be extracted deterministically.
+> **Reliability Note for Disaster Response:**
+> The system enforces strict separation between deterministic data collection and semantic inference. Critical citizen details (phone numbers, full names, barangays) are captured deterministically by Express upon webhook receipt and saved immediately. Semantic classification (incident type, urgency, intent) is decoupled through a persistent database queue (`nlp_jobs`) and processed asynchronously by the ML subsystem.
 
 ### Independent Status Tracking
 Every report record in `conversations` tracks two independent status fields:
-* **`ml_status`** (`complete` | `failed` | `pending`): Tracks the Python ML subsystem. If the ML server times out, crashes, or is cold-starting, `ml_status` is recorded as `failed` while the report is still saved. A background reconciliation job retries failed records when the service recovers.
+* **`ml_status`** (`complete` | `failed` | `pending`): Tracks status of the ML subsystem. If the ML worker is offline or cold-starting, `ml_status` remains recoverable and is automatically retried by the background worker.
 * **`location_status`** (`found` | `not_found`): Tracks whether Express matched an official Talisay barangay from message text or aliases.
 
 ---
@@ -93,23 +93,23 @@ Every report record in `conversations` tracks two independent status fields:
 
 | Layer | Technology |
 |---|---|
-| **Runtime & Server** | Node.js, Express.js |
-| **Database** | Supabase (PostgreSQL with RLS) |
-| **AI Provider** | `@google/genai` (Gemini Flash with multi-key pool) |
+| **Runtime & Server** | Node.js (v20+), Express.js (v5) |
+| **Database & Auth** | Supabase (PostgreSQL with RLS) |
+| **AI LLM Engine** | `@google/genai` (Gemini Flash with multi-key pool rotation) |
 | **Social API** | Meta Graph API (v25.0) |
-| **Utilities** | `localtunnel`, `node-cron`, `helmet`, `express-rate-limit` |
+| **Security & Utilities** | `helmet`, `express-rate-limit`, `cookie-parser`, `node-cron`, `localtunnel` |
 
 ---
 
 ## Security & Credential Protection
 
-### Security Implementations
 | Layer | Implementation Details |
 |---|---|
 | **Environment Variables** | Secrets (`SUPABASE_SERVICE_KEY`, `PAGE_ACCESS_TOKEN`, API Keys) stored in `.env` |
 | **Git Exclusion** | `.env` explicitly excluded from version control via `.gitignore` |
-| **Endpoint Protection** | Internal scraper endpoints protected via `x-api-key` header verification |
-| **Rate Limiting & Security Headers** | Express application hardened with `helmet` and `express-rate-limit` |
+| **Internal Endpoint Protection** | Scraper and retry triggers secured by `x-api-key` header verification |
+| **Webhook Authenticity** | Validates incoming Meta payloads via `x-hub-signature-256` HMAC |
+| **Session Isolation** | Role-based administrative endpoints protected by httpOnly secure session cookies |
 
 ---
 
@@ -120,42 +120,46 @@ Create a `.env` file in the root directory (refer to `.env.example`):
 ```env
 # ── Supabase ──────────────────────────────────────────────────────────────────
 SUPABASE_URL=https://your-project-id.supabase.co
-# ⚠️ service_role key is required to bypass RLS policies for server insertions
+# ⚠️ service_role key is required to bypass RLS policies for backend worker operations
 SUPABASE_SERVICE_KEY=your_supabase_service_role_key
 
 # ── Facebook Messenger + Scraper ──────────────────────────────────────────────
 PAGE_ACCESS_TOKEN=your_meta_page_access_token
-META_ACCESS_TOKEN=your_permanent_meta_access_token
+META_ACCESS_TOKEN=your_meta_access_token
 VERIFY_TOKEN=your_webhook_verify_token
 APP_SECRET=your_facebook_app_secret
 FB_PAGE_ID=your_facebook_page_numeric_id
-GRAPH_API_VERSION=v25.0
-# Scraper interval in seconds (default: 300 = every 5 minutes)
-SCRAPER_INTERVAL_SECONDS=300
-# Messenger sync interval in seconds (default: 300 = every 5 minutes)
-MESSENGER_SYNC_INTERVAL_SECONDS=300
+FB_GRAPH_API_VERSION=v25.0
+SCRAPER_INTERVAL_SECONDS=350
 
-# ── AI Configuration ──────────────────────────────────────────────────────────
+# ── AI Configuration (Multi-Key Pool) ─────────────────────────────────────────
+# Comma-separated list of Gemini API keys for round-robin rotation
 GEMINI_API_KEYS=key1,key2,key3,key4,key5
 GEMINI_MODEL=models/gemini-3.6-flash
 
-# ── Bot Config ────────────────────────────────────────────────────────────────
-BOT_SYSTEM_PROMPT="Ikaw ay Tagalog assistant, I'm replying to customers in Tagalog..."
+# ── Bot Prompt ────────────────────────────────────────────────────────────────
+BOT_SYSTEM_PROMPT="ikaw ay tagalog AI bot assistant ng MDRRMC Talisay Batangas 4220 Philippines..."
 
-# ── Internal API ──────────────────────────────────────────────────────────────
-INTERNAL_API_KEY=your_secret_api_key_to_protect_endpoints
+# ── Internal & NLP Configuration ──────────────────────────────────────────────
+INTERNAL_API_KEY=your_internal_api_key
+NLP_SERVICE_URL=http://localhost:7860
+NLP_TIMEOUT_MS=5000
+NLP_BACKFILL_INTERVAL_MS=900000
 
 PORT=3000
 ```
 
 ---
 
-## Database Schema (Supabase SQL)
+## Pipeline Database Schema (Supabase SQL)
 
-Run this script inside your Supabase SQL Editor to initialize required tables, policies, constraints, and indices:
+> [!NOTE]
+> This section contains exclusively the database schema required for the **data ingestion and processing pipeline** (conversations, scraping, deduplication, and the durable outbox queue). Role-based access control (RBAC) and user authentication schemas are maintained separately.
+
+Run the following SQL in your Supabase SQL Editor:
 
 ```sql
--- 1. Conversations table (Messenger Logs & NLP Classification)
+-- 1. Conversations table (Messenger Ingestion & Status Tracking)
 create table if not exists conversations (
   id                       bigint generated always as identity primary key,
   conversation_id          text        not null unique,
@@ -172,10 +176,10 @@ create table if not exists conversations (
   -- Model Confidence Triage (Human-in-the-loop)
   needs_review             boolean     default false,
   low_confidence_fields    jsonb       default null,
-  -- Entity Extraction (Express Rule-based)
+  -- Entity Extraction (Deterministic Regex)
   barangay                 text        default null,
   contact_numbers          jsonb       default null,
-  -- NLP Semantic Classification (Python RoBERTa)
+  -- NLP Semantic Classification (Asynchronous ML)
   intent                   text        default null,
   urgency                  text        default null,
   incident_type            text        default null,
@@ -191,10 +195,6 @@ create index if not exists idx_conv_ml_status            on conversations (ml_st
 create index if not exists idx_conv_location_status      on conversations (location_status);
 create index if not exists idx_conv_needs_review         on conversations (needs_review) where needs_review = true;
 create index if not exists idx_conv_barangay             on conversations (barangay);
-create index if not exists idx_conv_intent              on conversations (intent);
-create index if not exists idx_conv_urgency             on conversations (urgency);
-create index if not exists idx_conv_incident_type       on conversations (incident_type);
-create index if not exists idx_conversations_ml_status_failed on conversations (ml_status) where ml_status = 'failed';
 
 alter table public.conversations enable row level security;
 do $$ begin
@@ -203,7 +203,7 @@ do $$ begin
 exception when duplicate_object then null;
 end $$;
 
--- 2. Facebook Posts table
+-- 2. Facebook Posts table (Scraped Public Activity)
 create table if not exists fb_posts (
   id          text primary key,
   caption     text,
@@ -211,6 +211,7 @@ create table if not exists fb_posts (
   barangay    text default 'Unknown',
   created_at  timestamptz default now()
 );
+
 alter table fb_posts enable row level security;
 do $$ begin
   create policy "service_role full access" on fb_posts
@@ -218,7 +219,7 @@ do $$ begin
 exception when duplicate_object then null;
 end $$;
 
--- 3. Facebook Comments table
+-- 3. Facebook Comments table (Scraped Public Comments)
 create table if not exists fb_comments (
   id             text primary key,
   post_id        text references fb_posts(id),
@@ -230,6 +231,10 @@ create table if not exists fb_comments (
   incident_type  text,
   created_at     timestamptz default now()
 );
+
+create index if not exists fb_comments_post_id_idx  on fb_comments (post_id);
+create index if not exists fb_comments_barangay_idx on fb_comments (barangay);
+
 alter table fb_comments enable row level security;
 do $$ begin
   create policy "service_role full access" on fb_comments
@@ -237,18 +242,43 @@ do $$ begin
 exception when duplicate_object then null;
 end $$;
 
-create index if not exists fb_comments_post_id_idx  on fb_comments (post_id);
-create index if not exists fb_comments_barangay_idx on fb_comments (barangay);
-
--- 4. Processed Messages table (Webhook Deduplication)
--- Prevents duplicate processing when multiple server instances receive the same message.
+-- 4. Processed Messages table (Distributed Deduplication Lock)
 create table if not exists processed_messages (
   mid          text primary key,
   processed_at timestamptz default now()
 );
+
 alter table processed_messages enable row level security;
 do $$ begin
   create policy "service_role full access" on processed_messages
+    for all to service_role using (true) with check (true);
+exception when duplicate_object then null;
+end $$;
+
+-- 5. NLP Jobs table (Durable Outbox Queue for Asynchronous ML Processing)
+create table if not exists nlp_jobs (
+  id              uuid primary key default gen_random_uuid(),
+  entity_type     text not null check (entity_type in ('conversation', 'fb_comment')),
+  entity_id       text not null,
+  source_text     text not null,
+  status          text not null default 'pending' check (status in ('pending', 'processing', 'retry', 'complete', 'failed')),
+  attempts        integer not null default 0,
+  next_attempt_at timestamptz not null default now(),
+  locked_at       timestamptz,
+  lock_token      uuid,
+  last_error      text,
+  created_at      timestamptz not null default now(),
+  updated_at      timestamptz not null default now(),
+  unique (entity_type, entity_id)
+);
+
+create index if not exists idx_nlp_jobs_queue 
+on nlp_jobs (status, next_attempt_at, locked_at) 
+where status in ('pending', 'retry', 'processing');
+
+alter table nlp_jobs enable row level security;
+do $$ begin
+  create policy "service_role full access" on nlp_jobs
     for all to service_role using (true) with check (true);
 exception when duplicate_object then null;
 end $$;
@@ -258,17 +288,28 @@ end $$;
 
 ## API Endpoints
 
-| Method | Endpoint | Headers | Description |
+### Public & Webhook Endpoints
+| Method | Endpoint | Headers / Auth | Description |
 |---|---|---|---|
-| `GET` | `/` | None | Health check endpoint returning service status and timestamp |
-| `GET` | `/webhook` | URL Queries | Facebook App Webhook Verification (`hub.challenge`) |
-| `POST` | `/webhook` | `x-hub-signature-256` | Handles incoming Messenger chats with signature verification |
+| `GET` | `/` | None | Basic service health check returning status and current timestamp |
+| `GET` | `/webhook` | URL Queries | Facebook Webhook Verification Challenge (`hub.challenge`) |
+| `POST` | `/webhook` | `x-hub-signature-256` | Ingests incoming Messenger events with signature check and deduplication |
+
+### Pipeline Scraper & Outbox Management
+| Method | Endpoint | Headers / Auth | Description |
+|---|---|---|---|
 | `POST` | `/scraper/run` | `x-api-key: <INTERNAL_API_KEY>` | Manually triggers the Facebook Page scraper and comment reconciliation |
-| `GET` | `/scraper/status` | None | Returns the status, last run time, and statistics of the scraper |
-| `GET` | `/api/debug/conversations` | `x-api-key: <INTERNAL_API_KEY>` | Fetches recent conversations, posts, and comments |
-| `GET` | `/api/user-history/:senderPSID` | `x-api-key: <INTERNAL_API_KEY>` | Fetches chat history formatted for NLP context for a given PSID |
-| `POST` | `/api/nlp/retry` | `x-api-key: <INTERNAL_API_KEY>` | Retries NLP classification for conversations where `ml_status = 'failed'` |
-| `POST` | `/api/reset-database` | `x-api-key: <INTERNAL_API_KEY>` | Clears all conversation records from the database |
+| `GET` | `/scraper/status` | None | Returns scraper operational status, last execution time, and counts |
+| `POST` | `/api/nlp/retry` | `x-api-key: <INTERNAL_API_KEY>` | Re-enqueues failed ML classification records into the `nlp_jobs` queue |
+
+### Inspection & Administration (Session-Protected)
+| Method | Endpoint | Headers / Auth | Description |
+|---|---|---|---|
+| `GET` | `/api/debug/conversations` | Session Cookie (`admin`, `super_admin`) | Retrieves recent conversations, scraped posts, and comments |
+| `GET` | `/api/user-history/:senderPSID` | Session Cookie (`admin`, `super_admin`) | Retrieves full conversation history formatted for model context |
+| `POST` | `/api/reset-database` | Session Cookie (`super_admin`) | Clears all conversation records from the database |
+
+> *Note: User management, invitation links, and RBAC authentication endpoints reside under `/api/auth`.*
 
 ---
 
@@ -276,27 +317,27 @@ end $$;
 
 1. **Clone the repository & install dependencies:**
    ```bash
-   git clone https://github.com/samsonjeff/fb-scraper-nlp-pipeline.git
-   cd fb-scraper-nlp-pipeline
+   git clone https://github.com/samsonjeff/responde-core-api.git
+   cd responde-core-api
    npm install
    ```
 
-2. **Setup environment variables:**
-   Create a `.env` file based on `.env.example` and populate your credentials.
+2. **Configure environment:**
+   Create a `.env` file based on `.env.example` with valid Supabase, Meta, and Gemini credentials.
 
-3. **Start the application:**
+3. **Verify API keys and connections:**
+   ```bash
+   npm run diagnose
+   ```
+
+4. **Start the server:**
    ```bash
    npm start
    ```
 
-4. **(Optional) Run localtunnel for webhook testing:**
+5. **(Optional) Start localtunnel for Meta webhook testing:**
    ```bash
    npm run tunnel
-   ```
-
-5. **(Optional) Backfill real sender names for historical conversations:**
-   ```bash
-   node backfill-names.js
    ```
 
 ---

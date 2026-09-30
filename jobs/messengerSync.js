@@ -1,7 +1,7 @@
 const axios = require("axios");
 const supabase = require("../supabase/client");
 
-const API_VERSION = process.env.GRAPH_API_VERSION || "v25.0";
+const API_VERSION = process.env.GRAPH_API_VERSION || process.env.FB_GRAPH_API_VERSION || "v25.0";
 
 /**
  * Find the Messenger thread ID for a given sender PSID.
