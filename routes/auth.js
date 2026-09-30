@@ -1,7 +1,9 @@
 require("dotenv").config();
 const express       = require("express");
 const router        = express.Router();
+const crypto        = require("crypto");
 const supabase      = require("../supabase/client");
+const { createEphemeralClient } = require("../supabase/client");
 const requireSession = require("../middleware/requireSession");
 const requireRole   = require("../middleware/requireRole");
 
@@ -35,6 +37,51 @@ function getClientIp(req) {
         ""
     ).trim();
     return raw.length > 0 ? raw : null;
+}
+
+// ── Helper: issue user session (RPC with direct DB insert fallback) ───────────
+async function issueUserSession(userId, req) {
+    const ip = getClientIp(req);
+    const agent = req.headers["user-agent"] || null;
+
+    // 1. Try stored procedure create_user_session
+    try {
+        const { data: token, error } = await supabase.rpc("create_user_session", {
+            p_user_id: userId,
+            p_ip:      ip,
+            p_agent:   agent
+        });
+        if (!error && token) {
+            return token;
+        }
+        console.warn("⚠️ RPC create_user_session returned error, using fallback:", error?.message);
+    } catch (rpcErr) {
+        console.warn("⚠️ RPC create_user_session exception, using fallback:", rpcErr.message);
+    }
+
+    // 2. Direct insert fallback into user_sessions
+    try {
+        const fallbackToken = crypto.randomBytes(48).toString("hex");
+        const { data: inserted, error: insertErr } = await supabase
+            .from("user_sessions")
+            .insert({
+                user_id:       userId,
+                session_token: fallbackToken,
+                ip_address:    ip,
+                user_agent:    agent
+            })
+            .select("session_token")
+            .maybeSingle();
+
+        if (!insertErr && inserted?.session_token) {
+            return inserted.session_token;
+        }
+        console.error("❌ Direct session insert fallback failed:", insertErr?.message);
+    } catch (fallbackErr) {
+        console.error("❌ Direct session fallback exception:", fallbackErr.message);
+    }
+
+    return null;
 }
 
 // ==============================================================================
@@ -102,8 +149,9 @@ router.post("/login", async (req, res) => {
             });
         }
 
-        // Step 3: Verify password via Supabase Auth
-        const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
+        // Step 3: Verify password via Supabase Auth using ephemeral client (never mutates service_role)
+        const authClient = createEphemeralClient();
+        const { data: authData, error: authError } = await authClient.auth.signInWithPassword({
             email:    userRow.email,
             password: password
         });
@@ -143,14 +191,10 @@ router.post("/login", async (req, res) => {
             p_user_agent:     req.headers["user-agent"] || null
         });
 
-        const { data: sessionToken, error: sessionError } = await supabase.rpc("create_user_session", {
-            p_user_id: userRow.id,
-            p_ip:      getClientIp(req),
-            p_agent:   req.headers["user-agent"] || null
-        });
+        const sessionToken = await issueUserSession(userRow.id, req);
 
-        if (sessionError || !sessionToken) {
-            console.error("❌ create_user_session error:", sessionError?.message);
+        if (!sessionToken) {
+            console.error("❌ issueUserSession failed for user:", userRow.id);
             return res.status(500).json({ error: "Login succeeded but session creation failed. Please try again." });
         }
 
@@ -296,14 +340,10 @@ router.post("/google", async (req, res) => {
         });
 
         // Step 5: Create 7-day session cookie
-        const { data: sessionToken, error: sessionError } = await supabase.rpc("create_user_session", {
-            p_user_id: userRow.id,
-            p_ip:      getClientIp(req),
-            p_agent:   req.headers["user-agent"] || null
-        });
+        const sessionToken = await issueUserSession(userRow.id, req);
 
-        if (sessionError || !sessionToken) {
-            console.error("❌ Google login create_user_session error:", sessionError?.message);
+        if (!sessionToken) {
+            console.error("❌ Google login issueUserSession failed for user:", userRow.id);
             return res.status(500).json({ error: "Session creation failed. Please try again." });
         }
 
@@ -487,14 +527,10 @@ router.post("/google/complete-setup", async (req, res) => {
         });
 
         // Step 7: Issue 7-day session token & set httpOnly cookie
-        const { data: sessionToken, error: sessionError } = await supabase.rpc("create_user_session", {
-            p_user_id: systemUserId,
-            p_ip:      getClientIp(req),
-            p_agent:   req.headers["user-agent"] || null
-        });
+        const sessionToken = await issueUserSession(systemUserId, req);
 
-        if (sessionError || !sessionToken) {
-            console.error("❌ Session creation error:", sessionError?.message);
+        if (!sessionToken) {
+            console.error("❌ Session creation error for setup user:", systemUserId);
             return res.status(500).json({ error: "Session creation failed. Please try again." });
         }
 
@@ -722,7 +758,7 @@ router.post("/invite", requireSession, requireRole("super_admin", "admin"), asyn
             return res.status(500).json({ error: "Failed to generate invite link" });
         }
 
-        const baseUrl   = process.env.FRONTEND_URL || "http://localhost:3000";
+        const baseUrl   = (process.env.FRONTEND_URL || "http://localhost:3000").replace(/\/+$/, "");
         const inviteUrl = `${baseUrl}/register?token=${token}`;
 
         console.log(`📨 Invite generated by ${req.user.username} for role: ${targetRole}`);
@@ -980,8 +1016,9 @@ router.patch("/users/:id/role", requireSession, requireRole("super_admin", "admi
             return res.status(400).json({ error: "You are already a super_admin." });
         }
 
-        // Step 1: Re-verify caller's own password via Supabase Auth
-        const { error: reAuthError } = await supabase.auth.signInWithPassword({
+        // Step 1: Re-verify caller's own password via Supabase Auth using ephemeral client
+        const authClient = createEphemeralClient();
+        const { error: reAuthError } = await authClient.auth.signInWithPassword({
             email:    req.user.email,
             password: password
         });
@@ -1017,7 +1054,8 @@ router.patch("/users/:id/role", requireSession, requireRole("super_admin", "admi
         // Caller is super_admin:
         let supabaseAuthConfirmed = false;
         if (new_role === "super_admin") {
-            const { error: otpError } = await supabase.auth.verifyOtp({
+            const otpClient = createEphemeralClient();
+            const { error: otpError } = await otpClient.auth.verifyOtp({
                 email: req.user.email,
                 token: supabase_otp,
                 type:  "email"
@@ -1082,7 +1120,8 @@ router.patch("/users/:id/role", requireSession, requireRole("super_admin", "admi
 // ==============================================================================
 router.post("/request-otp", requireSession, requireRole("super_admin"), async (req, res) => {
     try {
-        const { error } = await supabase.auth.signInWithOtp({
+        const otpClient = createEphemeralClient();
+        const { error } = await otpClient.auth.signInWithOtp({
             email:   req.user.email,
             options: { shouldCreateUser: false }
         });
