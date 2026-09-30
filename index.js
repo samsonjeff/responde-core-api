@@ -73,7 +73,11 @@ app.use(cors({
         // Allow requests with no Origin header (e.g. mobile apps, curl, same-origin server calls)
         if (!origin) return callback(null, true);
         if (ALLOWED_ORIGINS.includes(origin)) return callback(null, true);
-        if (/^https:\/\/responde(-[a-z0-9-]+)?\.[a-z0-9-]+\.workers\.dev$/i.test(origin)) {
+        if (
+            origin.endsWith(".jeffersonsamson380.workers.dev") ||
+            origin.endsWith(".sedrickopulencia.workers.dev") ||
+            /^https:\/\/([a-z0-9-]+-)?responde(-[a-z0-9-]+)?\.[a-z0-9-]+\.workers\.dev$/i.test(origin)
+        ) {
             return callback(null, true);
         }
         console.warn(`⛔ CORS blocked origin: ${origin}`);
