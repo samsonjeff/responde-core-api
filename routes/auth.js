@@ -179,6 +179,35 @@ router.post("/login", async (req, res) => {
 });
 
 
+// ── Helpers for user fields ───────────────────────────────────────────────────
+async function generateUniqueUsername(email) {
+    let base = (email || "").split("@")[0].replace(/[^a-zA-Z0-9._-]/g, "").toLowerCase();
+    if (base.length < 3) base = `user_${base}`;
+    if (base.length > 40) base = base.slice(0, 40);
+
+    let candidate = base;
+    let attempts = 0;
+    while (attempts < 5) {
+        const { data: conflict } = await supabase
+            .from("system_users")
+            .select("id")
+            .ilike("username", candidate)
+            .maybeSingle();
+
+        if (!conflict) return candidate;
+        candidate = `${base}_${Math.floor(1000 + Math.random() * 9000)}`;
+        attempts++;
+    }
+    return `user_${Date.now()}`;
+}
+
+function cleanFullNameNoNumbers(name, fallback = "System User") {
+    let cleaned = (name || "").replace(/[0-9]/g, "").trim();
+    if (cleaned.length < 2) cleaned = fallback;
+    if (cleaned.length > 100) cleaned = cleaned.slice(0, 100);
+    return cleaned;
+}
+
 // ==============================================================================
 // POST /api/auth/google
 // Called by the frontend AFTER Supabase Auth completes the Google OAuth flow
@@ -186,10 +215,10 @@ router.post("/login", async (req, res) => {
 // Accepts: { access_token }
 // Flow:
 //   1. Verify the access token via Supabase Auth getUser()
-//   2. Check that the email exists in system_users (invite-only guard)
-//   3. Link auth_user_id & sync avatar_url
-//   4. Record successful login audit
-//   5. Create 7-day session cookie for consistency
+//   2. Check if user already exists in system_users
+//      - If YES: logs in immediately (even without password), creates 7-day session cookie
+//      - If NO (new account): returns requires_setup: true with profile details so
+//        the user can set their password (and optional username) before entering
 // ==============================================================================
 router.post("/google", async (req, res) => {
     const { access_token } = req.body;
@@ -208,10 +237,10 @@ router.post("/google", async (req, res) => {
 
         const cleanEmail = authUser.email.toLowerCase().trim();
 
-        // Step 2: Look up this email in our system_users (invite-only guard)
+        // Step 2: Look up this email in system_users
         const { data: userRow, error: lookupError } = await supabase
             .from("system_users")
-            .select("id, auth_user_id, username, role, is_active, locked_until")
+            .select("id, auth_user_id, username, email, full_name, role, is_active, locked_until, avatar_url, phone_number")
             .ilike("email", cleanEmail)
             .maybeSingle();
 
@@ -221,9 +250,16 @@ router.post("/google", async (req, res) => {
         }
 
         if (!userRow) {
-            // Email not in system_users — not an invited user
-            return res.status(403).json({
-                error: "Access denied. Your Google account is not registered in this system. Contact your administrator."
+            // New Google account! Prompt to set password (and optional username)
+            const googleAvatar = authUser.user_metadata?.avatar_url || authUser.user_metadata?.picture || null;
+            const googleName = authUser.user_metadata?.full_name || authUser.user_metadata?.name || cleanEmail.split("@")[0];
+
+            return res.status(200).json({
+                success: true,
+                requires_setup: true,
+                email: cleanEmail,
+                full_name: cleanFullNameNoNumbers(googleName),
+                avatar_url: googleAvatar
             });
         }
 
@@ -241,7 +277,7 @@ router.post("/google", async (req, res) => {
         // Step 3: Link auth_user_id and update avatar_url if provided
         const googleAvatar = authUser.user_metadata?.avatar_url || authUser.user_metadata?.picture || null;
         const updates = { updated_at: new Date().toISOString() };
-        if (googleAvatar) updates.avatar_url = googleAvatar;
+        if (googleAvatar && !userRow.avatar_url) updates.avatar_url = googleAvatar;
         if (userRow.auth_user_id !== authUser.id) updates.auth_user_id = authUser.id;
 
         await supabase
@@ -252,14 +288,14 @@ router.post("/google", async (req, res) => {
         // Step 4: Record login in audit log
         await supabase.rpc("record_login_attempt", {
             p_user_id:        userRow.id,
-            p_username_tried: cleanEmail,
+            p_username_tried: userRow.username || cleanEmail,
             p_success:        true,
             p_failure_reason: null,
             p_ip_address:     getClientIp(req),
             p_user_agent:     req.headers["user-agent"] || null
         });
 
-        // Step 5: Create 7-day session cookie (same flow as password login)
+        // Step 5: Create 7-day session cookie
         const { data: sessionToken, error: sessionError } = await supabase.rpc("create_user_session", {
             p_user_id: userRow.id,
             p_ip:      getClientIp(req),
@@ -273,20 +309,217 @@ router.post("/google", async (req, res) => {
 
         setSessionCookie(res, sessionToken);
 
-        console.log(`✅ Google Login: ${userRow.username} (${userRow.role}) from ${getClientIp(req)}`);
+        console.log(`✅ Google Login: ${userRow.username || userRow.email} (${userRow.role}) from ${getClientIp(req)}`);
 
         return res.status(200).json({
             success: true,
+            requires_setup: false,
             message: "Logged in with Google successfully",
             user: {
-                id:       userRow.id,
-                username: userRow.username,
-                role:     userRow.role
+                user_id:      userRow.id,
+                auth_user_id: userRow.auth_user_id || authUser.id,
+                username:     userRow.username,
+                email:        userRow.email,
+                full_name:    userRow.full_name,
+                role:         userRow.role,
+                avatar_url:   userRow.avatar_url || googleAvatar,
+                phone_number: userRow.phone_number ?? null
             }
         });
 
     } catch (err) {
         console.error("❌ /google unexpected error:", err.message);
+        return res.status(500).json({ error: "Internal server error" });
+    }
+});
+
+
+// ==============================================================================
+// POST /api/auth/google/complete-setup
+// Sets password and optional username for a new Google account, then immediately
+// creates a session and logs them in.
+// Accepts: { access_token, password, username?, full_name?, phone_number? }
+// ==============================================================================
+router.post("/google/complete-setup", async (req, res) => {
+    const { access_token, password, username, full_name, phone_number } = req.body;
+
+    if (!access_token || !password) {
+        return res.status(400).json({ error: "access_token and password are required" });
+    }
+
+    if (password.length < 6) {
+        return res.status(400).json({ error: "Password must be at least 6 characters long." });
+    }
+
+    try {
+        // Step 1: Verify Google OAuth token
+        const { data: { user: authUser }, error: authError } = await supabase.auth.getUser(access_token);
+        if (authError || !authUser) {
+            return res.status(401).json({ error: "Invalid or expired Google session. Please sign in again." });
+        }
+
+        const cleanEmail = authUser.email.toLowerCase().trim();
+
+        // Step 2: Handle Username (OPTIONAL)
+        let finalUsername = null;
+        if (username && username.trim().length > 0) {
+            const trimmedUsername = username.trim().toLowerCase();
+            if (trimmedUsername.length < 3 || trimmedUsername.length > 50) {
+                return res.status(400).json({ error: "Username must be between 3 and 50 characters." });
+            }
+            if (!/^[a-zA-Z0-9._-]+$/.test(trimmedUsername)) {
+                return res.status(400).json({
+                    error: "Username can only contain letters, numbers, periods, underscores, and hyphens."
+                });
+            }
+
+            // Check if username taken
+            const { data: existingUser } = await supabase
+                .from("system_users")
+                .select("id")
+                .ilike("username", trimmedUsername)
+                .maybeSingle();
+
+            if (existingUser) {
+                return res.status(409).json({ error: "This username is already taken. Please choose another." });
+            }
+
+            finalUsername = trimmedUsername;
+        } else {
+            // Username is optional — auto-generate a valid unique fallback
+            finalUsername = await generateUniqueUsername(cleanEmail);
+        }
+
+        // Step 3: Handle Full Name (no digits allowed by constraint)
+        const rawName = full_name?.trim() || authUser.user_metadata?.full_name || authUser.user_metadata?.name || cleanEmail.split("@")[0];
+        const cleanFullName = cleanFullNameNoNumbers(rawName, "Google User");
+
+        // Step 4: Set the password on Supabase Auth via admin API
+        const { error: pwdError } = await supabase.auth.admin.updateUserById(authUser.id, {
+            password: password,
+            user_metadata: {
+                full_name: cleanFullName,
+                username:  finalUsername,
+                role:      "staff"
+            }
+        });
+
+        if (pwdError) {
+            console.error("❌ Failed to set password on Supabase Auth:", pwdError.message);
+            return res.status(400).json({ error: `Failed to set password: ${pwdError.message}` });
+        }
+
+        // Step 5: Check if system_users row already exists for this email
+        const { data: existingRow } = await supabase
+            .from("system_users")
+            .select("id, role, avatar_url, is_active")
+            .ilike("email", cleanEmail)
+            .maybeSingle();
+
+        const googleAvatar = authUser.user_metadata?.avatar_url || authUser.user_metadata?.picture || null;
+        let systemUserId = null;
+        let userRole = "staff";
+
+        if (existingRow) {
+            systemUserId = existingRow.id;
+            userRole = existingRow.role || "staff";
+            await supabase
+                .from("system_users")
+                .update({
+                    auth_user_id: authUser.id,
+                    full_name: cleanFullName,
+                    username: finalUsername,
+                    avatar_url: googleAvatar || existingRow.avatar_url,
+                    updated_at: new Date().toISOString()
+                })
+                .eq("id", existingRow.id);
+
+            // If account is not active, return pending approval
+            if (!existingRow.is_active) {
+                console.log(`⏳ Account pending approval: ${cleanEmail} (${finalUsername})`);
+                return res.status(200).json({
+                    success: true,
+                    requires_approval: true,
+                    message: "Account setup complete! Your account is pending administrator approval before you can log in."
+                });
+            }
+        } else {
+            // New self-registered account: requires admin/super_admin approval
+            const { data: inserted, error: insertError } = await supabase
+                .from("system_users")
+                .insert({
+                    auth_user_id: authUser.id,
+                    email: cleanEmail,
+                    full_name: cleanFullName,
+                    username: finalUsername,
+                    phone_number: phone_number?.trim() || null,
+                    role: "staff", // new self-registrations default to staff only
+                    avatar_url: googleAvatar,
+                    is_active: false // Pending approval by Super Admin or Admin
+                })
+                .select("id, role, is_active")
+                .single();
+
+            if (insertError) {
+                console.error("❌ Failed to insert system_user:", insertError.message);
+                return res.status(500).json({ error: "Failed to create user profile. Please try again." });
+            }
+            systemUserId = inserted.id;
+            userRole = inserted.role;
+
+            console.log(`⏳ New account registered, pending administrator approval: ${cleanEmail} (${finalUsername})`);
+
+            return res.status(200).json({
+                success: true,
+                requires_approval: true,
+                message: "Account created successfully! Your account is pending administrator approval before you can log in to the command center."
+            });
+        }
+
+        // Step 6: Record login attempt in audit log (for already-active users)
+        await supabase.rpc("record_login_attempt", {
+            p_user_id:        systemUserId,
+            p_username_tried: finalUsername,
+            p_success:        true,
+            p_failure_reason: null,
+            p_ip_address:     getClientIp(req),
+            p_user_agent:     req.headers["user-agent"] || null
+        });
+
+        // Step 7: Issue 7-day session token & set httpOnly cookie
+        const { data: sessionToken, error: sessionError } = await supabase.rpc("create_user_session", {
+            p_user_id: systemUserId,
+            p_ip:      getClientIp(req),
+            p_agent:   req.headers["user-agent"] || null
+        });
+
+        if (sessionError || !sessionToken) {
+            console.error("❌ Session creation error:", sessionError?.message);
+            return res.status(500).json({ error: "Session creation failed. Please try again." });
+        }
+
+        setSessionCookie(res, sessionToken);
+
+        console.log(`🎉 Account setup and active: ${cleanEmail} (${finalUsername})`);
+
+        return res.status(200).json({
+            success: true,
+            requires_approval: false,
+            message: "Password set and logged in successfully!",
+            user: {
+                user_id:      systemUserId,
+                auth_user_id: authUser.id,
+                username:     finalUsername,
+                email:        cleanEmail,
+                full_name:    cleanFullName,
+                role:         userRole,
+                avatar_url:   googleAvatar,
+                phone_number: phone_number?.trim() || null
+            }
+        });
+
+    } catch (err) {
+        console.error("❌ /google/complete-setup error:", err.message);
         return res.status(500).json({ error: "Internal server error" });
     }
 });
@@ -343,18 +576,138 @@ router.get("/me", requireSession, (req, res) => {
 
 
 // ==============================================================================
+// GET /api/auth/users
+// Returns list of all system_users for admin/super_admin user management.
+// Requires: valid session with role admin or super_admin
+// ==============================================================================
+router.get("/users", requireSession, requireRole("super_admin", "admin"), async (req, res) => {
+    try {
+        const { data: users, error } = await supabase
+            .from("system_users")
+            .select("id, auth_user_id, username, email, full_name, role, is_active, last_login_at, created_at, avatar_url, phone_number")
+            .order("created_at", { ascending: false });
+
+        if (error) {
+            console.error("❌ /users query error:", error.message);
+            return res.status(500).json({ error: "Failed to fetch users" });
+        }
+
+        return res.status(200).json({
+            success: true,
+            users: users.map(u => ({
+                user_id:       u.id,
+                auth_user_id:  u.auth_user_id,
+                username:      u.username,
+                email:         u.email,
+                full_name:     u.full_name,
+                role:          u.role,
+                is_active:     u.is_active,
+                last_login_at: u.last_login_at,
+                created_at:    u.created_at,
+                avatar_url:    u.avatar_url,
+                phone_number:  u.phone_number
+            }))
+        });
+    } catch (err) {
+        console.error("❌ /users unexpected error:", err.message);
+        return res.status(500).json({ error: "Internal server error" });
+    }
+});
+
+
+// ==============================================================================
+// PATCH /api/auth/users/:id/status
+// Accepts/approves a pending user or activates/deactivates an existing user.
+// Requires: valid session with role admin or super_admin
+// Accepts: { is_active: boolean }
+// ==============================================================================
+router.patch("/users/:id/status", requireSession, requireRole("super_admin", "admin"), async (req, res) => {
+    const { id: targetUserId } = req.params;
+    const { is_active } = req.body;
+
+    if (typeof is_active !== "boolean") {
+        return res.status(400).json({ error: "is_active must be a boolean (true or false)" });
+    }
+
+    try {
+        const { data: targetUser, error: lookupErr } = await supabase
+            .from("system_users")
+            .select("id, username, role, is_active")
+            .eq("id", targetUserId)
+            .maybeSingle();
+
+        if (lookupErr || !targetUser) {
+            return res.status(404).json({ error: "Target user not found" });
+        }
+
+        // An admin cannot modify a super_admin's status
+        if (targetUser.role === "super_admin" && req.user.role !== "super_admin") {
+            return res.status(403).json({ error: "Forbidden. Admins cannot change the status of a Super Admin." });
+        }
+
+        // Prevent deactivating the last active super_admin
+        if (targetUser.role === "super_admin" && !is_active) {
+            const { count } = await supabase
+                .from("system_users")
+                .select("id", { count: "exact", head: true })
+                .eq("role", "super_admin")
+                .eq("is_active", true);
+
+            if (count <= 1) {
+                return res.status(403).json({ error: "Cannot deactivate the last remaining active Super Admin." });
+            }
+        }
+
+        const { error: updateErr } = await supabase
+            .from("system_users")
+            .update({
+                is_active: is_active,
+                updated_at: new Date().toISOString()
+            })
+            .eq("id", targetUserId);
+
+        if (updateErr) {
+            console.error("❌ Update user status error:", updateErr.message);
+            return res.status(500).json({ error: "Failed to update user status" });
+        }
+
+        // If deactivated, revoke all active sessions immediately
+        if (!is_active) {
+            await supabase.rpc("revoke_all_sessions", { p_user_id: targetUserId });
+        }
+
+        console.log(`👤 User ${targetUser.username} status set to ${is_active ? 'ACTIVE' : 'INACTIVE'} by ${req.user.username}`);
+
+        return res.status(200).json({
+            success: true,
+            message: is_active ? "User approved and activated successfully." : "User deactivated successfully.",
+            is_active
+        });
+
+    } catch (err) {
+        console.error("❌ /users/:id/status unexpected error:", err.message);
+        return res.status(500).json({ error: "Internal server error" });
+    }
+});
+
+
+// ==============================================================================
 // POST /api/auth/invite
 // Generates a 1-hour invite URL for a new account registration.
-// Requires: super_admin session
+// Requires: super_admin or admin session
 // Accepts: { target_role } — "admin" or "staff" (default: "staff")
 // ==============================================================================
-router.post("/invite", requireSession, requireRole("super_admin"), async (req, res) => {
+router.post("/invite", requireSession, requireRole("super_admin", "admin"), async (req, res) => {
     const targetRole = req.body.target_role || "staff";
-    const validRoles = ["admin", "staff"];
+    const validRoles = req.user.role === "super_admin" 
+        ? ["admin", "staff", "super_admin"] 
+        : ["admin", "staff"];
 
     if (!validRoles.includes(targetRole)) {
         return res.status(400).json({
-            error: `Invalid target_role. Allowed values: ${validRoles.join(", ")}`
+            error: req.user.role === "admin" && targetRole === "super_admin"
+                ? "Admins cannot invite users with the 'super_admin' role."
+                : `Invalid target_role. Allowed values: ${validRoles.join(", ")}`
         });
     }
 
@@ -403,33 +756,35 @@ router.post("/register", async (req, res) => {
     const { token, email, password, username, full_name, phone_number } = req.body;
 
     // Basic validation
-    if (!token || !email || !password || !username || !full_name) {
+    if (!token || !email || !password || !full_name) {
         return res.status(400).json({
-            error: "token, email, password, username, and full_name are required"
+            error: "token, email, password, and full_name are required"
         });
     }
 
-    const trimmedFullName = full_name.trim();
-    if (/[0-9]/.test(trimmedFullName)) {
-        return res.status(400).json({ error: "full_name must not contain numbers" });
-    }
-
+    const trimmedFullName = cleanFullNameNoNumbers(full_name);
     if (trimmedFullName.length < 2 || trimmedFullName.length > 100) {
-        return res.status(400).json({ error: "full_name must be between 2 and 100 characters" });
-    }
-
-    const trimmedUsername = username.trim().toLowerCase();
-    if (trimmedUsername.length < 3 || trimmedUsername.length > 50) {
-        return res.status(400).json({ error: "username must be between 3 and 50 characters" });
-    }
-
-    if (!/^[a-zA-Z0-9._-]+$/.test(trimmedUsername)) {
-        return res.status(400).json({
-            error: "username can only contain letters, numbers, periods, underscores, and hyphens"
-        });
+        return res.status(400).json({ error: "full_name must be between 2 and 100 characters and contain no numbers" });
     }
 
     const cleanEmail = email.trim().toLowerCase();
+
+    // Username is optional
+    let trimmedUsername = null;
+    if (username && username.trim().length > 0) {
+        trimmedUsername = username.trim().toLowerCase();
+        if (trimmedUsername.length < 3 || trimmedUsername.length > 50) {
+            return res.status(400).json({ error: "username must be between 3 and 50 characters" });
+        }
+
+        if (!/^[a-zA-Z0-9._-]+$/.test(trimmedUsername)) {
+            return res.status(400).json({
+                error: "username can only contain letters, numbers, periods, underscores, and hyphens"
+            });
+        }
+    } else {
+        trimmedUsername = await generateUniqueUsername(cleanEmail);
+    }
 
     try {
         // Step 1: Pre-check if username or email already exists in system_users
@@ -562,12 +917,13 @@ router.post("/register", async (req, res) => {
 
 // ==============================================================================
 // PATCH /api/auth/users/:id/role
-// Changes a user's role. Requires:
-//   - Caller must be super_admin with valid session
-//   - Body must include { new_role, password } (caller's own password for confirmation)
-//   - If promoting to super_admin, body must also include { supabase_otp } (OTP code)
+// Changes a user's role.
+// Rules:
+//   - Super Admin can change any role (promotions to super_admin require OTP)
+//   - Admin can promote/demote between staff and admin, but CANNOT promote to super_admin
+//   - Admin CANNOT modify a super_admin's role
 // ==============================================================================
-router.patch("/users/:id/role", requireSession, requireRole("super_admin"), async (req, res) => {
+router.patch("/users/:id/role", requireSession, requireRole("super_admin", "admin"), async (req, res) => {
     const { id: targetUserId }     = req.params;
     const { new_role, password, supabase_otp, notes } = req.body;
 
@@ -580,6 +936,15 @@ router.patch("/users/:id/role", requireSession, requireRole("super_admin"), asyn
         return res.status(400).json({ error: `Invalid role. Allowed: ${validRoles.join(", ")}` });
     }
 
+    // Role restrictions:
+    // Admin can ONLY promote to admin or staff.
+    // Admin CANNOT promote anyone to super_admin!
+    if (req.user.role === "admin" && new_role === "super_admin") {
+        return res.status(403).json({
+            error: "Forbidden. An Admin cannot promote a user to Super Admin. Only Super Admins can promote to Super Admin."
+        });
+    }
+
     if (new_role === "super_admin" && !supabase_otp) {
         return res.status(400).json({
             error: "Promoting to super_admin requires an OTP from your email. Please check your inbox."
@@ -587,15 +952,22 @@ router.patch("/users/:id/role", requireSession, requireRole("super_admin"), asyn
     }
 
     try {
-        // Pre-check: Target user existence and co-super_admin protection
+        // Pre-check: Target user existence and role protections
         const { data: targetUser, error: targetLookupErr } = await supabase
             .from("system_users")
-            .select("id, username, role")
+            .select("id, username, role, auth_user_id")
             .eq("id", targetUserId)
             .maybeSingle();
 
         if (targetLookupErr || !targetUser) {
             return res.status(404).json({ error: "Target user not found" });
+        }
+
+        // An admin cannot modify a super_admin
+        if (targetUser.role === "super_admin" && req.user.role !== "super_admin") {
+            return res.status(403).json({
+                error: "Forbidden. An Admin cannot modify the role of a Super Admin."
+            });
         }
 
         if (targetUser.role === "super_admin" && req.user.id !== targetUserId) {
@@ -604,7 +976,7 @@ router.patch("/users/:id/role", requireSession, requireRole("super_admin"), asyn
             });
         }
 
-        if (targetUserId === req.user.id && new_role === "super_admin") {
+        if (targetUserId === req.user.id && new_role === "super_admin" && req.user.role === "super_admin") {
             return res.status(400).json({ error: "You are already a super_admin." });
         }
 
@@ -618,9 +990,32 @@ router.patch("/users/:id/role", requireSession, requireRole("super_admin"), asyn
             return res.status(401).json({ error: "Password confirmation failed. Role not changed." });
         }
 
-        let supabaseAuthConfirmed = false;
+        // If caller is Admin changing between staff and admin:
+        if (req.user.role === "admin") {
+            const oldRole = targetUser.role;
+            await supabase
+                .from("system_users")
+                .update({ role: new_role, updated_at: new Date().toISOString() })
+                .eq("id", targetUserId);
 
-        // Step 2: If promoting to super_admin — verify OTP via Supabase Auth
+            if (targetUser.auth_user_id) {
+                await supabase.auth.admin.updateUserById(targetUser.auth_user_id, {
+                    user_metadata: { role: new_role }
+                });
+            }
+
+            console.log(`🔒 Role change by admin ${req.user.username}: user ${targetUserId} (${oldRole} -> ${new_role})`);
+
+            return res.status(200).json({
+                success:  true,
+                message:  `Role changed successfully from ${oldRole} to ${new_role}`,
+                old_role: oldRole,
+                new_role: new_role
+            });
+        }
+
+        // Caller is super_admin:
+        let supabaseAuthConfirmed = false;
         if (new_role === "super_admin") {
             const { error: otpError } = await supabase.auth.verifyOtp({
                 email: req.user.email,
@@ -633,11 +1028,9 @@ router.patch("/users/:id/role", requireSession, requireRole("super_admin"), asyn
                     error: "OTP verification failed. Please request a new code and try again."
                 });
             }
-
             supabaseAuthConfirmed = true;
         }
 
-        // Step 3: Call change_user_role() which enforces last super_admin check and writes audit log
         const { data: result, error: changeError } = await supabase.rpc("change_user_role", {
             p_changed_by:              req.user.id,
             p_target_user_id:          targetUserId,
@@ -666,7 +1059,7 @@ router.patch("/users/:id/role", requireSession, requireRole("super_admin"), asyn
             });
         }
 
-        console.log(`🔒 Role change: user ${targetUserId} → ${new_role} by ${req.user.username}`);
+        console.log(`🔒 Role change: user ${targetUserId} → ${new_role} by super_admin ${req.user.username}`);
 
         return res.status(200).json({
             success:  true,
