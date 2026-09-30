@@ -59,9 +59,6 @@ app.set("trust proxy", 1);
 // session cookie on cross-origin requests.
 const ALLOWED_ORIGINS = [
     process.env.FRONTEND_URL,
-    "https://responde-frontend.jeffersonsamson380.workers.dev",
-    "https://responde-frontend-reactjs.jeffersonsamson380.workers.dev",
-    "https://responde.jeffersonsamson380.workers.dev",
     "https://responde-frontend-reactjs.sedrickopulencia.workers.dev",
     "https://responde.sedrickopulencia.workers.dev",
     "http://localhost:5173",
@@ -74,9 +71,8 @@ app.use(cors({
         if (!origin) return callback(null, true);
         if (ALLOWED_ORIGINS.includes(origin)) return callback(null, true);
         if (
-            origin.endsWith(".jeffersonsamson380.workers.dev") ||
             origin.endsWith(".sedrickopulencia.workers.dev") ||
-            /^https:\/\/([a-z0-9-]+-)?responde(-[a-z0-9-]+)?\.[a-z0-9-]+\.workers\.dev$/i.test(origin)
+            /^https:\/\/([a-z0-9-]+-)?responde(-[a-z0-9-]+)?\.sedrickopulencia\.workers\.dev$/i.test(origin)
         ) {
             return callback(null, true);
         }
