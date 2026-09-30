@@ -145,6 +145,7 @@ app.get("/", (req, res) => {
     res.json({
         status: "healthy",
         service: "responde-backend",
+        version: "2.2.1-fix-session",
         timestamp: new Date().toISOString()
     });
 });
