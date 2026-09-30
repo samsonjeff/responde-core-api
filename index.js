@@ -413,7 +413,7 @@ function stripMarkdown(text) {
 async function sendMessage(senderPSID, text) {
     try {
         await axios.post(
-            `https://graph.facebook.com/${process.env.GRAPH_API_VERSION || "v25.0"}/me/messages`,
+            `https://graph.facebook.com/${process.env.GRAPH_API_VERSION || process.env.FB_GRAPH_API_VERSION || "v25.0"}/me/messages`,
             {
                 recipient: { id: senderPSID },
                 messaging_type: "RESPONSE",

@@ -16,7 +16,7 @@ let lastScrapeResult = { ran: false, timestamp: null, postsFound: 0, commentsFou
 async function runScraper() {
     const PAGE_ID = process.env.FB_PAGE_ID;
     const TOKEN = process.env.PAGE_ACCESS_TOKEN;
-    const API_VERSION = process.env.GRAPH_API_VERSION || "v25.0";
+    const API_VERSION = process.env.GRAPH_API_VERSION || process.env.FB_GRAPH_API_VERSION || "v25.0";
 
     if (!PAGE_ID || !TOKEN) {
         throw new Error("Missing FB_PAGE_ID or PAGE_ACCESS_TOKEN in .env");
