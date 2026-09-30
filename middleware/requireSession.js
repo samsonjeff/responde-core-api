@@ -12,7 +12,9 @@ const supabase = require("../supabase/client");
  *   });
  */
 async function requireSession(req, res, next) {
-    const token = req.cookies?.session_token;
+    const authHeader = req.headers["authorization"];
+    const bearerToken = authHeader?.startsWith("Bearer ") ? authHeader.slice(7).trim() : null;
+    const token = req.cookies?.session_token || bearerToken || req.headers["x-session-token"] || null;
 
     if (!token) {
         return res.status(401).json({

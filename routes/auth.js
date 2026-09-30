@@ -205,6 +205,7 @@ router.post("/login", async (req, res) => {
         return res.status(200).json({
             success:  true,
             message:  "Logged in successfully",
+            token:    sessionToken,
             user: {
                 user_id:      userRow.id,
                 username:     userRow.username,
@@ -355,6 +356,7 @@ router.post("/google", async (req, res) => {
             success: true,
             requires_setup: false,
             message: "Logged in with Google successfully",
+            token: sessionToken,
             user: {
                 user_id:      userRow.id,
                 auth_user_id: userRow.auth_user_id || authUser.id,
@@ -542,6 +544,7 @@ router.post("/google/complete-setup", async (req, res) => {
             success: true,
             requires_approval: false,
             message: "Password set and logged in successfully!",
+            token: sessionToken,
             user: {
                 user_id:      systemUserId,
                 auth_user_id: authUser.id,
@@ -567,7 +570,9 @@ router.post("/google/complete-setup", async (req, res) => {
 // Requires: valid session cookie
 // ==============================================================================
 router.post("/logout", requireSession, async (req, res) => {
-    const token = req.cookies?.[SESSION_COOKIE_NAME];
+    const authHeader = req.headers["authorization"];
+    const bearerToken = authHeader?.startsWith("Bearer ") ? authHeader.slice(7).trim() : null;
+    const token = req.cookies?.[SESSION_COOKIE_NAME] || bearerToken || req.headers["x-session-token"] || null;
 
     try {
         if (token) {
