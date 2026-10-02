@@ -61,7 +61,9 @@ const ALLOWED_ORIGINS = [
     process.env.FRONTEND_URL,
     "https://responde-frontend-reactjs.sedrickopulencia.workers.dev",
     "https://responde.sedrickopulencia.workers.dev",
+    "https://responde-frontend-reactjs.jeffersonsamson380.workers.dev",
     "http://localhost:5173",
+    "http://localhost:5174",
     "http://localhost:3000",
 ].filter(Boolean);
 
@@ -70,9 +72,17 @@ app.use(cors({
         // Allow requests with no Origin header (e.g. mobile apps, curl, same-origin server calls)
         if (!origin) return callback(null, true);
         if (ALLOWED_ORIGINS.includes(origin)) return callback(null, true);
+        
+        // Allow any localhost / 127.0.0.1 port for local development (e.g. Vite on 5173, 5174, 5175...)
+        if (/^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/i.test(origin)) {
+            return callback(null, true);
+        }
+
+        // Allow Cloudflare Workers deployed domains
         if (
+            origin.endsWith(".workers.dev") ||
             origin.endsWith(".sedrickopulencia.workers.dev") ||
-            /^https:\/\/([a-z0-9-]+-)?responde(-[a-z0-9-]+)?\.sedrickopulencia\.workers\.dev$/i.test(origin)
+            origin.endsWith(".jeffersonsamson380.workers.dev")
         ) {
             return callback(null, true);
         }
