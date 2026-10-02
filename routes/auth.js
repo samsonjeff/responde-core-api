@@ -13,7 +13,7 @@ const COOKIE_OPTIONS = {
     httpOnly:  true,               // JavaScript cannot read this cookie (XSS protection)
     secure:    true,               // HTTPS only — required for SameSite=None
     sameSite:  "none",             // Cross-site allowed — required for Workers↔Render auth
-    maxAge:    400 * 24 * 60 * 60 * 1000 // 400 days in milliseconds (maximum allowed by modern browser specs)
+    maxAge:    7 * 24 * 60 * 60 * 1000 // 7 days in milliseconds
 };
 
 // ── Helper: set or clear session cookie ───────────────────────────────────────
@@ -41,7 +41,7 @@ function getClientIp(req) {
 
 // ── Helper: issue user session (RPC with direct DB insert fallback) ───────────
 // Allows multiple concurrent active devices per user. Each device receives its
-// own session token that persists indefinitely until manual logout.
+// own session token that lasts for 7 days.
 async function issueUserSession(userId, req) {
     const ip = getClientIp(req);
     const agent = req.headers["user-agent"] || null;
@@ -71,7 +71,7 @@ async function issueUserSession(userId, req) {
                 session_token: fallbackToken,
                 ip_address:    ip,
                 user_agent:    agent,
-                expires_at:    null
+                expires_at:    new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString()
             })
             .select("session_token")
             .maybeSingle();
