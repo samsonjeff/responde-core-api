@@ -229,7 +229,7 @@ router.post("/login", async (req, res) => {
 
 // ── Helpers for user fields ───────────────────────────────────────────────────
 async function generateUniqueUsername(email) {
-    let base = (email || "").split("@")[0].replace(/[^a-zA-Z0-9._-]/g, "").toLowerCase();
+    let base = (email || "").split("@")[0].replace(/\s+/g, "").replace(/[^a-zA-Z0-9._-]/g, "").toLowerCase();
     if (base.length < 3) base = `user_${base}`;
     if (base.length > 40) base = base.slice(0, 40);
 
@@ -408,13 +408,16 @@ router.post("/google/complete-setup", async (req, res) => {
         // Step 2: Handle Username (OPTIONAL)
         let finalUsername = null;
         if (username && username.trim().length > 0) {
+            if (/\s/.test(username)) {
+                return res.status(400).json({ error: "Username cannot contain spaces." });
+            }
             const trimmedUsername = username.trim().toLowerCase();
             if (trimmedUsername.length < 3 || trimmedUsername.length > 50) {
                 return res.status(400).json({ error: "Username must be between 3 and 50 characters." });
             }
             if (!/^[a-zA-Z0-9._-]+$/.test(trimmedUsername)) {
                 return res.status(400).json({
-                    error: "Username can only contain letters, numbers, periods, underscores, and hyphens."
+                    error: "Username can only contain letters, numbers, periods, underscores, and hyphens (no spaces allowed)."
                 });
             }
 
@@ -816,14 +819,17 @@ router.post("/register", async (req, res) => {
     // Username is optional
     let trimmedUsername = null;
     if (username && username.trim().length > 0) {
+        if (/\s/.test(username)) {
+            return res.status(400).json({ error: "Username cannot contain spaces." });
+        }
         trimmedUsername = username.trim().toLowerCase();
         if (trimmedUsername.length < 3 || trimmedUsername.length > 50) {
-            return res.status(400).json({ error: "username must be between 3 and 50 characters" });
+            return res.status(400).json({ error: "Username must be between 3 and 50 characters." });
         }
 
         if (!/^[a-zA-Z0-9._-]+$/.test(trimmedUsername)) {
             return res.status(400).json({
-                error: "username can only contain letters, numbers, periods, underscores, and hyphens"
+                error: "Username can only contain letters, numbers, periods, underscores, and hyphens (no spaces allowed)."
             });
         }
     } else {
