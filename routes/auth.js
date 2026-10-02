@@ -40,26 +40,11 @@ function getClientIp(req) {
 }
 
 // ── Helper: issue user session (RPC with direct DB insert fallback) ───────────
-// Enforces ONE active session per user: revokes all existing sessions before
-// creating a new one. This ensures strict single-device / single-session policy.
+// Allows multiple concurrent active devices per user. Each device receives its
+// own session token that persists indefinitely until manual logout.
 async function issueUserSession(userId, req) {
     const ip = getClientIp(req);
     const agent = req.headers["user-agent"] || null;
-
-    // 0. Revoke ALL previous sessions for this user (single-session enforcement)
-    try {
-        const { error: revokeErr } = await supabase.rpc("revoke_all_sessions", {
-            p_user_id: userId
-        });
-        if (revokeErr) {
-            // Non-fatal: log and continue — a failed revoke should not block login
-            console.warn("⚠️ revoke_all_sessions error (non-fatal):", revokeErr.message);
-        } else {
-            console.log(`🔒 Single-session: revoked all existing sessions for user ${userId}`);
-        }
-    } catch (revokeEx) {
-        console.warn("⚠️ revoke_all_sessions exception (non-fatal):", revokeEx.message);
-    }
 
     // 1. Try stored procedure create_user_session
     try {
