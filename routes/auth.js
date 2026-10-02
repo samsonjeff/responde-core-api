@@ -40,9 +40,26 @@ function getClientIp(req) {
 }
 
 // ── Helper: issue user session (RPC with direct DB insert fallback) ───────────
+// Enforces ONE active session per user: revokes all existing sessions before
+// creating a new one. This ensures strict single-device / single-session policy.
 async function issueUserSession(userId, req) {
     const ip = getClientIp(req);
     const agent = req.headers["user-agent"] || null;
+
+    // 0. Revoke ALL previous sessions for this user (single-session enforcement)
+    try {
+        const { error: revokeErr } = await supabase.rpc("revoke_all_sessions", {
+            p_user_id: userId
+        });
+        if (revokeErr) {
+            // Non-fatal: log and continue — a failed revoke should not block login
+            console.warn("⚠️ revoke_all_sessions error (non-fatal):", revokeErr.message);
+        } else {
+            console.log(`🔒 Single-session: revoked all existing sessions for user ${userId}`);
+        }
+    } catch (revokeEx) {
+        console.warn("⚠️ revoke_all_sessions exception (non-fatal):", revokeEx.message);
+    }
 
     // 1. Try stored procedure create_user_session
     try {
@@ -1148,5 +1165,115 @@ router.post("/request-otp", requireSession, requireRole("super_admin"), async (r
         return res.status(500).json({ error: "Internal server error" });
     }
 });
+
+// ==============================================================================
+// GET /api/auth/data/conversations
+// Returns the latest Messenger bot conversations from Supabase.
+// Requires: valid session (any role)
+// Query params:
+//   limit  – max rows to return (default 200)
+// ==============================================================================
+router.get("/data/conversations", requireSession, async (req, res) => {
+    const limit = Math.min(parseInt(req.query.limit || "200", 10), 500);
+
+    try {
+        const { data, error } = await supabase
+            .from("conversations")
+            .select("*")
+            .order("timestamp", { ascending: true })
+            .limit(limit);
+
+        if (error) {
+            console.error("❌ /data/conversations error:", error.message);
+            return res.status(500).json({ error: "Failed to fetch conversations" });
+        }
+
+        return res.status(200).json({
+            success: true,
+            total: (data || []).length,
+            data: data || []
+        });
+    } catch (err) {
+        console.error("❌ /data/conversations unexpected error:", err.message);
+        return res.status(500).json({ error: "Internal server error" });
+    }
+});
+
+
+// ==============================================================================
+// GET /api/auth/data/fb-comments
+// Returns scraped Facebook comments from Supabase.
+// Requires: valid session (any role)
+// Query params:
+//   limit   – max rows to return (default 100)
+//   post_id – filter by FB post ID (optional)
+// ==============================================================================
+router.get("/data/fb-comments", requireSession, async (req, res) => {
+    const limit = Math.min(parseInt(req.query.limit || "100", 10), 500);
+    const postId = req.query.post_id || null;
+
+    try {
+        let query = supabase
+            .from("fb_comments")
+            .select("*")
+            .order("comment_date", { ascending: false })
+            .limit(limit);
+
+        if (postId) {
+            query = query.eq("post_id", postId);
+        }
+
+        const { data, error } = await query;
+
+        if (error) {
+            console.error("❌ /data/fb-comments error:", error.message);
+            return res.status(500).json({ error: "Failed to fetch FB comments" });
+        }
+
+        return res.status(200).json({
+            success: true,
+            total: (data || []).length,
+            data: data || []
+        });
+    } catch (err) {
+        console.error("❌ /data/fb-comments unexpected error:", err.message);
+        return res.status(500).json({ error: "Internal server error" });
+    }
+});
+
+
+// ==============================================================================
+// GET /api/auth/data/fb-posts
+// Returns scraped Facebook posts from Supabase.
+// Requires: valid session (any role)
+// Query params:
+//   limit – max rows to return (default 100)
+// ==============================================================================
+router.get("/data/fb-posts", requireSession, async (req, res) => {
+    const limit = Math.min(parseInt(req.query.limit || "100", 10), 500);
+
+    try {
+        const { data, error } = await supabase
+            .from("fb_posts")
+            .select("*")
+            .order("post_date", { ascending: false })
+            .limit(limit);
+
+        if (error) {
+            console.error("❌ /data/fb-posts error:", error.message);
+            return res.status(500).json({ error: "Failed to fetch FB posts" });
+        }
+
+        return res.status(200).json({
+            success: true,
+            total: (data || []).length,
+            data: data || []
+        });
+    } catch (err) {
+        console.error("❌ /data/fb-posts unexpected error:", err.message);
+        return res.status(500).json({ error: "Internal server error" });
+    }
+});
+
 
 module.exports = router;
