@@ -13,7 +13,7 @@ const COOKIE_OPTIONS = {
     httpOnly:  true,               // JavaScript cannot read this cookie (XSS protection)
     secure:    true,               // HTTPS only — required for SameSite=None
     sameSite:  "none",             // Cross-site allowed — required for Workers↔Render auth
-    maxAge:    7 * 24 * 60 * 60 * 1000 // 7 days in milliseconds
+    maxAge:    400 * 24 * 60 * 60 * 1000 // 400 days in milliseconds (maximum allowed by modern browser specs)
 };
 
 // ── Helper: set or clear session cookie ───────────────────────────────────────
@@ -85,7 +85,8 @@ async function issueUserSession(userId, req) {
                 user_id:       userId,
                 session_token: fallbackToken,
                 ip_address:    ip,
-                user_agent:    agent
+                user_agent:    agent,
+                expires_at:    null
             })
             .select("session_token")
             .maybeSingle();
