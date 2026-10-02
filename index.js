@@ -11,11 +11,11 @@ const Conversation = require("./models/Conversation");
 const { requireApiKey, verifyFacebookSignature } = require("./utils/auth");
 const { getUserProfile } = require("./utils/meta");
 const geminiPool = require("./utils/geminiKeyPool");
-const nlpClient  = require("./utils/nlpClient");
-const nlpWorker  = require("./jobs/nlpWorker");
+const nlpClient = require("./utils/nlpClient");
+const nlpWorker = require("./jobs/nlpWorker");
 const { detectBarangay, extractContacts, extractName } = require("./utils/extractors");
 const requireSession = require("./middleware/requireSession");
-const requireRole    = require("./middleware/requireRole");
+const requireRole = require("./middleware/requireRole");
 
 const app = express();
 
@@ -262,9 +262,9 @@ app.post("/webhook", webhookLimiter, verifyFacebookSignature, async (req, res) =
                 // ── Express-side entity extraction (always runs, no external call) ──
                 // Reliable fallback for barangay / contacts / name even when
                 // the Python ML server is unavailable.
-                const exprBarangay  = detectBarangay(userMessage);  // "Unknown" if not found
-                const exprContacts  = extractContacts(userMessage);  // [] if none found
-                const exprName      = extractName(userMessage);       // null if no pattern matched
+                const exprBarangay = detectBarangay(userMessage);  // "Unknown" if not found
+                const exprContacts = extractContacts(userMessage);  // [] if none found
+                const exprName = extractName(userMessage);       // null if no pattern matched
 
                 // ── Independent status fields (per architecture spec) ─────────────
                 // location_status: Express deterministic barangay extraction
@@ -274,8 +274,8 @@ app.post("/webhook", webhookLimiter, verifyFacebookSignature, async (req, res) =
                 //   1. Facebook profile name (if real)
                 //   2. Name extracted from message text (e.g. "ako si Juan")
                 //   3. Fall back to "Unknown User"
-                const facebookName   = (profile.name && !profile.name.startsWith("User ")) ? profile.name : null;
-                const effectiveName  = facebookName || exprName || "Unknown User";
+                const facebookName = (profile.name && !profile.name.startsWith("User ")) ? profile.name : null;
+                const effectiveName = facebookName || exprName || "Unknown User";
 
                 // ── Save conversation immediately (non-blocking for Facebook Messenger) ──
                 // The database trigger will automatically enqueue an outbox job in public.nlp_jobs
@@ -600,7 +600,7 @@ app.listen(PORT, async () => {
     console.log(`📰 FB Scraper   : active (FB_PAGE_ID: ${process.env.FB_PAGE_ID || 'NOT SET'})`);
 
     // Check NLP microservice (non-blocking — server starts even if ML is down)
-    const nlpUrl    = process.env.NLP_SERVICE_URL || "http://localhost:7860";
+    const nlpUrl = process.env.NLP_SERVICE_URL || "http://localhost:7860";
     const nlpOnline = await nlpClient.isHealthy().catch(() => false);
     if (nlpOnline) {
         console.log(`🧠 NLP Service  : ONLINE  (${nlpUrl})`);
