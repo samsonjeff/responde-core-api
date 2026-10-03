@@ -6,6 +6,12 @@ const supabase      = require("../supabase/client");
 const { createEphemeralClient } = require("../supabase/client");
 const requireSession = require("../middleware/requireSession");
 const requireRole   = require("../middleware/requireRole");
+const {
+    maskEmail,
+    createVerificationChallenge,
+    validateVerificationCode,
+    sendVerificationEmail
+} = require("../utils/emailService");
 
 // ── Cookie options (shared) ────────────────────────────────────────────────────
 const SESSION_COOKIE_NAME = "session_token";
@@ -184,7 +190,57 @@ router.post("/login", async (req, res) => {
             });
         }
 
-        // Step 4: Record successful login + create session
+        // Step 4: Check if email verification code (OTP) was already provided in this request
+        const { code: inlineCode, challenge_token: inlineToken } = req.body;
+        if (inlineCode && inlineToken) {
+            const valResult = await validateVerificationCode({
+                challengeToken: inlineToken,
+                code: inlineCode,
+                purpose: "login"
+            });
+
+            if (!valResult.valid) {
+                return res.status(401).json({
+                    error: valResult.reason || "Invalid or expired verification code."
+                });
+            }
+        } else {
+            // Password verified! Generate 6-digit OTP challenge and send via Brevo SMTP
+            const challenge = await createVerificationChallenge({
+                email:   userRow.email,
+                userId:  userRow.id,
+                purpose: "login",
+                metadata: {
+                    username:   userRow.username,
+                    identifier: cleanIdentifier
+                }
+            });
+
+            try {
+                await sendVerificationEmail({
+                    to:            userRow.email,
+                    code:          challenge.code,
+                    purposeTitle:  "Sign-In Verification",
+                    recipientName: userRow.full_name || userRow.username
+                });
+                console.log(`📧 2FA code sent via Brevo to ${challenge.maskedEmail} for user ${userRow.username}`);
+            } catch (emailErr) {
+                console.error("❌ Failed to send login verification email:", emailErr.message);
+                return res.status(500).json({
+                    error: "Failed to send verification code. Please check email configuration or try again."
+                });
+            }
+
+            return res.status(200).json({
+                success:               true,
+                requires_verification: true,
+                challenge_token:       challenge.challengeToken,
+                masked_email:          challenge.maskedEmail,
+                message:               `A 6-digit verification code has been sent to ${challenge.maskedEmail}. Please enter it to complete sign-in.`
+            });
+        }
+
+        // Step 5: Record successful login + create session
         await supabase.rpc("record_login_attempt", {
             p_user_id:        userRow.id,
             p_username_tried: cleanIdentifier,
@@ -203,7 +259,7 @@ router.post("/login", async (req, res) => {
 
         setSessionCookie(res, sessionToken);
 
-        console.log(`✅ Login: ${userRow.username} (${userRow.role}) from ${getClientIp(req)}`);
+        console.log(`✅ Login completed with 2FA verification: ${userRow.username} (${userRow.role}) from ${getClientIp(req)}`);
 
         return res.status(200).json({
             success:  true,
@@ -223,6 +279,138 @@ router.post("/login", async (req, res) => {
     } catch (err) {
         console.error("❌ /login unexpected error:", err.message);
         return res.status(500).json({ error: "Internal server error" });
+    }
+});
+
+// ==============================================================================
+// POST /api/auth/login/verify-otp
+// Accepts: { challenge_token, code }
+// Completes manual sign-in by validating the 6-digit one-time code
+// ==============================================================================
+router.post("/login/verify-otp", async (req, res) => {
+    const { challenge_token, code } = req.body;
+
+    if (!challenge_token || !code) {
+        return res.status(400).json({ error: "challenge_token and code are required" });
+    }
+
+    try {
+        const valResult = await validateVerificationCode({
+            challengeToken: challenge_token,
+            code,
+            purpose: "login"
+        });
+
+        if (!valResult.valid) {
+            return res.status(401).json({
+                error: valResult.reason || "Invalid or expired verification code."
+            });
+        }
+
+        const { userId, email, metadata } = valResult.record;
+
+        // Fetch user from system_users
+        const { data: userRow, error: lookupError } = await supabase
+            .from("system_users")
+            .select("id, email, username, full_name, role, is_active, avatar_url, phone_number")
+            .eq("id", userId)
+            .maybeSingle();
+
+        if (lookupError || !userRow) {
+            console.error("❌ User not found after OTP validation:", lookupError?.message);
+            return res.status(404).json({ error: "User account not found." });
+        }
+
+        if (!userRow.is_active) {
+            return res.status(403).json({ error: "Account is deactivated. Contact your administrator." });
+        }
+
+        // Record successful login attempt
+        await supabase.rpc("record_login_attempt", {
+            p_user_id:        userRow.id,
+            p_username_tried: metadata?.identifier || userRow.username,
+            p_success:        true,
+            p_failure_reason: null,
+            p_ip_address:     getClientIp(req),
+            p_user_agent:     req.headers["user-agent"] || null
+        });
+
+        const sessionToken = await issueUserSession(userRow.id, req);
+        if (!sessionToken) {
+            return res.status(500).json({ error: "Failed to create user session. Please try again." });
+        }
+
+        setSessionCookie(res, sessionToken);
+        console.log(`✅ 2FA verified login: ${userRow.username} (${userRow.role}) from ${getClientIp(req)}`);
+
+        return res.status(200).json({
+            success: true,
+            message: "Logged in successfully",
+            token:   sessionToken,
+            user: {
+                user_id:      userRow.id,
+                username:     userRow.username,
+                email:        userRow.email,
+                full_name:    userRow.full_name,
+                role:         userRow.role,
+                avatar_url:   userRow.avatar_url   ?? null,
+                phone_number: userRow.phone_number ?? null,
+            }
+        });
+    } catch (err) {
+        console.error("❌ /login/verify-otp unexpected error:", err.message);
+        return res.status(500).json({ error: "Internal server error" });
+    }
+});
+
+// ==============================================================================
+// POST /api/auth/login/resend-otp
+// Accepts: { challenge_token }
+// Generates and sends a new 6-digit code for an in-progress login challenge
+// ==============================================================================
+router.post("/login/resend-otp", async (req, res) => {
+    const { challenge_token } = req.body;
+    if (!challenge_token) {
+        return res.status(400).json({ error: "challenge_token is required" });
+    }
+
+    try {
+        // Look up user from existing verification record or query
+        const { data: existing } = await supabase
+            .from("email_verifications")
+            .select("email, user_id, purpose, metadata")
+            .eq("challenge_token", challenge_token)
+            .maybeSingle();
+
+        let targetEmail = existing?.email;
+        let targetUserId = existing?.user_id;
+
+        if (!targetEmail) {
+            return res.status(404).json({ error: "Verification session expired. Please sign in again." });
+        }
+
+        const newChallenge = await createVerificationChallenge({
+            email:   targetEmail,
+            userId:  targetUserId,
+            purpose: "login"
+        });
+
+        await sendVerificationEmail({
+            to:            targetEmail,
+            code:          newChallenge.code,
+            purposeTitle:  "Sign-In Verification",
+            recipientName: "Authorized Personnel"
+        });
+
+        return res.status(200).json({
+            success:         true,
+            challenge_token: newChallenge.challengeToken,
+            masked_email:    newChallenge.maskedEmail,
+            message:         `A new verification code has been sent to ${newChallenge.maskedEmail}.`
+        });
+    } catch (err) {
+        console.error("❌ /login/resend-otp error:", err.message);
+        return res.status(500).json({ error: "Failed to resend verification code" });
     }
 });
 
@@ -1041,6 +1229,59 @@ router.patch("/users/:id/role", requireSession, requireRole("super_admin", "admi
             return res.status(401).json({ error: "Password confirmation failed. Role not changed." });
         }
 
+        // Step 2: Enforce email verification code for ALL role changes
+        const { verification_code, challenge_token } = req.body;
+        const otpCode = (verification_code || supabase_otp || "").toString().trim();
+
+        if (!otpCode) {
+            return res.status(400).json({
+                error: "Email verification code is required to authorize this role change. Please click 'Send Code' and enter the 6-digit code sent to your email."
+            });
+        }
+
+        let otpVerified = false;
+
+        // Check if verified via challenge_token (Brevo SMTP verification)
+        if (challenge_token) {
+            const valRes = await validateVerificationCode({
+                challengeToken: challenge_token,
+                code: otpCode,
+                purpose: "role_change"
+            });
+
+            if (valRes.valid) {
+                otpVerified = true;
+            } else {
+                return res.status(401).json({
+                    error: valRes.reason || "Invalid or expired verification code."
+                });
+            }
+        }
+
+        // Fallback: check via Supabase Auth OTP
+        if (!otpVerified && otpCode) {
+            try {
+                const otpClient = createEphemeralClient();
+                const { error: otpError } = await otpClient.auth.verifyOtp({
+                    email: req.user.email,
+                    token: otpCode,
+                    type:  "email"
+                });
+                if (!otpError) {
+                    otpVerified = true;
+                }
+            } catch (err) {
+                console.warn("⚠️ Supabase verifyOtp fallback exception:", err.message);
+            }
+        }
+
+        if (!otpVerified) {
+            return res.status(401).json({
+                error: "Verification failed. The 6-digit email code is incorrect or expired. Please request a new code."
+            });
+        }
+
+        // Step 3: Perform role change based on caller role
         // If caller is Admin changing between staff and admin:
         if (req.user.role === "admin") {
             const oldRole = targetUser.role;
@@ -1055,7 +1296,7 @@ router.patch("/users/:id/role", requireSession, requireRole("super_admin", "admi
                 });
             }
 
-            console.log(`🔒 Role change by admin ${req.user.username}: user ${targetUserId} (${oldRole} -> ${new_role})`);
+            console.log(`🔒 Role change by admin ${req.user.username} (verified with 2FA): user ${targetUserId} (${oldRole} -> ${new_role})`);
 
             return res.status(200).json({
                 success:  true,
@@ -1066,29 +1307,12 @@ router.patch("/users/:id/role", requireSession, requireRole("super_admin", "admi
         }
 
         // Caller is super_admin:
-        let supabaseAuthConfirmed = false;
-        if (new_role === "super_admin") {
-            const otpClient = createEphemeralClient();
-            const { error: otpError } = await otpClient.auth.verifyOtp({
-                email: req.user.email,
-                token: supabase_otp,
-                type:  "email"
-            });
-
-            if (otpError) {
-                return res.status(401).json({
-                    error: "OTP verification failed. Please request a new code and try again."
-                });
-            }
-            supabaseAuthConfirmed = true;
-        }
-
         const { data: result, error: changeError } = await supabase.rpc("change_user_role", {
             p_changed_by:              req.user.id,
             p_target_user_id:          targetUserId,
             p_new_role:                new_role,
             p_password_confirmed:      true,
-            p_supabase_auth_confirmed: supabaseAuthConfirmed,
+            p_supabase_auth_confirmed: true,
             p_notes:                   notes || null
         });
 
@@ -1103,7 +1327,7 @@ router.patch("/users/:id/role", requireSession, requireRole("super_admin", "admi
                 cannot_demote_last_super_admin: "Cannot demote the last remaining active super_admin.",
                 forbidden_not_super_admin:      "Only super_admin accounts can modify roles.",
                 password_not_confirmed:         "Password confirmation was not provided.",
-                supabase_auth_required_for_super_admin: "OTP confirmation is required to promote to super_admin.",
+                supabase_auth_required_for_super_admin: "Email verification is required to promote to super_admin.",
                 target_user_not_found:          "Target user does not exist."
             };
             return res.status(403).json({
@@ -1111,7 +1335,7 @@ router.patch("/users/:id/role", requireSession, requireRole("super_admin", "admi
             });
         }
 
-        console.log(`🔒 Role change: user ${targetUserId} → ${new_role} by super_admin ${req.user.username}`);
+        console.log(`🔒 Role change: user ${targetUserId} → ${new_role} by super_admin ${req.user.username} (verified with 2FA)`);
 
         return res.status(200).json({
             success:  true,
@@ -1129,32 +1353,115 @@ router.patch("/users/:id/role", requireSession, requireRole("super_admin", "admi
 
 // ==============================================================================
 // POST /api/auth/request-otp
-// Sends an OTP to the super_admin's email (required before promoting to super_admin).
-// Requires: super_admin session
+// Sends a 6-digit OTP code to the caller's email via Brevo SMTP (required for role changes)
+// Accessible by: super_admin AND admin
 // ==============================================================================
-router.post("/request-otp", requireSession, requireRole("super_admin"), async (req, res) => {
+router.post("/request-otp", requireSession, requireRole("super_admin", "admin"), async (req, res) => {
     try {
-        const otpClient = createEphemeralClient();
-        const { error } = await otpClient.auth.signInWithOtp({
+        const challenge = await createVerificationChallenge({
             email:   req.user.email,
-            options: { shouldCreateUser: false }
+            userId:  req.user.id,
+            purpose: "role_change",
+            metadata: {
+                username: req.user.username,
+                role:     req.user.role
+            }
         });
 
-        if (error) {
-            console.error("❌ OTP request error:", error.message);
-            return res.status(500).json({ error: "Failed to send OTP. Please try again." });
-        }
+        // Also trigger Supabase OTP as background fallback
+        try {
+            const otpClient = createEphemeralClient();
+            await otpClient.auth.signInWithOtp({
+                email:   req.user.email,
+                options: { shouldCreateUser: false }
+            });
+        } catch {}
 
-        console.log(`📧 OTP requested by ${req.user.username} for super_admin promotion`);
+        await sendVerificationEmail({
+            to:            req.user.email,
+            code:          challenge.code,
+            purposeTitle:  "Role Change Authorization",
+            recipientName: req.user.full_name || req.user.username
+        });
+
+        console.log(`📧 Role change OTP sent via Brevo to ${challenge.maskedEmail} for ${req.user.username}`);
 
         return res.status(200).json({
-            success: true,
-            message: `OTP sent to ${req.user.email}. It expires in 10 minutes.`
+            success:         true,
+            challenge_token: challenge.challengeToken,
+            masked_email:    challenge.maskedEmail,
+            message:         `Verification code sent to ${challenge.maskedEmail}. It expires in 10 minutes.`
         });
 
     } catch (err) {
         console.error("❌ /request-otp unexpected error:", err.message);
-        return res.status(500).json({ error: "Internal server error" });
+        return res.status(500).json({ error: "Failed to send verification code. Please try again." });
+    }
+});
+
+// ==============================================================================
+// POST /api/auth/send-verification-code
+// Sends a 6-digit verification code to the authenticated user for sensitive settings
+// ==============================================================================
+router.post("/send-verification-code", requireSession, async (req, res) => {
+    const purpose = req.body.purpose || "settings_change";
+
+    try {
+        const challenge = await createVerificationChallenge({
+            email:   req.user.email,
+            userId:  req.user.id,
+            purpose,
+            metadata: { username: req.user.username }
+        });
+
+        await sendVerificationEmail({
+            to:            req.user.email,
+            code:          challenge.code,
+            purposeTitle:  purpose === "settings_change" ? "Account Security Verification" : "Authorization Verification",
+            recipientName: req.user.full_name || req.user.username
+        });
+
+        return res.status(200).json({
+            success:         true,
+            challenge_token: challenge.challengeToken,
+            masked_email:    challenge.maskedEmail,
+            message:         `Verification code sent to ${challenge.maskedEmail}. It expires in 10 minutes.`
+        });
+    } catch (err) {
+        console.error("❌ /send-verification-code error:", err.message);
+        return res.status(500).json({ error: "Failed to send verification code" });
+    }
+});
+
+// ==============================================================================
+// POST /api/auth/verify-code
+// Validates a 6-digit code for settings updates
+// ==============================================================================
+router.post("/verify-code", requireSession, async (req, res) => {
+    const { challenge_token, code, purpose } = req.body;
+
+    if (!challenge_token || !code) {
+        return res.status(400).json({ error: "challenge_token and code are required" });
+    }
+
+    try {
+        const valRes = await validateVerificationCode({
+            challengeToken: challenge_token,
+            code,
+            purpose: purpose || "settings_change"
+        });
+
+        if (!valRes.valid) {
+            return res.status(401).json({ error: valRes.reason || "Invalid verification code" });
+        }
+
+        return res.status(200).json({
+            success: true,
+            message: "Email verification successful"
+        });
+    } catch (err) {
+        console.error("❌ /verify-code error:", err.message);
+        return res.status(500).json({ error: "Failed to verify code" });
     }
 });
 
