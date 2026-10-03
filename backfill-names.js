@@ -3,7 +3,11 @@ const axios = require("axios");
 const supabase = require("./supabase/client");
 const { getUserProfile } = require("./utils/meta");
 
-const PAGE_ID = process.env.FB_PAGE_ID || "REDACTED_PAGE_ID";
+const PAGE_ID = process.env.FB_PAGE_ID;
+if (!PAGE_ID) {
+    console.error("FB_PAGE_ID is not set in environment.");
+    process.exit(1);
+}
 const TOKEN = process.env.PAGE_ACCESS_TOKEN || process.env.META_ACCESS_TOKEN;
 const GRAPH_VERSION = process.env.FB_GRAPH_API_VERSION || "v25.0";
 
