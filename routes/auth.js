@@ -2,6 +2,7 @@ require("dotenv").config();
 const express       = require("express");
 const router        = express.Router();
 const crypto        = require("crypto");
+const { rateLimit, ipKeyGenerator } = require("express-rate-limit");
 const supabase      = require("../supabase/client");
 const { createEphemeralClient } = require("../supabase/client");
 const requireSession = require("../middleware/requireSession");
@@ -12,6 +13,33 @@ const {
     validateVerificationCode,
     sendVerificationEmail
 } = require("../utils/emailService");
+
+// ── Rate Limiters (scoped by IP + account to avoid blocking shared office Wi-Fi) ──
+const loginLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 10,                   // 10 attempts per window per account/IP
+    standardHeaders: true,
+    legacyHeaders: false,
+    keyGenerator: (req) => {
+        const clientIp = getClientIp(req) || req.ip || "127.0.0.1";
+        const account = (req.body?.identifier || req.body?.email || "").toLowerCase().trim();
+        return `${ipKeyGenerator(clientIp)}_${account}`;
+    },
+    message: { error: "Too many login attempts for this account. Please wait 15 minutes before trying again." }
+});
+
+const otpLimiter = rateLimit({
+    windowMs: 10 * 60 * 1000, // 10 minutes
+    max: 6,                    // Max 6 code requests per 10 mins (protects Brevo daily quota)
+    standardHeaders: true,
+    legacyHeaders: false,
+    keyGenerator: (req) => {
+        const clientIp = getClientIp(req) || req.ip || "127.0.0.1";
+        const userOrToken = (req.user?.id || req.body?.challenge_token || req.body?.email || "").trim();
+        return `${ipKeyGenerator(clientIp)}_${userOrToken}`;
+    },
+    message: { error: "Too many verification code requests. Please wait a few minutes before requesting another code." }
+});
 
 // ── Cookie options (shared) ────────────────────────────────────────────────────
 const SESSION_COOKIE_NAME = "session_token";
@@ -103,7 +131,7 @@ async function issueUserSession(userId, req) {
 //   3. Call record_login_attempt() for audit + lockout logic (5 failures = 24h block)
 //   4. Call create_user_session() → set httpOnly cookie
 // ==============================================================================
-router.post("/login", async (req, res) => {
+router.post("/login", loginLimiter, async (req, res) => {
     const { identifier, password } = req.body;
 
     if (!identifier || !password) {
@@ -368,7 +396,7 @@ router.post("/login/verify-otp", async (req, res) => {
 // Accepts: { challenge_token }
 // Generates and sends a new 6-digit code for an in-progress login challenge
 // ==============================================================================
-router.post("/login/resend-otp", async (req, res) => {
+router.post("/login/resend-otp", otpLimiter, async (req, res) => {
     const { challenge_token } = req.body;
     if (!challenge_token) {
         return res.status(400).json({ error: "challenge_token is required" });
@@ -1356,7 +1384,7 @@ router.patch("/users/:id/role", requireSession, requireRole("super_admin", "admi
 // Sends a 6-digit OTP code to the caller's email via Brevo SMTP (required for role changes)
 // Accessible by: super_admin AND admin
 // ==============================================================================
-router.post("/request-otp", requireSession, requireRole("super_admin", "admin"), async (req, res) => {
+router.post("/request-otp", requireSession, requireRole("super_admin", "admin"), otpLimiter, async (req, res) => {
     try {
         const challenge = await createVerificationChallenge({
             email:   req.user.email,
@@ -1403,7 +1431,7 @@ router.post("/request-otp", requireSession, requireRole("super_admin", "admin"),
 // POST /api/auth/send-verification-code
 // Sends a 6-digit verification code to the authenticated user for sensitive settings
 // ==============================================================================
-router.post("/send-verification-code", requireSession, async (req, res) => {
+router.post("/send-verification-code", requireSession, otpLimiter, async (req, res) => {
     const purpose = req.body.purpose || "settings_change";
 
     try {

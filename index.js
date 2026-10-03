@@ -78,9 +78,8 @@ app.use(cors({
             return callback(null, true);
         }
 
-        // Allow Cloudflare Workers deployed domains
+        // Allow verified Cloudflare Workers team domains
         if (
-            origin.endsWith(".workers.dev") ||
             origin.endsWith(".sedrickopulencia.workers.dev") ||
             origin.endsWith(".jeffersonsamson380.workers.dev")
         ) {
